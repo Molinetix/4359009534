@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-15 14:56:16
+<?php /* Smarty version 3.1.27, created on 2017-12-15 15:17:03
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\overall\nav.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:102995a33e290080751_89642794%%*/
+/*%%SmartyHeaderCode:52975a33e76fd8e9a5_51499686%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '11701b22e7cd8468c0bf77593392bbaa672bf6ae' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\overall\\nav.tpl',
-      1 => 1513349764,
+      1 => 1513351021,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '102995a33e290080751_89642794',
+  'nocache_hash' => '52975a33e76fd8e9a5_51499686',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a33e2901c2a98_82478207',
+  'unifunc' => 'content_5a33e76fe107a3_54333322',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a33e2901c2a98_82478207')) {
-function content_5a33e2901c2a98_82478207 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a33e76fe107a3_54333322')) {
+function content_5a33e76fe107a3_54333322 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '102995a33e290080751_89642794';
+$_smarty_tpl->properties['nocache_hash'] = '52975a33e76fd8e9a5_51499686';
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -65,7 +65,7 @@ $_smarty_tpl->properties['nocache_hash'] = '102995a33e290080751_89642794';
       <ul class="nav navbar-nav navbar-right">
       <?php if (isset($_SESSION['user'])) {?>
                 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $_SESSION['user'];?>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <?php echo $_SESSION['user'];?>
  <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="?view=cuenta">Cuenta</a></li>

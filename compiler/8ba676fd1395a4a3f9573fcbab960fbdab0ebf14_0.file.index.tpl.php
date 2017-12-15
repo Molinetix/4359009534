@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-15 14:54:32
+<?php /* Smarty version 3.1.27, created on 2017-12-15 16:33:00
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\home\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:119785a33e2288a69b0_65324502%%*/
+/*%%SmartyHeaderCode:104735a33f93caba100_93992057%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,25 +9,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8ba676fd1395a4a3f9573fcbab960fbdab0ebf14' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\home\\index.tpl',
-      1 => 1513349649,
+      1 => 1513355566,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '119785a33e2288a69b0_65324502',
+  'nocache_hash' => '104735a33f93caba100_93992057',
   'variables' => 
   array (
+    'titulo' => 0,
     'posts' => 0,
     'pt' => 0,
+    'pags' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a33e22890c6a5_87018531',
+  'unifunc' => 'content_5a33f93cbbdf71_80648447',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a33e22890c6a5_87018531')) {
-function content_5a33e22890c6a5_87018531 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a33f93cbbdf71_80648447')) {
+function content_5a33f93cbbdf71_80648447 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '119785a33e2288a69b0_65324502';
+$_smarty_tpl->properties['nocache_hash'] = '104735a33f93caba100_93992057';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -40,15 +42,21 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="#">Los mejores</a></li>  
-            <li class="active"><a href="#">Inicio</a></li>
-            <li><a href="#">Categoria 1</a></li>
-            <li><a href="#">Categoria 2</a></li>
-            <li><a href="#">Categoria 3</a></li>
+          	<?php if (isset($_GET['type']) && $_GET['type'] == 'tops') {?>
+            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=tops">Los mejores</a></li>
+            <?php if (!isset($_GET['type'])) {?>
+            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index">Inicio</a></li>
+            <?php if (isset($_GET['type']) && $_GET['type'] == '1') {?>
+            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=1">Categoria 1</a></li>
+            <?php if (isset($_GET['type']) && $_GET['type'] == '2') {?>
+            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=2">Categoria 2</a></li>
+            <?php if (isset($_GET['type']) && $_GET['type'] == '3') {?>
+            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=3">Categoria 3</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="sub-header">Inicio</h2>
+          <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -60,6 +68,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
                 </tr>
               </thead>
               <tbody>
+              <?php if (isset($_smarty_tpl->tpl_vars['posts']->value)) {?>
               <?php
 $_from = $_smarty_tpl->tpl_vars['posts']->value;
 if (!is_array($_from) && !is_object($_from)) {
@@ -86,9 +95,57 @@ $foreach_pt_Sav = $_smarty_tpl->tpl_vars['pt'];
 $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
 }
 ?>
+              <?php } else { ?>
+              <tr>
+                  <td>No se han encontrado resultados...</td>
+                </tr>
+              <?php }?>
               </tbody>
             </table>
           </div>
+          <?php if (isset($_smarty_tpl->tpl_vars['posts']->value)) {?>
+          <div class="btn-group" role="group" aria-label="...">
+          	<?php if (!isset($_GET['pag'])) {?>
+          	<a type="button" href="#" class="btn btn-default" disabled>Anterior</a>
+	          	<?php if ($_smarty_tpl->tpl_vars['pags']->value > 1) {?>
+	          		<?php if (isset($_GET['type'])) {?>
+	          		<a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
+&pag=2" class="btn btn-default">Siguiente</a>
+	          		<?php } else { ?>
+	          		<a type="button" href="?view=index&pag=2" class="btn btn-default">Siguiente</a>
+	          		<?php }?>
+	          	<?php } else { ?>
+	          	<a type="button" href="#" class="btn btn-default" disabled>Siguiente</a>
+	          	<?php }?>
+	        <?php } else { ?>
+	        	<?php if ($_GET['pag'] <= 1) {?>
+	        	<a type="button" href="#" class="btn btn-default" disabled>Anterior</a>
+	        	<?php } else { ?>
+		        		<?php if (isset($_GET['type'])) {?>
+		        		<a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
+&pag=<?php echo $_GET['pag']-1;?>
+" class="btn btn-default">Anterior</a>
+		        		<?php } else { ?>
+		        		<a type="button" href="?view=index&pag=<?php echo $_GET['pag']-1;?>
+" class="btn btn-default">Anterior</a>
+		        		<?php }?>
+		        	<?php }?>
+
+	        	<?php if ($_smarty_tpl->tpl_vars['pags']->value > 1 && $_GET['pag'] >= 1 && $_GET['pag'] < $_smarty_tpl->tpl_vars['pags']->value) {?>
+	        		<?php if (isset($_GET['type'])) {?>
+					<a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
+&pag=<?php echo $_GET['pag']+1;?>
+" class="btn btn-default">Siguiente</a>
+					<?php } else { ?>
+					<a type="button" href="?view=index&pag=<?php echo $_GET['pag']+1;?>
+" class="btn btn-default">Siguiente</a>
+					<?php }?>
+				<?php } else { ?>
+				<a type="button" href="#" class="btn btn-default" disabled>Siguiente</a>
+				<?php }?>
+	        <?php }?>
+          </div>
+          <?php }?>
         </div>
       </div>
     </div>      

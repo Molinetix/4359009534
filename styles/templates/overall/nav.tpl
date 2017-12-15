@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav navbar-right">
       {if isset($smarty.session.user)}
                 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{$smarty.session.user} <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> {$smarty.session.user} <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="?view=cuenta">Cuenta</a></li>
             <li><a href="?view=perfil&user={$smarty.session.id}">Perfil</a></li>
