@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-14 17:52:30
+<?php /* Smarty version 3.1.27, created on 2017-12-15 03:00:18
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\overall\nav.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:299935a32ba5ef04411_93406552%%*/
+/*%%SmartyHeaderCode:233335a333ac217a749_33011208%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '11701b22e7cd8468c0bf77593392bbaa672bf6ae' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\overall\\nav.tpl',
-      1 => 1513273859,
+      1 => 1513306812,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '299935a32ba5ef04411_93406552',
+  'nocache_hash' => '233335a333ac217a749_33011208',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a32ba5ef09ba3_25765173',
+  'unifunc' => 'content_5a333ac21d5a61_65829215',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a32ba5ef09ba3_25765173')) {
-function content_5a32ba5ef09ba3_25765173 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a333ac21d5a61_65829215')) {
+function content_5a333ac21d5a61_65829215 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '299935a32ba5ef04411_93406552';
+$_smarty_tpl->properties['nocache_hash'] = '233335a333ac217a749_33011208';
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -38,7 +38,10 @@ $_smarty_tpl->properties['nocache_hash'] = '299935a32ba5ef04411_93406552';
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <?php if (isset($_GET['view']) && $_GET['view'] == 'index' || !isset($_GET['view'])) {?>
+        <li class="active">
+        <?php } else { ?>
+        <li><?php }?><a href="?view=index">Inicio</a></li>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -60,7 +63,26 @@ $_smarty_tpl->properties['nocache_hash'] = '299935a32ba5ef04411_93406552';
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+      <?php if (isset($_SESSION['user'])) {?>
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $_SESSION['user'];?>
+ <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="?view=cuenta">Cuenta</a></li>
+            <li><a href="?view=perfil">Perfil</a></li>
+            <li><a href="?view=logout">Salir</a></li>
+          </ul>
+        </li>
+      <?php } else { ?>
+        <?php if (isset($_GET['view']) && $_GET['view'] == 'login' || !isset($_GET['view'])) {?>
+        <li class="active">
+        <?php } else { ?>
+        <li><?php }?><a href="?view=login">Login</a></li>
+        <?php if (isset($_GET['view']) && $_GET['view'] == 'reg' || !isset($_GET['view'])) {?>
+        <li class="active">
+        <?php } else { ?>
+        <li><?php }?><a href="?view=reg">Registrarme</a></li>
+      <?php }?>
       </ul>
     </div>
   </div>

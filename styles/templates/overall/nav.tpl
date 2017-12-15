@@ -12,7 +12,10 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        {if isset($smarty.get.view) and $smarty.get.view == 'index' or !isset($smarty.get.view)}
+        <li class="active">
+        {else}
+        <li>{/if}<a href="?view=index">Inicio</a></li>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -34,7 +37,25 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+      {if isset($smarty.session.user)}
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{$smarty.session.user} <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="?view=cuenta">Cuenta</a></li>
+            <li><a href="?view=perfil">Perfil</a></li>
+            <li><a href="?view=logout">Salir</a></li>
+          </ul>
+        </li>
+      {else}
+        {if isset($smarty.get.view) and $smarty.get.view == 'login' or !isset($smarty.get.view)}
+        <li class="active">
+        {else}
+        <li>{/if}<a href="?view=login">Login</a></li>
+        {if isset($smarty.get.view) and $smarty.get.view == 'reg' or !isset($smarty.get.view)}
+        <li class="active">
+        {else}
+        <li>{/if}<a href="?view=reg">Registrarme</a></li>
+      {/if}
       </ul>
     </div>
   </div>
