@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-15 01:25:38
+<?php /* Smarty version 3.1.27, created on 2017-12-15 14:08:28
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\overall\header.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:111175a332492166218_91307530%%*/
+/*%%SmartyHeaderCode:216125a33d75c8c4407_89679366%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eb2db8e602ef5d4ef59528ad3c3e165a96931e74' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\overall\\header.tpl',
-      1 => 1513301134,
+      1 => 1513346902,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '111175a332492166218_91307530',
+  'nocache_hash' => '216125a33d75c8c4407_89679366',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a3324921900f3_75570941',
+  'unifunc' => 'content_5a33d75c8f7d40_44179050',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a3324921900f3_75570941')) {
-function content_5a3324921900f3_75570941 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a33d75c8f7d40_44179050')) {
+function content_5a33d75c8f7d40_44179050 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '111175a332492166218_91307530';
+$_smarty_tpl->properties['nocache_hash'] = '216125a33d75c8c4407_89679366';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,6 +41,8 @@ $_smarty_tpl->properties['nocache_hash'] = '111175a332492166218_91307530';
     <link href="styles/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/css/style.min.css" rel="stylesheet">
     <link href="fonts/font-awesome.min.css" rel="stylesheet">
+
+    <link href="styles/css/styles.css" rel="stylesheet">
       
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

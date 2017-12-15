@@ -3,7 +3,7 @@
 <body>      
 	{include 'overall/nav.tpl'}
 	
-	<div class="container" style="margin-top: 100px;">
+	<div class="container" style="margin-top: 30px;">
 		<div class="container">
 		<center>
 		  <div id="_AJAX_"></div>
