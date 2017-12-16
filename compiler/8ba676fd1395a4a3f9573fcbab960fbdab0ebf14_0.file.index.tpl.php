@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-15 16:33:00
+<?php /* Smarty version 3.1.27, created on 2017-12-15 23:55:44
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\home\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:104735a33f93caba100_93992057%%*/
+/*%%SmartyHeaderCode:107495a346100379930_55370583%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8ba676fd1395a4a3f9573fcbab960fbdab0ebf14' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\home\\index.tpl',
-      1 => 1513355566,
+      1 => 1513382140,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '104735a33f93caba100_93992057',
+  'nocache_hash' => '107495a346100379930_55370583',
   'variables' => 
   array (
     'titulo' => 0,
@@ -23,13 +23,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a33f93cbbdf71_80648447',
+  'unifunc' => 'content_5a3461004812b3_74696800',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a33f93cbbdf71_80648447')) {
-function content_5a33f93cbbdf71_80648447 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a3461004812b3_74696800')) {
+function content_5a3461004812b3_74696800 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '104735a33f93caba100_93992057';
+$_smarty_tpl->properties['nocache_hash'] = '107495a346100379930_55370583';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -41,18 +41,9 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
   <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-          	<?php if (isset($_GET['type']) && $_GET['type'] == 'tops') {?>
-            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=tops">Los mejores</a></li>
-            <?php if (!isset($_GET['type'])) {?>
-            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index">Inicio</a></li>
-            <?php if (isset($_GET['type']) && $_GET['type'] == '1') {?>
-            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=1">Categoria 1</a></li>
-            <?php if (isset($_GET['type']) && $_GET['type'] == '2') {?>
-            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=2">Categoria 2</a></li>
-            <?php if (isset($_GET['type']) && $_GET['type'] == '3') {?>
-            <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=3">Categoria 3</a></li>
-          </ul>
+          <?php echo $_smarty_tpl->getSubTemplate ('overall/menu.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
+?>
+
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
@@ -111,6 +102,8 @@ $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
 	          		<?php if (isset($_GET['type'])) {?>
 	          		<a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
 &pag=2" class="btn btn-default">Siguiente</a>
+	          		<?php } elseif (isset($_GET['view']) && $_GET['view'] == 'buscar') {?>
+	          		<a type="button" href="?view=buscar&pag=2" class="btn btn-default">Siguiente</a>
 	          		<?php } else { ?>
 	          		<a type="button" href="?view=index&pag=2" class="btn btn-default">Siguiente</a>
 	          		<?php }?>
@@ -125,7 +118,10 @@ $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
 		        		<a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
 &pag=<?php echo $_GET['pag']-1;?>
 " class="btn btn-default">Anterior</a>
-		        		<?php } else { ?>
+		          		<?php } elseif (isset($_GET['view']) && $_GET['view'] == 'buscar') {?>
+		          		<a type="button" href="?view=buscar&pag=<?php echo $_GET['pag']-1;?>
+" class="btn btn-default">Anterior</a>
+		          		<?php } else { ?>
 		        		<a type="button" href="?view=index&pag=<?php echo $_GET['pag']-1;?>
 " class="btn btn-default">Anterior</a>
 		        		<?php }?>
@@ -136,7 +132,10 @@ $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
 					<a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
 &pag=<?php echo $_GET['pag']+1;?>
 " class="btn btn-default">Siguiente</a>
-					<?php } else { ?>
+					<?php } elseif (isset($_GET['view']) && $_GET['view'] == 'buscar') {?>
+		          	<a type="button" href="?view=buscar&pag=<?php echo $_GET['pag']+1;?>
+" class="btn btn-default">Siguiente</a>
+		          	<?php } else { ?>
 					<a type="button" href="?view=index&pag=<?php echo $_GET['pag']+1;?>
 " class="btn btn-default">Siguiente</a>
 					<?php }?>

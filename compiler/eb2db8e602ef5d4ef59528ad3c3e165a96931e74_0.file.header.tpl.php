@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-15 14:08:28
+<?php /* Smarty version 3.1.27, created on 2017-12-15 23:55:44
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\overall\header.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:216125a33d75c8c4407_89679366%%*/
+/*%%SmartyHeaderCode:99705a346100578582_75369261%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eb2db8e602ef5d4ef59528ad3c3e165a96931e74' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\overall\\header.tpl',
-      1 => 1513346902,
+      1 => 1513381367,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '216125a33d75c8c4407_89679366',
+  'nocache_hash' => '99705a346100578582_75369261',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a33d75c8f7d40_44179050',
+  'unifunc' => 'content_5a34610057bde8_17836764',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a33d75c8f7d40_44179050')) {
-function content_5a33d75c8f7d40_44179050 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a34610057bde8_17836764')) {
+function content_5a34610057bde8_17836764 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '216125a33d75c8c4407_89679366';
+$_smarty_tpl->properties['nocache_hash'] = '99705a346100578582_75369261';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,8 +40,8 @@ $_smarty_tpl->properties['nocache_hash'] = '216125a33d75c8c4407_89679366';
     <!-- Bootstrap core CSS -->
     <link href="styles/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/css/style.min.css" rel="stylesheet">
+    <link href="styles/css/datepicker.css" rel="stylesheet">
     <link href="fonts/font-awesome.min.css" rel="stylesheet">
-
     <link href="styles/css/styles.css" rel="stylesheet">
       
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

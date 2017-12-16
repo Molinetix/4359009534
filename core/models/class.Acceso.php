@@ -30,6 +30,10 @@ class Acceso {
 					$_SESSION['id'] = $datos['id'];
 					$_SESSION['user'] = $datos['user'];
 					$_SESSION['email'] = $datos['email'];
+					$_SESSION['fecha'] = $datos['fecha'];
+					$_SESSION['nombre'] = $datos['nombre'];
+					$_SESSION['apellidos'] = $datos['apellidos'];
+					$_SESSION['cambio'] = $datos['cambio'];
 					if($_POST['session'] == true) { ini_set('session.cookie_lifetime', time() + (60*60*24*2)); }
 					echo 1;
 				}else{
@@ -66,6 +70,10 @@ class Acceso {
 					$_SESSION['id'] = $id[0];
 					$_SESSION['user'] = $this->user;
 					$_SESSION['email'] = $this->email;
+					$_SESSION['fecha'] = '';
+					$_SESSION['nombre'] = '';
+					$_SESSION['apellidos'] = '';
+					$_SESSION['cambio'] = 0;
 					echo 1;
 					$db->liberar($sql2,$sql3);
 				}else{

@@ -12,37 +12,32 @@ $db = new Conexion();
 
 
 $paginado = 1;
-
+$inicio = ($pagina - 1) * $paginado;
 
 
 switch($type){
 	case 'tops';
 		$cantidad = $db->query('SELECT COUNT(*) FROM post;');
-		$inicio = ($pagina - 1) * $paginado;
 		$sql = $db->query("SELECT * FROM post ORDER BY puntos DESC LIMIT $inicio,$paginado;");
 		$template->assign('titulo', 'Los mejores');
 	break;
 	case '1';
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='1';");
-		$inicio = ($pagina - 1) * $paginado;
 		$sql = $db->query("SELECT * FROM post WHERE categoria='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$template->assign('titulo', 'Categoria 1');
 	break;
 	case '2';
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='2';");
-		$inicio = ($pagina - 1) * $paginado;
 		$sql = $db->query("SELECT * FROM post WHERE categoria='2' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$template->assign('titulo', 'Categoria 2');
 	break;
 	case '3';
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='3';");
-		$inicio = ($pagina - 1) * $paginado;
 		$sql = $db->query("SELECT * FROM post WHERE categoria='3' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$template->assign('titulo', 'Categoria 3');
 	break;
 	default;
 		$cantidad = $db->query('SELECT COUNT(*) FROM post;');
-		$inicio = ($pagina - 1) * $paginado;
 		$sql = $db->query("SELECT * FROM post ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$template->assign('titulo', 'Inicio');
 
