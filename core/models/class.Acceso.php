@@ -27,13 +27,21 @@ class Acceso {
 				$sql = $db->query("SELECT * FROM users WHERE user='$this->user' AND pass='$this->pass'; ");
 				if($db->rows($sql) > 0){
 					$datos = $db->recorrer($sql);
-					$_SESSION['id'] = $datos['id'];
+					$id = $datos['id'];
+					$online = time() + (60*5);
+
+					$sql2 = $db->query("UPDATE users SET online='$online' WHERE id ='$id';");
+
+					$_SESSION['id'] = $id;
 					$_SESSION['user'] = $datos['user'];
 					$_SESSION['email'] = $datos['email'];
 					$_SESSION['fecha'] = $datos['fecha'];
 					$_SESSION['nombre'] = $datos['nombre'];
 					$_SESSION['apellidos'] = $datos['apellidos'];
 					$_SESSION['cambio'] = $datos['cambio'];
+					$_SESSION['ext'] = $datos['ext'];
+					$_SESSION['online'] = $online;
+
 					if($_POST['session'] == true) { ini_set('session.cookie_lifetime', time() + (60*60*24*2)); }
 					echo 1;
 				}else{
@@ -64,7 +72,8 @@ class Acceso {
 
 				$sql = $db->query("SELECT * FROM users WHERE user='$this->user' OR email='$this->email'; ");
 				if($db->rows($sql) == 0){
-					$sql2 = $db->query("INSERT INTO users (user,pass,email) VALUES ('$this->user', '$this->pass', '$this->email');");
+					$online = time() + (60*5);
+					$sql2 = $db->query("INSERT INTO users (user,pass,email,online) VALUES ('$this->user', '$this->pass', '$this->email', '$online');");
 					$sql3 = $db->query("SELECT MAX(id) AS id FROM users;");
 					$id = $db->recorrer($sql3);
 					$_SESSION['id'] = $id[0];
@@ -74,6 +83,8 @@ class Acceso {
 					$_SESSION['nombre'] = '';
 					$_SESSION['apellidos'] = '';
 					$_SESSION['cambio'] = 0;
+					$_SESSION['ext'] = 'jpg';
+					$_SESSION['online'] = $online;
 					echo 1;
 					$db->liberar($sql2,$sql3);
 				}else{

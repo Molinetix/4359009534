@@ -17,6 +17,7 @@
     <link href="styles/css/datepicker.css" rel="stylesheet">
     <link href="fonts/font-awesome.min.css" rel="stylesheet">
     <link href="styles/css/styles.css" rel="stylesheet">
+    <link href="styles/css/posts.css" rel="stylesheet">
       
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

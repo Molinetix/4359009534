@@ -60,12 +60,15 @@ class Cuentas {
 			//Control de error para la fecha
 			$this->fecha = $db->real_escape_string($_POST['fecha']);
 
-			$explode = explode('-', $this->fecha);
-			if(!($explode[0] >= 1 and $explode[0] <= 31) or !($explode[1] >= 1 and $explode[1] <= 12) or !($explode[2] >= 1900 and $explode[2] <= 3000)){
-				header('location: ?view=cuenta&error=4');
-				exit;
+			if(!empty($this->fecha)){
+				$explode = explode('-', $this->fecha);
+				if(!($explode[0] >= 1 and $explode[0] <= 31) or !($explode[1] >= 1 and $explode[1] <= 12) or !($explode[2] >= 1900 and $explode[2] <= 3000)){
+					header('location: ?view=cuenta&error=4');
+					exit;
+				}
 			}
-			unset($explode);
+
+
 
 			//Control de imagenes
 			if($_FILES['foto']['name'] !=''){
@@ -76,32 +79,10 @@ class Cuentas {
 					exit;
 				}
 
-				$ruta = 'uploads/avatar/'. $this->id;
+				$ruta = 'uploads/avatar/'. $this->id.'.'.$_SESSION['ext'];
 
-				if(file_exists($ruta . '.jpg')){
-					$ruta = 'uploads/avatar/'. $this->id . '.jpg';
+				if(file_exists($ruta)){
 					unlink($ruta);
-				}else if(file_exists($ruta . '.png')){
-					$ruta = 'uploads/avatar/'. $this->id . '.png';
-					unlink($ruta);
-				}else if(file_exists($ruta . '.jpeg')){
-					$ruta = 'uploads/avatar/'. $this->id . '.jpeg';
-					unlink($ruta);
-				}else if(file_exists($ruta . '.gif')){
-					$ruta = 'uploads/avatar/'. $this->id . '.gif';
-					unlink($ruta);		
-				}else if(file_exists($ruta . '.JPG')){
-					$ruta = 'uploads/avatar/'. $this->id . '.JPG';
-					unlink($ruta);		
-				}else if(file_exists($ruta . '.JPEG')){
-					$ruta = 'uploads/avatar/'. $this->id . '.JPEG';
-					unlink($ruta);			
-				}else if(file_exists($ruta . '.PNG')){
-					$ruta = 'uploads/avatar/'. $this->id . '.PNG';
-					unlink($ruta);		
-				}else if(file_exists($ruta . '.GIF')){
-					$ruta = 'uploads/avatar/'. $this->id . '.GIF';
-					unlink($ruta);			
 				}
 
 				$ruta = 'uploads/avatar/'. $this->id .'.'. $ext;
@@ -122,8 +103,9 @@ class Cuentas {
 			$_SESSION['user'] = $this->user;
 			$_SESSION['email'] = $this->email;
 			$_SESSION['cambio'] = $tiempo_cambio;
+			$_SESSION['ext'] = $ext;
 
-			$update = $db->query("UPDATE users SET user='$this->user', email='$this->email', nombre='$this->nombre', apellidos='$this->apellidos', fecha='$this->fecha', cambio='$tiempo_cambio' WHERE id='$this->id';");
+			$update = $db->query("UPDATE users SET user='$this->user', email='$this->email', nombre='$this->nombre', apellidos='$this->apellidos', fecha='$this->fecha', cambio='$tiempo_cambio', ext='$ext' WHERE id='$this->id';");
 
 			$db->liberar($update);
 			$db->close();
