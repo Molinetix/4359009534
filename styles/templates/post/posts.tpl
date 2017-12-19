@@ -14,10 +14,10 @@
           <!-- Post Principal --> 
           <div class="media">
               <div class="media-left" style="text-align: center;">
-                <a href="?view=perfil&user=ID">
-                    <img class="media-object" src="uploads/avatar/user.png" width="80" height="80" />
+                <a href="?view=perfil&user={$post.dueno}">
+                    <img class="media-object" src="{$imagen}" width="80" height="80" />
                 </a>
-                <small><strong>Usuario</strong> <br /> <span style="color: #FF0000">Offline</span></small>
+                <small><strong>{$user}</strong> <br /> <span style="color: {$color}">{$estado}</span></small>
               </div>
               <div class="media-body principal-post">
                 {$content}
@@ -51,7 +51,7 @@
                 <center>
                   <ul class="pagination">
                     {for $x=1 to 10}
-                    <li><a href="#" onclick="AddPoints({$x});">{$x}</a></li>
+                    <li><a style="cursor:pointer;" onclick="AddPoints({$x});">{$x}</a></li>
                     {/for}
                   </ul>
                 </center>
@@ -102,5 +102,50 @@
     </div>      
 
 {include 'overall/footer.tpl'}
+    {if isset($smarty.session.user)}
+      <script>
+        function AddPoints(points){
+      var connect, form, result;
+
+      if(parseInt(points) >= 1 && parseInt(points) <= 10){
+
+        form = 'points=' + points;
+
+
+        connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        connect.onreadystatechange = function(){
+          if(connect.readyState == 4 && connect.status == 200){
+            if(parseInt(connect.responseText) == 1){
+                //Conectado con exito
+                //redireccion
+                result = '<nav><center>';
+                result += '<div class="puntos-agregados">Puntos agregados correctamente</div>';
+                result += '</center></nav>';
+                document.getElementById('_POINTS_').innerHTML = result;
+              }else{
+                //ERROR: Los datos son incorrectos
+                result = '<nav><center>';
+                result += '<div class="puntos-no-agregados">Ya has puntuado este post.</div>';
+                result += '</center></nav>';
+                document.getElementById('_POINTS_').innerHTML = result;
+
+              }
+            } else if(connect.readyState != 4) {
+                //Procesando...
+                result = '<nav><center>';
+                result += '<div class="agregando-puntos">Agregando puntos...</div>';
+                result += '</center></nav>';
+                document.getElementById('_POINTS_').innerHTML = result;
+                
+              }
+            }
+            connect.open('POST', '?view=posts&&id={$smarty.get.id}&&mode=puntos', true);
+            connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            connect.send(form);
+          }
+      }
+    
+      </script>
+    {/if}
    </body>
 </html>       

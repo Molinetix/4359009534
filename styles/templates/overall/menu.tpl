@@ -1,5 +1,7 @@
 <ul class="nav nav-sidebar">
-
+  
+  {if isset($smarty.get.view) and $smarty.get.view == 'posts'}
+  <li class="active"><a href="#">Visualización de Post</a></li>{/if}
   {if isset($smarty.get.view) and $smarty.get.view == 'perfil'}
   <li class="active"><a href="#">Perfil de {$user.user}</a></li>{/if}
   {if isset($smarty.get.view) and $smarty.get.view == 'cuenta'}

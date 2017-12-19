@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-19 17:36:06
+<?php /* Smarty version 3.1.27, created on 2017-12-19 18:29:08
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\post\posts.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:239265a394e06418b85_40539059%%*/
+/*%%SmartyHeaderCode:131805a395a747cf0a3_40445288%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,26 +9,30 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6fd70f94b75f365983663e9ab3efe32b8a38ef8f' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\post\\posts.tpl',
-      1 => 1513704963,
+      1 => 1513708144,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '239265a394e06418b85_40539059',
+  'nocache_hash' => '131805a395a747cf0a3_40445288',
   'variables' => 
   array (
     'post' => 0,
+    'imagen' => 0,
+    'user' => 0,
+    'color' => 0,
+    'estado' => 0,
     'content' => 0,
     'x' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a394e06482450_91817555',
+  'unifunc' => 'content_5a395a74859016_14032141',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a394e06482450_91817555')) {
-function content_5a394e06482450_91817555 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a395a74859016_14032141')) {
+function content_5a395a74859016_14032141 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '239265a394e06418b85_40539059';
+$_smarty_tpl->properties['nocache_hash'] = '131805a395a747cf0a3_40445288';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -52,10 +56,15 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
           <!-- Post Principal --> 
           <div class="media">
               <div class="media-left" style="text-align: center;">
-                <a href="?view=perfil&user=ID">
-                    <img class="media-object" src="uploads/avatar/user.png" width="80" height="80" />
+                <a href="?view=perfil&user=<?php echo $_smarty_tpl->tpl_vars['post']->value['dueno'];?>
+">
+                    <img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['imagen']->value;?>
+" width="80" height="80" />
                 </a>
-                <small><strong>Usuario</strong> <br /> <span style="color: #FF0000">Offline</span></small>
+                <small><strong><?php echo $_smarty_tpl->tpl_vars['user']->value;?>
+</strong> <br /> <span style="color: <?php echo $_smarty_tpl->tpl_vars['color']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['estado']->value;?>
+</span></small>
               </div>
               <div class="media-body principal-post">
                 <?php echo $_smarty_tpl->tpl_vars['content']->value;?>
@@ -93,7 +102,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
 if ($_smarty_tpl->tpl_vars['x']->total > 0) {
 for ($_smarty_tpl->tpl_vars['x']->value = 1, $_smarty_tpl->tpl_vars['x']->iteration = 1;$_smarty_tpl->tpl_vars['x']->iteration <= $_smarty_tpl->tpl_vars['x']->total;$_smarty_tpl->tpl_vars['x']->value += $_smarty_tpl->tpl_vars['x']->step, $_smarty_tpl->tpl_vars['x']->iteration++) {
 $_smarty_tpl->tpl_vars['x']->first = $_smarty_tpl->tpl_vars['x']->iteration == 1;$_smarty_tpl->tpl_vars['x']->last = $_smarty_tpl->tpl_vars['x']->iteration == $_smarty_tpl->tpl_vars['x']->total;?>
-                    <li><a href="#" onclick="AddPoints(<?php echo $_smarty_tpl->tpl_vars['x']->value;?>
+                    <li><a style="cursor:pointer;" onclick="AddPoints(<?php echo $_smarty_tpl->tpl_vars['x']->value;?>
 );"><?php echo $_smarty_tpl->tpl_vars['x']->value;?>
 </a></li>
                     <?php }} ?>
@@ -148,6 +157,54 @@ $_smarty_tpl->tpl_vars['x']->first = $_smarty_tpl->tpl_vars['x']->iteration == 1
 <?php echo $_smarty_tpl->getSubTemplate ('overall/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
+    <?php if (isset($_SESSION['user'])) {?>
+      <?php echo '<script'; ?>
+>
+        function AddPoints(points){
+      var connect, form, result;
+
+      if(parseInt(points) >= 1 && parseInt(points) <= 10){
+
+        form = 'points=' + points;
+
+
+        connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        connect.onreadystatechange = function(){
+          if(connect.readyState == 4 && connect.status == 200){
+            if(parseInt(connect.responseText) == 1){
+                //Conectado con exito
+                //redireccion
+                result = '<nav><center>';
+                result += '<div class="puntos-agregados">Puntos agregados correctamente</div>';
+                result += '</center></nav>';
+                document.getElementById('_POINTS_').innerHTML = result;
+              }else{
+                //ERROR: Los datos son incorrectos
+                result = '<nav><center>';
+                result += '<div class="puntos-no-agregados">Ya has puntuado este post.</div>';
+                result += '</center></nav>';
+                document.getElementById('_POINTS_').innerHTML = result;
+
+              }
+            } else if(connect.readyState != 4) {
+                //Procesando...
+                result = '<nav><center>';
+                result += '<div class="agregando-puntos">Agregando puntos...</div>';
+                result += '</center></nav>';
+                document.getElementById('_POINTS_').innerHTML = result;
+                
+              }
+            }
+            connect.open('POST', '?view=posts&&id=<?php echo $_GET['id'];?>
+&&mode=puntos', true);
+            connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            connect.send(form);
+          }
+      }
+    
+      <?php echo '</script'; ?>
+>
+    <?php }?>
    </body>
 </html>       <?php }
 }
