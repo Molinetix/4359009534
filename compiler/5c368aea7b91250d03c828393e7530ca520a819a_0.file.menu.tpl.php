@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-19 17:47:55
+<?php /* Smarty version 3.1.27, created on 2017-12-19 23:42:41
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\overall\menu.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:265965a3950cb67c906_60710267%%*/
+/*%%SmartyHeaderCode:158015a39a3f103f042_90263249%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,24 +9,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5c368aea7b91250d03c828393e7530ca520a819a' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\overall\\menu.tpl',
-      1 => 1513705671,
+      1 => 1513726958,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '265965a3950cb67c906_60710267',
+  'nocache_hash' => '158015a39a3f103f042_90263249',
   'variables' => 
   array (
     'user' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a3950cb71fef4_57098364',
+  'unifunc' => 'content_5a39a3f1175e81_35976240',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a3950cb71fef4_57098364')) {
-function content_5a3950cb71fef4_57098364 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a39a3f1175e81_35976240')) {
+function content_5a39a3f1175e81_35976240 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '265965a3950cb67c906_60710267';
+$_smarty_tpl->properties['nocache_hash'] = '158015a39a3f103f042_90263249';
 ?>
 <ul class="nav nav-sidebar">
   
@@ -50,11 +50,42 @@ $_smarty_tpl->properties['nocache_hash'] = '265965a3950cb67c906_60710267';
 
 
   <?php if (isset($_GET['type']) && $_GET['type'] == '1') {?>
-  <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=1">Categoria 1</a></li>
+  <li class="active"><a href="?view=index&type=1">Andalucía</a></li><?php }?>
   <?php if (isset($_GET['type']) && $_GET['type'] == '2') {?>
-  <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=2">Categoria 2</a></li>
+  <li class="active"><a href="?view=index&type=2">Aragón</a></li><?php }?>
   <?php if (isset($_GET['type']) && $_GET['type'] == '3') {?>
-  <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=3">Categoria 3</a></li>
-</ul><?php }
+  <li class="active"><a href="?view=index&type=3">Asturias</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '4') {?>
+  <li class="active"><a href="?view=index&type=4">Baleares</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '5') {?>
+  <li class="active"><a href="?view=index&type=5">Canarias</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '6') {?>
+  <li class="active"><a href="?view=index&type=6">Cantabria</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '7') {?>
+  <li class="active"><a href="?view=index&type=7">Castilla-La Mancha</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '8') {?>
+  <li class="active"><a href="?view=index&type=8">Castilla y León</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '9') {?>
+  <li class="active"><a href="?view=index&type=9">Cataluña</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '10') {?>
+  <li class="active"><a href="?view=index&type=10">Extremadura</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '11') {?>
+  <li class="active"><a href="?view=index&type=11">Galicia</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '12') {?>
+  <li class="active"><a href="?view=index&type=12">La Rioja</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '13') {?>
+  <li class="active"><a href="?view=index&type=13">Madrid</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '14') {?>
+  <li class="active"><a href="?view=index&type=14">Murcia</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '15') {?>
+  <li class="active"><a href="?view=index&type=15">Navarra</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '16') {?>
+  <li class="active"><a href="?view=index&type=16">País Vasco</a></li><?php }?>
+  <?php if (isset($_GET['type']) && $_GET['type'] == '17') {?>
+  <li class="active"><a href="?view=index&type=17">Valencia</a></li><?php }?>
+
+</ul>
+
+<?php }
 }
 ?>
