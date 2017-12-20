@@ -6,6 +6,7 @@ class Subir {
 	private $contenido;
 	private $fecha;
 	private $id;
+	private $comunidad;
 	private $lugar;
 	private $peso;
 	private $longitud;
@@ -26,6 +27,7 @@ class Subir {
 			$this->contenido = $db->real_escape_string($_POST['contenido']);
 			$this->fecha = date("Y-m-d H:i:s");
 			$this->lugar = $db->real_escape_string($_POST['lugar']);
+			$this->comunidad = $db->real_escape_string($_POST['categoria']);
 			$this->peso = $db->real_escape_string($_POST['peso']);
 			$this->longitud = $db->real_escape_string($_POST['longitud']);
 
@@ -149,7 +151,7 @@ class Subir {
 
 
 
-			$sql = $db->query("INSERT INTO post (titulo,content,dueno,fecha,lugar_pesca,peso,longitud,imagenes) VALUES ('$this->titulo','$this->contenido','$this->id','$this->fecha','$this->lugar','$this->peso','$this->longitud','$this->imagen');");
+			$sql = $db->query("INSERT INTO post (titulo,content,dueno,fecha,categoria,lugar_pesca,peso,longitud,imagenes) VALUES ('$this->titulo','$this->contenido','$this->id','$this->fecha','$this->comunidad','$this->lugar','$this->peso','$this->longitud','$this->imagen');");
 
 			$db->liberar($sql);
 			$db->close();

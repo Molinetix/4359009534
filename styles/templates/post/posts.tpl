@@ -20,7 +20,43 @@
                 <small><strong>{$user}</strong> <br /> <span style="color: {$color}">{$estado}</span></small>
               </div>
               <div class="media-body principal-post">
-                {$content}
+              <style type="text/css">
+                * { margin: auto; padding: 0; text-align: center }
+                #cabecera { font: bold 1.3em verdana; background-color: #feffe4;  }
+                h1 { text-align: center ; padding: 0.5em }
+                #menu { float: left; width: 25%; background-color: #e3f2ff; }
+                #menu img { width: 35%; margin: 5%; cursor: pointer; }
+                #principal { float: left; width: 75%; }
+                #visor { width: 60%; margin: 10% }
+                #visor img { width: 100% }
+                </style>
+                <script type="text/javascript">
+                window.onload = function() { //tras cargar la página ...
+                visor1=document.getElementById("visor"); //referencia al visor
+                //mititulo=document.getElementById("titulo"); //referencia al pie de foto
+                }
+                function mifoto(num,image) { //cambiar la imagen
+                         f="imagenes/"+image; //ruta de la nueva imagen
+                         document.images["fotoVisor"].src=f; //cambiar imagen
+                         t=document.images["fotos"+num].alt; //texto de pie de foto
+                         //mititulo.innerHTML=t; //cambiar pie de foto
+                         }
+                </script>
+                {$content}<br />
+                {if $imagenkg != ''}
+                <div id="menu">
+                <img src='imagenes/{$imagenkg}' alt='Imagen peso de la captura.' name='fotos1' onclick="mifoto(1,'{$imagenkg}')"/>
+                <img src='imagenes/{$imagencm}' alt='Imagen longitud de la captura.' name='fotos2' onclick="mifoto(2,'{$imagencm}')"/>
+                <img src='imagenes/{$imagen1}' alt='Imagen libre 1.' name='fotos3' onclick="mifoto(3,'{$imagen1}')"/>
+                <img src='imagenes/{$imagen2}' alt='Imagen libre 2.' name='fotos4' onclick="mifoto(4,'{$imagen2}')"/>
+                </div>
+                <div id="principal">
+                <div id="visor">
+                   <img src='imagenes/{$imagen1}' alt='Imagen libre 1.' name='fotoVisor'/>
+                   <!--<div id="titulo">Imagen libre 1.</div>-->
+                   </div>
+                </div>
+                {/if}
               </div>
            </div> 
            <!-- Post Principal --> 
@@ -45,29 +81,29 @@
         </div>
         
         <!-- condición de inciio de sesión --> 
-        {if isset($smarty.session.user)}  
-        <div id="_POINTS_">
-            <nav>
-                <center>
-                  <ul class="pagination">
-                    {for $x=1 to 10}
-                    <li><a style="cursor:pointer;" onclick="AddPoints({$x});">{$x}</a></li>
-                    {/for}
-                  </ul>
-                </center>
-            </nav>
+        {if isset($smarty.session.user)} 
+                <div id="_POINTS_">
+                    <nav>
+                        <center>
+                          <ul class="pagination">
+                            {for $x=1 to 10}
+                            <li><a style="cursor:pointer;" onclick="AddPoints({$x});">{$x}</a></li>
+                            {/for}
+                          </ul>
+                        </center>
+                    </nav>
 
-            <!--<nav>
-                <center>
-                      <div class="puntos-agregados">Puntos agregados correctamente</div>
-                </center>
-            </nav>
-            <nav>
-                <center>
-                      <div class="puntos-no-agregados">Ya has puntuado antes este post</div>
-                </center>
-            </nav>-->
-        </div>  
+                    <!--<nav>
+                        <center>
+                              <div class="puntos-agregados">Puntos agregados correctamente</div>
+                        </center>
+                    </nav>
+                    <nav>
+                        <center>
+                              <div class="puntos-no-agregados">Ya has puntuado antes este post</div>
+                        </center>
+                    </nav>-->
+                </div>
         {/if}   
         <!-- condición de inciio de sesión -->
 

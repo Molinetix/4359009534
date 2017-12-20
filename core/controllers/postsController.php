@@ -6,7 +6,7 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 	$mode = isset($_GET['mode']) ? $_GET['mode'] : null;
 	$id = intval($_GET['id']);
 	$db = new Conexion();
-	$sql = $db->query("SELECT titulo,content,dueno,votantes FROM post WHERE id='$id'");
+	$sql = $db->query("SELECT titulo,content,dueno,votantes,imagenes FROM post WHERE id='$id'");
 
 
 	switch($mode) {
@@ -77,8 +77,18 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 			$ruta = 'uploads/avatar/user.png';
 		}
 
+		//Contenido
 		require('core/libs/bbcode/BBcode.class.php');
 		$content = BBcode($post['content']);
+
+		//Imagenes
+		if(!empty($post['imagenes'])){
+		$imagenes = explode(';',$post['imagenes']);
+		}else{
+		$imagenes = ['','','',''];
+		}
+
+
 		
 		$template->assign(array(
 			'content'=> $content,
@@ -86,7 +96,11 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 			'user'=>$user['user'],
 			'estado'=>$estado,
 			'color'=>$color_estado,
-			'imagen'=>$ruta
+			'imagen'=>$ruta,
+			'imagenkg'=>$imagenes[0],
+			'imagencm' => $imagenes[1],
+			'imagen1' => $imagenes[2],
+			'imagen2' =>$imagenes[3]
 			));
 
 		$db->liberar($sql2);
