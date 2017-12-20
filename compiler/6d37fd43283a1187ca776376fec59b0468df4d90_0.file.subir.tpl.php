@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 02:03:08
+<?php /* Smarty version 3.1.27, created on 2017-12-20 02:08:41
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\subir\subir.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:31055a39c4dc44e959_13984594%%*/
+/*%%SmartyHeaderCode:47415a39c629b73969_90508444%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6d37fd43283a1187ca776376fec59b0468df4d90' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\subir\\subir.tpl',
-      1 => 1513735126,
+      1 => 1513735718,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '31055a39c4dc44e959_13984594',
+  'nocache_hash' => '47415a39c629b73969_90508444',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a39c4dc4ab0a7_22450328',
+  'unifunc' => 'content_5a39c629bb1aa3_04180109',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a39c4dc4ab0a7_22450328')) {
-function content_5a39c4dc4ab0a7_22450328 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a39c629bb1aa3_04180109')) {
+function content_5a39c629bb1aa3_04180109 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '31055a39c4dc44e959_13984594';
+$_smarty_tpl->properties['nocache_hash'] = '47415a39c629b73969_90508444';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -77,11 +77,11 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
             <label>Lugar de pesca <span style="color: #FF0000"></span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="lugar" placeholder="Río, Lago, Embalse, Pantano..." required="" value="" />
 
-            <label>Peso <span style="color: #FF0000">*</span></label>
-            <input style="margin-bottom: 10px;" type="text" class="form-control" name="peso" placeholder="Peso de esta captura" required="" value="" />  
+            <label>Peso (kg)<span style="color: #FF0000">*</span></label>
+            <input style="margin-bottom: 10px;" type="text" class="form-control" name="peso" placeholder="Ejemplo: 25.5kg" required="" value="" />  
 
-            <label>Longitud <span style="color: #FF0000">*</span></label>
-            <input style="margin-bottom: 10px;" type="text" class="form-control" name="longitud" placeholder="Longitud de esta captura" required="" value="" />  
+            <label>Longitud (cm)<span style="color: #FF0000">*</span></label>
+            <input style="margin-bottom: 10px;" type="text" class="form-control" name="longitud" placeholder="Ejemplo: 128cm" required="" value="" />  
                 
             <br />
            <span style="color: #FF0000; font-size:14px; font-style: italic;">Por motivos de calidad el número de imágenes por publicación es de 4; 1 con el peso, 1 con la longitud y 2 del gusto del pescador.</span></label>   
@@ -95,11 +95,11 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
 
             	<div class="row">
 					<div class="col-sm-6">
-		                <label>Peso (kg)<span style="color: #FF0000">*</span></label>
+		                <label>Peso <span style="color: #FF0000">*</span></label>
 		                <input style="margin-bottom: 10px;" type="file" name="fotokg" class="form-control" required/> 
 	              </div>
 	              <div class="col-sm-6">
-		                <label>Longitud (cm)<span style="color: #FF0000">*</span></label>
+		                <label>Longitud <span style="color: #FF0000">*</span></label>
 		                <input style="margin-bottom: 10px;" type="file" name="fotocm" class="form-control" required/> 
 	              </div>
 	            	<div class="col-sm-6">

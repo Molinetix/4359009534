@@ -2,8 +2,8 @@
 
 if(isset($_SESSION['id'],$_SESSION['user'],$_SESSION['email'])){
 	if($_POST){
-			require('core/models/class.Cuentas.php');
-			$subir = new Cuentas();
+			require('core/models/class.Subir.php');
+			$subir = new Subir();
 			$subir->subirPost();
 
 

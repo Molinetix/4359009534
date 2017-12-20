@@ -46,11 +46,11 @@
             <label>Lugar de pesca <span style="color: #FF0000"></span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="lugar" placeholder="Río, Lago, Embalse, Pantano..." required="" value="" />
 
-            <label>Peso <span style="color: #FF0000">*</span></label>
-            <input style="margin-bottom: 10px;" type="text" class="form-control" name="peso" placeholder="Peso de esta captura" required="" value="" />  
+            <label>Peso (kg)<span style="color: #FF0000">*</span></label>
+            <input style="margin-bottom: 10px;" type="text" class="form-control" name="peso" placeholder="Ejemplo: 25.5kg" required="" value="" />  
 
-            <label>Longitud <span style="color: #FF0000">*</span></label>
-            <input style="margin-bottom: 10px;" type="text" class="form-control" name="longitud" placeholder="Longitud de esta captura" required="" value="" />  
+            <label>Longitud (cm)<span style="color: #FF0000">*</span></label>
+            <input style="margin-bottom: 10px;" type="text" class="form-control" name="longitud" placeholder="Ejemplo: 128cm" required="" value="" />  
                 
             <br />
            <span style="color: #FF0000; font-size:14px; font-style: italic;">Por motivos de calidad el número de imágenes por publicación es de 4; 1 con el peso, 1 con la longitud y 2 del gusto del pescador.</span></label>   
@@ -64,11 +64,11 @@
 
             	<div class="row">
 					<div class="col-sm-6">
-		                <label>Peso (kg)<span style="color: #FF0000">*</span></label>
+		                <label>Peso <span style="color: #FF0000">*</span></label>
 		                <input style="margin-bottom: 10px;" type="file" name="fotokg" class="form-control" required/> 
 	              </div>
 	              <div class="col-sm-6">
-		                <label>Longitud (cm)<span style="color: #FF0000">*</span></label>
+		                <label>Longitud <span style="color: #FF0000">*</span></label>
 		                <input style="margin-bottom: 10px;" type="file" name="fotocm" class="form-control" required/> 
 	              </div>
 	            	<div class="col-sm-6">

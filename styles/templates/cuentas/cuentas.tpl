@@ -25,6 +25,10 @@
               <div class="alert alert-danger" role="alert">La fecha debe tener un formato válido.</div>
               {else if $smarty.get.error == '5'}
               <div class="alert alert-danger" role="alert">El nombre de usuario solo se puede moficiar 1 vez por mes.</div>
+              {else if $smarty.get.error == '6'}
+              <div class="alert alert-danger" role="alert">No se ha subido el post.</div>
+              {else if $smarty.get.error == '7'}
+              <div class="alert alert-danger" role="alert">No se pueden subir estas imágenes.</div>
               {else}
               <div class="alert alert-danger" role="alert">Solo se aceptan imagenes (jpg,png,jpeg y gif).</div>
               {/if}
@@ -32,6 +36,9 @@
             {if isset($smarty.get.success)}
               {if $smarty.get.success == '1'}
               <div class="alert alert-success" role="alert">Cambios efectuados con éxito!</div>
+              {/if}
+              {if $smarty.get.success == '2'}
+              <div class="alert alert-success" role="alert">El post se ha subido con éxito y esta a la espera de ser aprobado por un administrador.</div>
               {/if}
             {/if}
           <div class="form-signin">

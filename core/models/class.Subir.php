@@ -10,17 +10,56 @@ class Subir {
 	private $lugar;
 	private $peso;
 	private $longitud;
-	private $imgkg;
-	private $imgcm;
-	private $img1;
-	private $img2;
+	private $imagen;
+
+	public	function AnalizarImagen($nombre){
+
+		 //Cambiamos el nombre de la imagen para evitar complicaciones a la hora de guardarla
+	    $target_file  = round(microtime(true)) . '.' . end($nombre);
+	    $uploadOk = 1;
+	    $imageFileType = pathinfo($target_file ,PATHINFO_EXTENSION);
+
+	    // Comprobamos si la imagen ya existe por si acaso
+	    if (file_exists($target_file )) {
+	        echo "La imagen ya existe.";
+	        $uploadOk = 0;
+	    }
+
+	    // Permitimos unos formatos en concreto
+	    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+	    && $imageFileType != "gif" && $imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG"
+	    && $imageFileType != "GIF" ) {
+	        echo "Solo se permiten imagenes JPG, JPEG, PNG & GIF.";
+	        $uploadOk = 0;
+	    }
+	    // Si ha habido algún control que no se haya pasado la imágen no se subirá.
+	    if ($uploadOk == 0) {
+	        echo "La imagen no se ha subido.";
+	        $target_file = "";
+	        return $target_file;
+
+	    // Si todo está correcto procedemos a subir la imágen.
+	    } else {
+
+	        $result = move_uploaded_file($_FILES["$nombre"]["tmp_name"], "imagenes/" . $target_file);
+	        return $target_file;
+	    }
+
+	}
+
+
 
 	public function SubirPost(){
 
-		if(!empty($_POST['titulo']) and !empty($_POST['contenido']) and !empty($_POST['comunidad']) and !empty($_POST['peso']) and !empty($_POST['longitud']) and !empty($_POST['fotokg']) and !empty($_POST['fotocm']) and !empty($_POST['foto1']) and !empty($_POST['foto2'])){
+		if(!empty($_POST['titulo'])){
 
 
 			$db = new Conexion();
+
+			$fotokg = explode(".", $_FILES['fotokg']['name']);
+			$fotocm = explode(".", $_FILES['fotocm']['name']);
+			$imagen1 = explode(".", $_FILES['foto1']['name']);
+			$imagen2 = explode(".", $_FILES['foto2']['name']);
 
 			$this->titulo = $db->real_escape_string($_POST['titulo']);
 			$this->contenido = $db->real_escape_string($_POST['contenido']);
@@ -29,107 +68,47 @@ class Subir {
 			$this->lugar = $db->real_escape_string($_POST['lugar']);
 			$this->peso = $db->real_escape_string($_POST['peso']);
 			$this->longitud = $db->real_escape_string($_POST['longitud']);
-			$this->imgkg = '';
-			$this->imgcm = '';
-			$this->img1 = '';
-			$this->img2 = '';
+
+			$imagenkg = $this->AnalizarImagen($fotokg);
+			$imagencm = $this->AnalizarImagen($fotocm);
+			$imagen1 = $this->AnalizarImagen($imagen1);
+			$imagen2 = $this->AnalizarImagen($imagen2);
+
+
+			if(empty($imagenkg) or empty($imagencm) or empty($imagen1) or empty($imagen2)){
+				unlink("imagenes/" . $imagenkg);
+				unlink("imagenes/" . $imagencm);
+				unlink("imagenes/" . $imagen1);
+				unlink("imagenes/" . $imagen2);
+				header('location: ?view=cuenta&error=7');
+				exit;
+			}else{
+			$this->imagen = $imagenkg +";"+ $imagencm +";"+ $imagen1 +";"+ $imagen2;
+			}
 			$this->id = $_SESSION['id'];
 
 
-			//Control de error para el usuario
-			if(strtolower($this->user) != strtolower($_SESSION['user'])){
-				$time = time();
 
-				$sql = $db->query("SELECT cambio FROM users WHERE cambio >= '$time' AND cambio <> '0' AND id='$this->id';");
-				$sql2 = $db->query("SELECT user FROM users WHERE user='$user' AND id <> '$this->id';");
 
-					if($db->rows($sql) > 0){
-						$db->liberar($sql,$sql2);
+				$sql = $db->query("INSERT INTO post (titulo,content,dueno,fecha,comunidad,lugar_pesca,peso,longitud,imagenes) VALUES ($this->titulo,$this->contenido,$this->id,$this->fecha,$this->comunidad,$this->lugar,$this->peso,$this->longitud,$this->imagen);");
+
+
+					if($db->rows($sql) == 0){
+						$db->liberar($sql);
 						$db->close();
-						header('location: ?view=cuenta&error=5');
+						header('location: ?view=cuenta&error=6');
 						exit;
 					}
 
-						if($db->rows($sql2) > 0){
-							$db->liberar($sql,$sql2);
-							$db->close();
-							header('location: ?view=cuenta&error=2');
-							exit;
-						}
-
-						$c_cambio = 1;
-					}
-			
-
-			//Control de error para el email
-			if(strtolower($email) != strtolower($_SESSION['email'])){
-				$sql = $db->query("SELECT email FROM users WHERE email='$email' AND id <> '$this->id';");
-				if($db->rows($sql) > 0){
-					$db->liberar($sql);
-					$db->close();
-					header('location: ?view=cuenta&error=3');
-					exit;	
-				}
-			}
-
-			//Control de error para la fecha
-			$this->fecha = $db->real_escape_string($_POST['fecha']);
-
-			if(!empty($this->fecha)){
-				$explode = explode('-', $this->fecha);
-				if(!($explode[0] >= 1 and $explode[0] <= 31) or !($explode[1] >= 1 and $explode[1] <= 12) or !($explode[2] >= 1900 and $explode[2] <= 3000)){
-					header('location: ?view=cuenta&error=4');
-					exit;
-				}
-			}
-
-
-
-			//Control de imagenes
-			if($_FILES['foto']['name'] !=''){
-				$ext = end(explode('.',$_FILES['foto']['name']));
-				$extensiones = array('jpg','jpeg','png','gif','JPG','JPEG','PNG','GIF');
-				if(!in_array($ext,$extensiones)){
-					header('location: ?view=cuenta&error=6');
-					exit;
-				}
-
-				$ruta = 'uploads/avatar/'. $this->id.'.'.$_SESSION['ext'];
-
-				if(file_exists($ruta)){
-					unlink($ruta);
-				}
-
-				$ruta = 'uploads/avatar/'. $this->id .'.'. $ext;
-				move_uploaded_file($_FILES['foto']['tmp_name'], $ruta);
-			}
-
-			if(isset($c_cambio)){
-				$tiempo_cambio = time() + (60*60*24*31);
-			} else {
-				$tiempo_cambio = $_SESSION['cambio'];
-			}
-			$this->nombre = $db->real_escape_string($_POST['names']);
-			$this->apellidos = $db->real_escape_string($_POST['lastnames']);
-
-			$_SESSION['nombre'] = $this->nombre;
-			$_SESSION['apellidos'] = $this->apellidos;
-			$_SESSION['fecha'] = $this->fecha;
-			$_SESSION['user'] = $this->user;
-			$_SESSION['email'] = $this->email;
-			$_SESSION['cambio'] = $tiempo_cambio;
-			$_SESSION['ext'] = $ext;
-
-			$update = $db->query("UPDATE users SET user='$this->user', email='$this->email', nombre='$this->nombre', apellidos='$this->apellidos', fecha='$this->fecha', cambio='$tiempo_cambio', ext='$ext' WHERE id='$this->id';");
-
-			$db->liberar($update);
+			$db->liberar($sql);
 			$db->close();
-			header('location: ?view=cuenta&success=1');
+			header('location: ?view=cuenta&success=2');
 		}else{
 			header('location: ?view=cuenta&error=1');
 		}
-
 	}
+
+
 }
 
 

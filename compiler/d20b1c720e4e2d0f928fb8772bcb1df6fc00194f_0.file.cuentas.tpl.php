@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-16 02:58:27
+<?php /* Smarty version 3.1.27, created on 2017-12-20 02:46:12
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\cuentas\cuentas.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:109685a348bd3733e92_87515266%%*/
+/*%%SmartyHeaderCode:63625a39cef46a9f88_37483458%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,24 +9,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd20b1c720e4e2d0f928fb8772bcb1df6fc00194f' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\cuentas\\cuentas.tpl',
-      1 => 1513392961,
+      1 => 1513737882,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '109685a348bd3733e92_87515266',
+  'nocache_hash' => '63625a39cef46a9f88_37483458',
   'variables' => 
   array (
     'image' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a348bd37b9371_18118213',
+  'unifunc' => 'content_5a39cef47378b4_02782978',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a348bd37b9371_18118213')) {
-function content_5a348bd37b9371_18118213 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a39cef47378b4_02782978')) {
+function content_5a39cef47378b4_02782978 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '109685a348bd3733e92_87515266';
+$_smarty_tpl->properties['nocache_hash'] = '63625a39cef46a9f88_37483458';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -60,6 +60,10 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
               <div class="alert alert-danger" role="alert">La fecha debe tener un formato válido.</div>
               <?php } elseif ($_GET['error'] == '5') {?>
               <div class="alert alert-danger" role="alert">El nombre de usuario solo se puede moficiar 1 vez por mes.</div>
+              <?php } elseif ($_GET['error'] == '6') {?>
+              <div class="alert alert-danger" role="alert">No se ha subido el post.</div>
+              <?php } elseif ($_GET['error'] == '7') {?>
+              <div class="alert alert-danger" role="alert">No se pueden subir estas imágenes.</div>
               <?php } else { ?>
               <div class="alert alert-danger" role="alert">Solo se aceptan imagenes (jpg,png,jpeg y gif).</div>
               <?php }?>
@@ -67,6 +71,9 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
             <?php if (isset($_GET['success'])) {?>
               <?php if ($_GET['success'] == '1') {?>
               <div class="alert alert-success" role="alert">Cambios efectuados con éxito!</div>
+              <?php }?>
+              <?php if ($_GET['success'] == '2') {?>
+              <div class="alert alert-success" role="alert">El post se ha subido con éxito y esta a la espera de ser aprobado por un administrador.</div>
               <?php }?>
             <?php }?>
           <div class="form-signin">
