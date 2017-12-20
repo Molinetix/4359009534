@@ -10,7 +10,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
                 {if isset($existe)}  
-          <h2 class="sub-header">Pefil de {$user.user}</h2> 
+          <h2 class="sub-header">Perfil de {$user.user}</h2> 
                   
            <div class="media">
               <div class="media-left">

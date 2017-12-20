@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 02:08:41
+<?php /* Smarty version 3.1.27, created on 2017-12-20 03:54:34
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\subir\subir.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:47415a39c629b73969_90508444%%*/
+/*%%SmartyHeaderCode:27055a39defa8be6c2_09750934%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6d37fd43283a1187ca776376fec59b0468df4d90' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\subir\\subir.tpl',
-      1 => 1513735718,
+      1 => 1513742071,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '47415a39c629b73969_90508444',
+  'nocache_hash' => '27055a39defa8be6c2_09750934',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a39c629bb1aa3_04180109',
+  'unifunc' => 'content_5a39defa963369_33030180',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a39c629bb1aa3_04180109')) {
-function content_5a39c629bb1aa3_04180109 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a39defa963369_33030180')) {
+function content_5a39defa963369_33030180 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '47415a39c629b73969_90508444';
+$_smarty_tpl->properties['nocache_hash'] = '27055a39defa8be6c2_09750934';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -52,27 +52,6 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
             
             <label>Contenido <span style="color: #FF0000">*</span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="contenido" placeholder="Cuenta más de tu sesión" required="" value="" /> 
-			
-			<label>Comunidad <span style="color: #FF0000">*</span></label><br />
-            <select style="margin-bottom: 10px;" name="comunidad">
-            	<option value="1">Andalucía</option>
-            	<option value="2">Aragón</option>
-            	<option value="3">Asturias</option>
-            	<option value="4">Baleares</option>
-            	<option value="5">Canarias</option>
-            	<option value="6">Cantabria</option>
-            	<option value="7">Castilla-La Mancha</option>
-            	<option value="8">Castilla y León</option>
-            	<option value="9">Cataluña</option>
-            	<option value="10">Extremadura</option>
-            	<option value="11">Galicia</option>
-            	<option value="12">La Rioja</option>
-            	<option value="13">Madrid</option>
-            	<option value="14">Murcia</option>
-            	<option value="15">Navarra</option>
-            	<option value="16">País Vasco</option>
-            	<option value="17">Valencia</option>
-            </select><br />
 
             <label>Lugar de pesca <span style="color: #FF0000"></span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="lugar" placeholder="Río, Lago, Embalse, Pantano..." required="" value="" />

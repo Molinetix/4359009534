@@ -1,5 +1,6 @@
 <ul class="nav nav-sidebar">
-  
+  {if isset($smarty.get.view)}
+
   {if isset($smarty.get.view) and $smarty.get.view == 'posts'}
   <li class="active"><a href="#">Visualización de Post</a></li>{/if}
   {if isset($smarty.get.view) and $smarty.get.view == 'buscar'}
@@ -8,11 +9,11 @@
   
   {if isset($smarty.get.view) and $smarty.get.view == 'cuenta' or $smarty.get.view == 'subir'}
 
-  {if $smarty.get.view == 'cuenta'}<li class="active">{else}
+  {if isset($smarty.get.view) and $smarty.get.view == 'cuenta'}<li class="active">{else}
   <li>{/if}<a href="?view=cuenta">Tu cuenta</a></li>
 
 
-  {if $smarty.get.view == 'subir'}<li class="active">{else}
+  {if isset($smarty.get.view) and $smarty.get.view == 'subir'}<li class="active">{else}
   <li>{/if}<a href="?view=subir">Sube tu captura</a></li>
 
   {else}
@@ -60,6 +61,11 @@
   <li class="active"><a href="?view=index&type=16">País Vasco</a></li>{/if}
   {if isset($smarty.get.type) and $smarty.get.type == '17'}
   <li class="active"><a href="?view=index&type=17">Valencia</a></li>{/if}
+
+  {else}
+  {if isset($smarty.get.type) and $smarty.get.type == 'tops'}
+  <li class="active">{else}<li>{/if}<a href="?view=index&type=tops">Los mejores</a></li>
+  {/if}
 
 </ul>
 

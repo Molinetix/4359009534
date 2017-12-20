@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 00:11:21
+<?php /* Smarty version 3.1.27, created on 2017-12-20 04:14:11
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\perfil\perfil.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:279305a39aaa92ff6f9_28591176%%*/
+/*%%SmartyHeaderCode:174445a39e393234394_90758134%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '83b459f6233b4753c71dc9dfa0aad615c34573e5' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\perfil\\perfil.tpl',
-      1 => 1513728678,
+      1 => 1513743242,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '279305a39aaa92ff6f9_28591176',
+  'nocache_hash' => '174445a39e393234394_90758134',
   'variables' => 
   array (
     'existe' => 0,
@@ -30,13 +30,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a39aaa93d3b59_18772715',
+  'unifunc' => 'content_5a39e39335b283_92614870',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a39aaa93d3b59_18772715')) {
-function content_5a39aaa93d3b59_18772715 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a39e39335b283_92614870')) {
+function content_5a39e39335b283_92614870 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '279305a39aaa92ff6f9_28591176';
+$_smarty_tpl->properties['nocache_hash'] = '174445a39e393234394_90758134';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -55,7 +55,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
                 <?php if (isset($_smarty_tpl->tpl_vars['existe']->value)) {?>  
-          <h2 class="sub-header">Pefil de <?php echo $_smarty_tpl->tpl_vars['user']->value['user'];?>
+          <h2 class="sub-header">Perfil de <?php echo $_smarty_tpl->tpl_vars['user']->value['user'];?>
 </h2> 
                   
            <div class="media">

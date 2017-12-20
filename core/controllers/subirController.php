@@ -2,6 +2,7 @@
 
 if(isset($_SESSION['id'],$_SESSION['user'],$_SESSION['email'])){
 	if($_POST){
+		
 			require('core/models/class.Subir.php');
 			$subir = new Subir();
 			$subir->subirPost();

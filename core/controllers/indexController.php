@@ -132,8 +132,13 @@ if($db->rows($sql) > 0){
 
 			$votantes = explode(';',$x['votantes']);
 			$num_votantes = count($votantes) - 1;
+			echo "<script>console.log($num_votantes)</script>";
 
+			if($num_votantes > 0){
 			$media = $x['puntos'] / $num_votantes;
+			}else{
+			$media = 0;
+			}
 
 			$id = $x['dueno'];
 			$prepare_sql->execute();

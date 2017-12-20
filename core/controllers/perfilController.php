@@ -59,8 +59,11 @@ if(isset($_GET['user']) and is_numeric($_GET['user']) and $_GET['user'] >= 1){
 
 			$votantes = explode(';',$p['votantes']);
 			$num_votantes = count($votantes) - 1;
-
+			if($num_votantes <= 0){
+			$media = 0;
+			}else{
 			$media = $p['puntos'] / $num_votantes;
+			}
 
 				$x++;
 				$z = $x % 2;

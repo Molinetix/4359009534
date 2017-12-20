@@ -21,27 +21,6 @@
             
             <label>Contenido <span style="color: #FF0000">*</span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="contenido" placeholder="Cuenta más de tu sesión" required="" value="" /> 
-			
-			<label>Comunidad <span style="color: #FF0000">*</span></label><br />
-            <select style="margin-bottom: 10px;" name="comunidad">
-            	<option value="1">Andalucía</option>
-            	<option value="2">Aragón</option>
-            	<option value="3">Asturias</option>
-            	<option value="4">Baleares</option>
-            	<option value="5">Canarias</option>
-            	<option value="6">Cantabria</option>
-            	<option value="7">Castilla-La Mancha</option>
-            	<option value="8">Castilla y León</option>
-            	<option value="9">Cataluña</option>
-            	<option value="10">Extremadura</option>
-            	<option value="11">Galicia</option>
-            	<option value="12">La Rioja</option>
-            	<option value="13">Madrid</option>
-            	<option value="14">Murcia</option>
-            	<option value="15">Navarra</option>
-            	<option value="16">País Vasco</option>
-            	<option value="17">Valencia</option>
-            </select><br />
 
             <label>Lugar de pesca <span style="color: #FF0000"></span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="lugar" placeholder="Río, Lago, Embalse, Pantano..." required="" value="" />
