@@ -2,20 +2,28 @@
   
   {if isset($smarty.get.view) and $smarty.get.view == 'posts'}
   <li class="active"><a href="#">Visualización de Post</a></li>{/if}
-  {if isset($smarty.get.view) and $smarty.get.view == 'perfil'}
-  <li class="active"><a href="#">Perfil de {$user.user}</a></li>{/if}
-  {if isset($smarty.get.view) and $smarty.get.view == 'cuenta'}
-  <li class="active"><a href="#">Tu Cuenta</a></li>{/if}
   {if isset($smarty.get.view) and $smarty.get.view == 'buscar'}
   <li class="active"><a href="#">Resultado de busqueda</a></li>{/if}
 
+  
+  {if isset($smarty.get.view) and $smarty.get.view == 'cuenta' or $smarty.get.view == 'subir'}
 
+  {if $smarty.get.view == 'cuenta'}<li class="active">{else}
+  <li>{/if}<a href="?view=cuenta">Tu cuenta</a></li>
+
+
+  {if $smarty.get.view == 'subir'}<li class="active">{else}
+  <li>{/if}<a href="?view=subir">Sube tu captura</a></li>
+
+  {else}
   {if isset($smarty.get.type) and $smarty.get.type == 'tops'}
   <li class="active">{else}<li>{/if}<a href="?view=index&type=tops">Los mejores</a></li>
+  {/if}
 
-
+  <!--
   {if !isset($smarty.get.type) and isset($smarty.get.view) and $smarty.get.view == 'index' or (!isset($smarty.get.view))}
   <li class="active">{else}<li>{/if}<a href="?view=index">Inicio</a></li>
+  -->
 
 
   {if isset($smarty.get.type) and $smarty.get.type == '1'}

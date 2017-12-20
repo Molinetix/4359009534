@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 00:05:09
+<?php /* Smarty version 3.1.27, created on 2017-12-20 00:20:37
          compiled from "C:\wamp\www\PHP Avanzado\styles\templates\home\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:64165a39a9358c0143_42655856%%*/
+/*%%SmartyHeaderCode:166145a39acd5c282d5_34527844%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8ba676fd1395a4a3f9573fcbab960fbdab0ebf14' => 
     array (
       0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\home\\index.tpl',
-      1 => 1513728306,
+      1 => 1513729234,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '64165a39a9358c0143_42655856',
+  'nocache_hash' => '166145a39acd5c282d5_34527844',
   'variables' => 
   array (
     'titulo' => 0,
@@ -23,13 +23,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a39a9359d4181_10098197',
+  'unifunc' => 'content_5a39acd5d38280_22211481',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a39a9359d4181_10098197')) {
-function content_5a39a9359d4181_10098197 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a39acd5d38280_22211481')) {
+function content_5a39acd5d38280_22211481 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '64165a39a9358c0143_42655856';
+$_smarty_tpl->properties['nocache_hash'] = '166145a39acd5c282d5_34527844';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -49,6 +49,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
           <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h2>
           <div class="table-responsive">
+          <?php if (isset($_smarty_tpl->tpl_vars['posts']->value)) {?>
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -59,7 +60,6 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
                 </tr>
               </thead>
               <tbody>
-              <?php if (isset($_smarty_tpl->tpl_vars['posts']->value)) {?>
               <?php
 $_from = $_smarty_tpl->tpl_vars['posts']->value;
 if (!is_array($_from) && !is_object($_from)) {
@@ -86,13 +86,13 @@ $foreach_pt_Sav = $_smarty_tpl->tpl_vars['pt'];
 $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
 }
 ?>
-              <?php } else { ?>
-              <tr>
-                  <td>No hay capturas en esta comunidad...</td>
-                </tr>
-              <?php }?>
               </tbody>
             </table>
+            <?php } else { ?>
+              <div class="alert alert-danger" role="alert" style="text-align:center">
+                    Por ahora no hay capturas en esta comunidad.
+              </div>
+            <?php }?>
           </div>
           <?php if (isset($_smarty_tpl->tpl_vars['posts']->value)) {?>
           <div class="btn-group" role="group" aria-label="...">

@@ -10,6 +10,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h2 class="sub-header">{$titulo}</h2>
           <div class="table-responsive">
+          {if isset($posts)}
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -20,7 +21,6 @@
                 </tr>
               </thead>
               <tbody>
-              {if isset($posts)}
               {foreach from=$posts item=pt}
                 <tr>
                   <td><a href="?view=posts&id={$pt.id}">{$pt.titulo}</a></td>
@@ -29,13 +29,13 @@
                   <td style="text-align: center;">0</td>
                 </tr>
               {/foreach}
-              {else}
-              <tr>
-                  <td>No hay capturas en esta comunidad...</td>
-                </tr>
-              {/if}
               </tbody>
             </table>
+            {else}
+              <div class="alert alert-danger" role="alert" style="text-align:center">
+                    Por ahora no hay capturas en esta comunidad.
+              </div>
+            {/if}
           </div>
           {if isset($posts)}
           <div class="btn-group" role="group" aria-label="...">

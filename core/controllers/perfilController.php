@@ -15,7 +15,7 @@ if(isset($_GET['user']) and is_numeric($_GET['user']) and $_GET['user'] >= 1){
 			$pagina = 1;
 		};
 
-		$paginado = 1;
+		$paginado = 5;
 		$inicio = ($pagina - 1) * $paginado;
 
 		//AVATAR
@@ -56,12 +56,18 @@ if(isset($_GET['user']) and is_numeric($_GET['user']) and $_GET['user'] >= 1){
 		$x=0;
 		if($c_post > 0 and $db->rows($posts) > 0){
 			while($p = $db->recorrer($posts)) {
+
+			$votantes = explode(';',$p['votantes']);
+			$num_votantes = count($votantes) - 1;
+
+			$media = $p['puntos'] / $num_votantes;
+
 				$x++;
 				$z = $x % 2;
 				$post[] = array(
 					'id'=>$p['id'],
 					'titulo'=>$p['titulo'],
-					'puntos'=>$p['puntos'],
+					'puntos'=>$media,
 					'z'=>$z
 				);
 			}
