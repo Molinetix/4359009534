@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-30 19:09:22
+<?php /* Smarty version 3.1.27, created on 2017-12-30 19:21:23
          compiled from "C:\wamp\www\pro\styles\templates\overall\menu.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:46055a47e462e8b4f0_87137207%%*/
+/*%%SmartyHeaderCode:284025a47e73316a8f2_32528915%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1b8dff51bbd8b24202160fd9cde9bf8f5818373f' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\overall\\menu.tpl',
-      1 => 1514660956,
+      1 => 1514661189,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '46055a47e462e8b4f0_87137207',
+  'nocache_hash' => '284025a47e73316a8f2_32528915',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a47e4633ca864_81484676',
+  'unifunc' => 'content_5a47e7333371d9_95858864',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a47e4633ca864_81484676')) {
-function content_5a47e4633ca864_81484676 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a47e7333371d9_95858864')) {
+function content_5a47e7333371d9_95858864 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '46055a47e462e8b4f0_87137207';
+$_smarty_tpl->properties['nocache_hash'] = '284025a47e73316a8f2_32528915';
 ?>
 <ul class="nav nav-sidebar">
   <?php if (isset($_GET['view'])) {?>
@@ -39,7 +39,7 @@ $_smarty_tpl->properties['nocache_hash'] = '46055a47e462e8b4f0_87137207';
   <li><?php }?><a href="?view=cuenta">Tu cuenta</a></li>
 
   <?php if (isset($_GET['view']) && $_GET['view'] == 'evento') {?><li class="active"><?php } else { ?>
-  <li><?php }?><a href="?view=cuenta">Crear concurso</a></li>
+  <li><?php }?><a href="?view=evento">Crear evento</a></li>
 
   <?php if (isset($_GET['view']) && $_GET['view'] == 'subir') {?><li class="active"><?php } else { ?>
   <li><?php }?><a href="?view=subir">Sube tu captura</a></li>

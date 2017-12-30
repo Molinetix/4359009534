@@ -1,11 +1,42 @@
-{include 'overall/header.tpl'}
+<?php /* Smarty version 3.1.27, created on 2017-12-30 20:24:31
+         compiled from "C:\wamp\www\pro\styles\templates\eventos\eventos.tpl" */ ?>
+<?php
+/*%%SmartyHeaderCode:43695a47f5ffd5a194_18383502%%*/
+if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '1992bd71d7a375d483281129b07fab1664cc00d0' => 
+    array (
+      0 => 'C:\\wamp\\www\\pro\\styles\\templates\\eventos\\eventos.tpl',
+      1 => 1514665470,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '43695a47f5ffd5a194_18383502',
+  'has_nocache_code' => false,
+  'version' => '3.1.27',
+  'unifunc' => 'content_5a47f5ffda0c35_98929524',
+),false);
+/*/%%SmartyHeaderCode%%*/
+if ($_valid && !is_callable('content_5a47f5ffda0c35_98929524')) {
+function content_5a47f5ffda0c35_98929524 ($_smarty_tpl) {
+
+$_smarty_tpl->properties['nocache_hash'] = '43695a47f5ffd5a194_18383502';
+echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
+?>
+
     <body>
       
-      {include 'overall/nav.tpl'}
+      <?php echo $_smarty_tpl->getSubTemplate ('overall/nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
+?>
+
   <div class="container">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          {include 'overall/menu.tpl'}
+          <?php echo $_smarty_tpl->getSubTemplate ('overall/menu.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
+?>
+
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h2 class="sub-header">Crear evento de pesca</h2>
@@ -17,7 +48,8 @@
             <form action="?view=subir" method="POST" enctype="multipart/form-data"><!-- Explicar -->
             
             <h3>Información general</h3>
-            <input type="hidden" class="form-control" name="creador" required value="{$smarty.session.id}" />
+            <input type="hidden" class="form-control" name="creador" required value="<?php echo $_SESSION['id'];?>
+" />
 
             <label>Organizador <span style="color: #FF0000">*</span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="organizador" placeholder="Ejemplo 1:  Sociedad de Pescadores la Unión, ejemplo 2: Particular" required value="" />   
@@ -104,9 +136,14 @@
       </div>
     </div>      
 
-{include 'overall/footer.tpl'}
-<script>$('#fecha').datepicker('place');</script>
-<script>
+<?php echo $_smarty_tpl->getSubTemplate ('overall/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
+?>
+
+<?php echo '<script'; ?>
+>$('#fecha').datepicker('place');<?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
 
 $(document).ready(function(){
 
@@ -122,6 +159,9 @@ $(document).ready(function(){
       })
     });
 
-</script>
+<?php echo '</script'; ?>
+>
    </body>
-</html>       
+</html>       <?php }
+}
+?>
