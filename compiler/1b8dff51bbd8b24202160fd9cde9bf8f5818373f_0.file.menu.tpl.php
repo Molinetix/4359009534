@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-30 04:36:20
+<?php /* Smarty version 3.1.27, created on 2017-12-30 19:09:22
          compiled from "C:\wamp\www\pro\styles\templates\overall\menu.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:175385a4717c44032e6_20676688%%*/
+/*%%SmartyHeaderCode:46055a47e462e8b4f0_87137207%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1b8dff51bbd8b24202160fd9cde9bf8f5818373f' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\overall\\menu.tpl',
-      1 => 1514608505,
+      1 => 1514660956,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '175385a4717c44032e6_20676688',
+  'nocache_hash' => '46055a47e462e8b4f0_87137207',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a4717c4565729_65362600',
+  'unifunc' => 'content_5a47e4633ca864_81484676',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a4717c4565729_65362600')) {
-function content_5a4717c4565729_65362600 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a47e4633ca864_81484676')) {
+function content_5a47e4633ca864_81484676 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '175385a4717c44032e6_20676688';
+$_smarty_tpl->properties['nocache_hash'] = '46055a47e462e8b4f0_87137207';
 ?>
 <ul class="nav nav-sidebar">
   <?php if (isset($_GET['view'])) {?>
@@ -33,11 +33,13 @@ $_smarty_tpl->properties['nocache_hash'] = '175385a4717c44032e6_20676688';
   <li class="active"><a href="#">Resultado de busqueda</a></li><?php }?>
 
   
-  <?php if (isset($_GET['view']) && $_GET['view'] == 'cuenta' || $_GET['view'] == 'subir' || $_GET['view'] == 'administrar') {?>
+  <?php if (isset($_GET['view']) && $_GET['view'] == 'cuenta' || $_GET['view'] == 'subir' || $_GET['view'] == 'administrar' || $_GET['view'] == 'evento') {?>
 
   <?php if (isset($_GET['view']) && $_GET['view'] == 'cuenta') {?><li class="active"><?php } else { ?>
   <li><?php }?><a href="?view=cuenta">Tu cuenta</a></li>
 
+  <?php if (isset($_GET['view']) && $_GET['view'] == 'evento') {?><li class="active"><?php } else { ?>
+  <li><?php }?><a href="?view=cuenta">Crear concurso</a></li>
 
   <?php if (isset($_GET['view']) && $_GET['view'] == 'subir') {?><li class="active"><?php } else { ?>
   <li><?php }?><a href="?view=subir">Sube tu captura</a></li>

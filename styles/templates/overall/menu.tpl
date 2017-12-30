@@ -7,11 +7,13 @@
   <li class="active"><a href="#">Resultado de busqueda</a></li>{/if}
 
   
-  {if isset($smarty.get.view) and $smarty.get.view == 'cuenta' or $smarty.get.view == 'subir' or $smarty.get.view == 'administrar'}
+  {if isset($smarty.get.view) and $smarty.get.view == 'cuenta' or $smarty.get.view == 'subir' or $smarty.get.view == 'administrar' or $smarty.get.view == 'evento'}
 
   {if isset($smarty.get.view) and $smarty.get.view == 'cuenta'}<li class="active">{else}
   <li>{/if}<a href="?view=cuenta">Tu cuenta</a></li>
 
+  {if isset($smarty.get.view) and $smarty.get.view == 'evento'}<li class="active">{else}
+  <li>{/if}<a href="?view=evento">Crear evento</a></li>
 
   {if isset($smarty.get.view) and $smarty.get.view == 'subir'}<li class="active">{else}
   <li>{/if}<a href="?view=subir">Sube tu captura</a></li>
