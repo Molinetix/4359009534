@@ -33,6 +33,9 @@
                   <th style="width: 80%;">Posts</th>
                   <th style="width: 10%;">Puntos</th>
                   <th style="width: 10%;">Comentarios</th>
+                  {if isset($smarty.session.id) and $smarty.session.id == $id_dueno_perfil}
+                  <th style="width: 10%;">Eliminar</th> 
+                  {/if}
                 </tr>
               </thead>
               <tbody>
@@ -43,6 +46,10 @@
                   <td><a href="?view=posts&id={$pt.id}">{$pt.titulo}</a></td>
                   <td>{$pt.puntos}</td>
                   <td>0</td>
+                  {if isset($smarty.session.id) and $smarty.session.id == $id_dueno_perfil}
+                  <td><button onclick="myFunction('{$pt.id}','{$smarty.session.id}')"><i class="fa fa-trash" title="Eliminar post: {$pt.titulo}"></i></button>
+                  </td> 
+                  {/if}
                 </tr>
                 {/foreach}
                  {else}
@@ -93,8 +100,19 @@
           {/if}
         </div>          
       </div>
-    </div>      
+    </div>
+    <script>
+    function myFunction($id,$nombre) {
+        var txt;
+        var r = confirm("¿Deseas eliminar este post? ¡Se perderán todas las valoraciones y comentarios!");
+        if (r == true) {
 
+            window.location.replace("?view=delete&id_user="+$nombre+"&id_post="+$id+"");
+
+        }
+    }
+    </script>  
 {include 'overall/footer.tpl'}
    </body>
-</html>       
+</html> 
+

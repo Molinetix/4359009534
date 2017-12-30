@@ -1,28 +1,28 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 14:48:36
-         compiled from "C:\wamp\www\PHP Avanzado\styles\templates\subir\subir.tpl" */ ?>
+<?php /* Smarty version 3.1.27, created on 2017-12-20 18:27:47
+         compiled from "C:\wamp\www\pro\styles\templates\subir\subir.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:262605a3a7844c61129_89466963%%*/
+/*%%SmartyHeaderCode:300135a3aaba3071b67_39757237%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '6d37fd43283a1187ca776376fec59b0468df4d90' => 
+    'bb5e5a1b7055559928155e6f2b18de95af89a04d' => 
     array (
-      0 => 'C:\\wamp\\www\\PHP Avanzado\\styles\\templates\\subir\\subir.tpl',
-      1 => 1513744623,
+      0 => 'C:\\wamp\\www\\pro\\styles\\templates\\subir\\subir.tpl',
+      1 => 1513794463,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '262605a3a7844c61129_89466963',
+  'nocache_hash' => '300135a3aaba3071b67_39757237',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a3a7844c9e5c9_14622519',
+  'unifunc' => 'content_5a3aaba30b4c48_09169317',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a3a7844c9e5c9_14622519')) {
-function content_5a3a7844c9e5c9_14622519 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a3aaba30b4c48_09169317')) {
+function content_5a3aaba30b4c48_09169317 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '262605a3a7844c61129_89466963';
+$_smarty_tpl->properties['nocache_hash'] = '300135a3aaba3071b67_39757237';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -39,7 +39,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
 
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="sub-header">Subir post</h2>
+          <h2 class="sub-header">Sube tu captura</h2>
             <!--<div class="alert alert-success" role="alert">...</div>
             <div class="alert alert-info" role="alert">...</div>
             <div class="alert alert-warning" role="alert">...</div>

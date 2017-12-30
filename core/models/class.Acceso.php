@@ -40,6 +40,9 @@ class Acceso {
 					$_SESSION['apellidos'] = $datos['apellidos'];
 					$_SESSION['cambio'] = $datos['cambio'];
 					$_SESSION['ext'] = $datos['ext'];
+					if($datos['admin'] == 1){
+						$_SESSION['admin'] = $datos['admin'];
+					}
 					$_SESSION['online'] = $online;
 
 					if($_POST['session'] == true) { ini_set('session.cookie_lifetime', time() + (60*60*24*2)); }

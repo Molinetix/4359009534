@@ -33,7 +33,7 @@
             </table>
             {else}
               <div class="alert alert-danger" role="alert" style="text-align:center">
-                    Por ahora no hay capturas en esta comunidad.
+                    Por ahora no hay capturas.
               </div>
             {/if}
           </div>

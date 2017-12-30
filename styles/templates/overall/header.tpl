@@ -9,8 +9,8 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Prinick Tutoriales - www.prinick.com</title>
-
+    <title>PescAPP</title>
+    
     <!-- Bootstrap core CSS -->
     <link href="styles/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/css/style.min.css" rel="stylesheet">

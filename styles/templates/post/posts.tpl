@@ -9,7 +9,13 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           {if isset($post)} 
-          <h2 class="sub-header">{$post.titulo}</h2> 
+          <h2 class="sub-header">{$post.titulo}</h2>
+          {if isset($smarty.session.admin) and $post.aprobado == 0}
+            <form action="" method="POST">
+            <button style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px; margin-right:40px;">Validar publicación</button>
+            <button style="background-color: #f44336;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;">Eliminar publicación</button>
+            </form>
+          {/if} 
           
           <!-- Post Principal --> 
           <div class="media">

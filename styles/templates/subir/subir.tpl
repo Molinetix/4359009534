@@ -8,7 +8,7 @@
           {include 'overall/menu.tpl'}
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="sub-header">Subir post</h2>
+          <h2 class="sub-header">Sube tu captura</h2>
             <!--<div class="alert alert-success" role="alert">...</div>
             <div class="alert alert-info" role="alert">...</div>
             <div class="alert alert-warning" role="alert">...</div>

@@ -5,6 +5,7 @@ if(isset($_GET['user']) and is_numeric($_GET['user']) and $_GET['user'] >= 1){
 	$id = intval($_GET['user']);
 	$sql = $db->query("SELECT * FROM users WHERE id='$id'");
 
+
 	$template = new Smarty();
 	if($db->rows($sql) > 0){
 
@@ -89,7 +90,8 @@ if(isset($_GET['user']) and is_numeric($_GET['user']) and $_GET['user'] >= 1){
 			'c_posts' =>$c_post,
 			'image' => $ruta,
 			'estado' => $estado,
-			'c_estado' => $color_estado
+			'c_estado' => $color_estado,
+			'id_dueno_perfil' => $id
 			));	
 	}
 
