@@ -6,7 +6,7 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 	$mode = isset($_GET['mode']) ? $_GET['mode'] : null;
 	$id = intval($_GET['id']);
 	$db = new Conexion();
-	$sql = $db->query("SELECT titulo,content,dueno,votantes,imagenes,aprobado FROM post WHERE id='$id'");
+	$sql = $db->query("SELECT id,titulo,content,dueno,votantes,imagenes,aprobado FROM post WHERE id='$id'");
 
 
 	switch($mode) {

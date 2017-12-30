@@ -22,8 +22,8 @@ if($_POST or ($_SESSION['busqueda'] and isset($_GET['pag']))){
 	}
 	$_SESSION['busqueda'] = $busqueda;
 
-	$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE titulo LIKE '%$busqueda%';");
-	$sql = $db->query("SELECT * FROM post WHERE titulo LIKE '%$busqueda%' ORDER BY id DESC LIMIT $inicio,$paginado;");
+	$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE titulo LIKE '%$busqueda%' and aprobado = 1;");
+	$sql = $db->query("SELECT * FROM post WHERE titulo LIKE '%$busqueda%' and aprobado = 1 ORDER BY id DESC LIMIT $inicio,$paginado;");
 
 	$result = $db->recorrer($cantidad);
 	$result = $result[0];

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-30 04:52:53
+<?php /* Smarty version 3.1.27, created on 2017-12-30 05:47:50
          compiled from "C:\wamp\www\pro\styles\templates\post\posts.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:210425a471ba5020a53_97348180%%*/
+/*%%SmartyHeaderCode:101575a4728868db788_67543181%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a53537a628700c78297de0ce3f07a3a082c70719' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\post\\posts.tpl',
-      1 => 1514609567,
+      1 => 1514612867,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '210425a471ba5020a53_97348180',
+  'nocache_hash' => '101575a4728868db788_67543181',
   'variables' => 
   array (
     'post' => 0,
@@ -30,13 +30,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a471ba50cd920_52144251',
+  'unifunc' => 'content_5a472886993442_45728008',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a471ba50cd920_52144251')) {
-function content_5a471ba50cd920_52144251 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a472886993442_45728008')) {
+function content_5a472886993442_45728008 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '210425a471ba5020a53_97348180';
+$_smarty_tpl->properties['nocache_hash'] = '101575a4728868db788_67543181';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -53,16 +53,29 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
 
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <?php if (isset($_smarty_tpl->tpl_vars['post']->value)) {?> 
+          <?php if (isset($_smarty_tpl->tpl_vars['post']->value)) {?>
+
           <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['post']->value['titulo'];?>
 </h2>
           <?php if (isset($_SESSION['admin']) && $_smarty_tpl->tpl_vars['post']->value['aprobado'] == 0) {?>
-            <form action="" method="POST">
-            <button style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px; margin-right:40px;">Validar publicación</button>
+            <form action="?view=administrar&post=<?php echo $_smarty_tpl->tpl_vars['post']->value['id'];?>
+&accion=1" method="POST">
+            <button style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px; margin-bottom:20px;">Validar publicación</button>
+            </form>
+            <form action="?view=administrar&post=<?php echo $_smarty_tpl->tpl_vars['post']->value['id'];?>
+&accion=0" method="POST">
             <button style="background-color: #f44336;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;">Eliminar publicación</button>
             </form>
+
           <?php }?> 
           
+          <?php if (!isset($_SESSION['admin']) && $_smarty_tpl->tpl_vars['post']->value['aprobado'] == 0) {?>
+            <div class="media">
+                <div class="alert alert-danger" role="alert" style="text-align:center">
+                    <strong>ERROR:</strong> el post solicitado aún no ha sido revisado por ningún administrador.
+                </div>
+            </div>
+          <?php } else { ?>
           <!-- Post Principal --> 
           <div class="media">
               <div class="media-left" style="text-align: center;">
@@ -128,6 +141,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
                 <?php }?>
               </div>
            </div> 
+
            <!-- Post Principal --> 
             
            <!-- Comentario --> 
@@ -143,7 +157,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
               </div>
           </div> 
           <!-- Comentario --> 
-        
+
         <!-- AJAX de comentarios -->    
         <div id="_COMMENTS_">
             <!--<div class="alert alert-warning" style="margin: 15px 0px -10px 0px;background:#d6b62d;" role="alert">Haciendo espacio para tu comentario...</div>-->
@@ -179,8 +193,8 @@ $_smarty_tpl->tpl_vars['x']->first = $_smarty_tpl->tpl_vars['x']->iteration == 1
                     </nav>-->
                 </div>
         <?php }?>   
-        <!-- condición de inciio de sesión -->
 
+        <!-- condición de inciio de sesión -->
         <?php if (isset($_SESSION['user'])) {?>
         <div class="media"> 
             <div class="media-body">
@@ -200,6 +214,7 @@ $_smarty_tpl->tpl_vars['x']->first = $_smarty_tpl->tpl_vars['x']->iteration == 1
                 </div>
             </div>
          <?php }?>
+      <?php }?>
           <?php } else { ?>
             <div class="media">
                 <div class="alert alert-danger" role="alert" style="text-align:center">
@@ -210,7 +225,6 @@ $_smarty_tpl->tpl_vars['x']->first = $_smarty_tpl->tpl_vars['x']->iteration == 1
         </div>          
       </div>
     </div>      
-
 <?php echo $_smarty_tpl->getSubTemplate ('overall/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 

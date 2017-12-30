@@ -8,15 +8,26 @@
           {include 'overall/menu.tpl'}
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          {if isset($post)} 
+          {if isset($post)}
+
           <h2 class="sub-header">{$post.titulo}</h2>
           {if isset($smarty.session.admin) and $post.aprobado == 0}
-            <form action="" method="POST">
-            <button style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px; margin-right:40px;">Validar publicación</button>
+            <form action="?view=administrar&post={$post.id}&accion=1" method="POST">
+            <button style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px; margin-bottom:20px;">Validar publicación</button>
+            </form>
+            <form action="?view=administrar&post={$post.id}&accion=0" method="POST">
             <button style="background-color: #f44336;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;">Eliminar publicación</button>
             </form>
+
           {/if} 
           
+          {if !isset($smarty.session.admin) and $post.aprobado == 0}
+            <div class="media">
+                <div class="alert alert-danger" role="alert" style="text-align:center">
+                    <strong>ERROR:</strong> el post solicitado aún no ha sido revisado por ningún administrador.
+                </div>
+            </div>
+          {else}
           <!-- Post Principal --> 
           <div class="media">
               <div class="media-left" style="text-align: center;">
@@ -65,6 +76,7 @@
                 {/if}
               </div>
            </div> 
+
            <!-- Post Principal --> 
             
            <!-- Comentario --> 
@@ -80,7 +92,7 @@
               </div>
           </div> 
           <!-- Comentario --> 
-        
+
         <!-- AJAX de comentarios -->    
         <div id="_COMMENTS_">
             <!--<div class="alert alert-warning" style="margin: 15px 0px -10px 0px;background:#d6b62d;" role="alert">Haciendo espacio para tu comentario...</div>-->
@@ -111,8 +123,8 @@
                     </nav>-->
                 </div>
         {/if}   
-        <!-- condición de inciio de sesión -->
 
+        <!-- condición de inciio de sesión -->
         {if isset($smarty.session.user)}
         <div class="media"> 
             <div class="media-body">
@@ -132,6 +144,7 @@
                 </div>
             </div>
          {/if}
+      {/if}
           {else}
             <div class="media">
                 <div class="alert alert-danger" role="alert" style="text-align:center">
@@ -142,7 +155,6 @@
         </div>          
       </div>
     </div>      
-
 {include 'overall/footer.tpl'}
     {if isset($smarty.session.user)}
       <script>

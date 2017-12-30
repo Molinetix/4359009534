@@ -49,9 +49,9 @@ if(isset($_GET['user']) and is_numeric($_GET['user']) and $_GET['user'] >= 1){
 			$color_estado = '#00FF00';
 		}
 
-		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE dueno='$id';");
+		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE dueno='$id' and aprobado='1';");
 		$result = $db->recorrer($cantidad);
-		$posts = $db->query("SELECT * FROM post WHERE dueno='$id' ORDER BY id DESC LIMIT $inicio,$paginado;");
+		$posts = $db->query("SELECT * FROM post WHERE dueno='$id' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$c_post = $result[0];
 
 		$x=0;

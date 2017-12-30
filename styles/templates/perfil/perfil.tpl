@@ -55,9 +55,9 @@
                  {else}
                 <tr class="info">
                     {if !isset($smarty.get.pag)}
-                    <td colspan="3" style="text-align: center;">Este usuario no ha creado ningún posts.</td>
+                    <td colspan="4" style="text-align: center;">Este usuario no tiene posts o no han sido validados todavía.</td>
                     {else}
-                    <td colspan="3" style="text-align: center;">No existen más posts.</td>
+                    <td colspan="4" style="text-align: center;">No existen más posts.</td>
                     {/if}
                 </tr>
                 {/if} 

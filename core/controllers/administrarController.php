@@ -3,6 +3,7 @@
 
 if(isset($_SESSION['id'],$_SESSION['user'],$_SESSION['email'],$_SESSION['admin'])){
 
+
 		$template = new Smarty();
 		$type = isset($_GET['type']) ? $_GET['type'] : null;
 		if(isset($_GET['pag']) and is_numeric($_GET['pag']) and $_GET['pag'] >= 1){ 
@@ -64,9 +65,23 @@ if(isset($_SESSION['id'],$_SESSION['user'],$_SESSION['email'],$_SESSION['admin']
 		$db->close();
 		$template->assign('pags', $paginas);
 
-		if($_POST){
+		if(isset($_POST,$_GET['post'],$_GET['accion'])){
 
-			echo "<script>console.log('dentro')</script>;"
+			$id_post = intval($_GET['post']);
+			$accion = intval($_GET['accion']);
+
+			require('core/models/class.Validar.php');
+
+			$validar = new Validar();
+
+			if($accion == 1){
+				$validar->aprobarPost($id_post);
+			}else if($accion == 0){
+				$validar->eliminarPost($id_post);
+			}else{
+				header('location: ?view=index');
+			}
+			
 		}
 
 		$template->display('validar/validar.tpl');

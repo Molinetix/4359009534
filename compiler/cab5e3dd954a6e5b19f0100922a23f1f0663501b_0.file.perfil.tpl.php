@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-30 03:53:05
+<?php /* Smarty version 3.1.27, created on 2017-12-30 05:28:46
          compiled from "C:\wamp\www\pro\styles\templates\perfil\perfil.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:118475a470da1d9a759_08023532%%*/
+/*%%SmartyHeaderCode:125945a47240e225f10_84148528%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cab5e3dd954a6e5b19f0100922a23f1f0663501b' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\perfil\\perfil.tpl',
-      1 => 1514605978,
+      1 => 1514611723,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '118475a470da1d9a759_08023532',
+  'nocache_hash' => '125945a47240e225f10_84148528',
   'variables' => 
   array (
     'existe' => 0,
@@ -31,13 +31,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a470da1e7b6e4_71074116',
+  'unifunc' => 'content_5a47240e302661_76233368',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a470da1e7b6e4_71074116')) {
-function content_5a470da1e7b6e4_71074116 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a47240e302661_76233368')) {
+function content_5a47240e302661_76233368 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '118475a470da1d9a759_08023532';
+$_smarty_tpl->properties['nocache_hash'] = '125945a47240e225f10_84148528';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -128,9 +128,9 @@ $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
                  <?php } else { ?>
                 <tr class="info">
                     <?php if (!isset($_GET['pag'])) {?>
-                    <td colspan="3" style="text-align: center;">Este usuario no ha creado ningún posts.</td>
+                    <td colspan="4" style="text-align: center;">Este usuario no tiene posts o no han sido validados todavía.</td>
                     <?php } else { ?>
-                    <td colspan="3" style="text-align: center;">No existen más posts.</td>
+                    <td colspan="4" style="text-align: center;">No existen más posts.</td>
                     <?php }?>
                 </tr>
                 <?php }?> 
