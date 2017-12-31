@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-30 20:24:31
+<?php /* Smarty version 3.1.27, created on 2017-12-31 02:28:07
          compiled from "C:\wamp\www\pro\styles\templates\eventos\eventos.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:43695a47f5ffd5a194_18383502%%*/
+/*%%SmartyHeaderCode:286745a484b37e46021_48518750%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1992bd71d7a375d483281129b07fab1664cc00d0' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\eventos\\eventos.tpl',
-      1 => 1514665470,
+      1 => 1514687190,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '43695a47f5ffd5a194_18383502',
+  'nocache_hash' => '286745a484b37e46021_48518750',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a47f5ffda0c35_98929524',
+  'unifunc' => 'content_5a484b37e92630_42723423',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a47f5ffda0c35_98929524')) {
-function content_5a47f5ffda0c35_98929524 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a484b37e92630_42723423')) {
+function content_5a484b37e92630_42723423 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '43695a47f5ffd5a194_18383502';
+$_smarty_tpl->properties['nocache_hash'] = '286745a484b37e46021_48518750';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -45,7 +45,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
             <div class="alert alert-warning" role="alert">...</div>
             <div class="alert alert-danger" role="alert">...</div>-->
             <div class="form-signin">
-            <form action="?view=subir" method="POST" enctype="multipart/form-data"><!-- Explicar -->
+            <form action="?view=evento" method="POST"><!-- Explicar -->
             
             <h3>Información general</h3>
             <input type="hidden" class="form-control" name="creador" required value="<?php echo $_SESSION['id'];?>
@@ -55,7 +55,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="organizador" placeholder="Ejemplo 1:  Sociedad de Pescadores la Unión, ejemplo 2: Particular" required value="" />   
 			
 			     <label>Comunidad del evento<span style="color: #FF0000">*</span></label><br />
-            <select style="margin-bottom: 10px;" name="categoria">
+            <select style="margin-bottom: 10px;" name="comunidad">
             	<option value="1">Andalucía</option>
             	<option value="2">Aragón</option>
             	<option value="3">Asturias</option>
@@ -114,10 +114,10 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
             
             <div class="dinamico">
             <label>Inscripción <span style="color: #FF0000"></span></label>
-            <input style="margin-bottom: 10px;" type="int" class="form-control" name="inscripcion" placeholder="€" required min="0" max ="1000" />
+            <input style="margin-bottom: 10px;" type="text" class="form-control" name="inscripcion" placeholder="€" min="0" max ="1000" />
 
             <label>Premios <span style="color: #FF0000"></span></label>
-            <input style="margin-bottom: 10px;" type="text" class="form-control" name="inscripcion" placeholder="Indica los premios" value="" />
+            <input style="margin-bottom: 10px;" type="text" class="form-control" name="premios" placeholder="Indica los premios" value="" />
             </div>
 
            <div class="media">
@@ -129,7 +129,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
             </div>  
                 
             <center><input class="btn btn-primary" type="submit" value="Guardar" style="width: 120px;" /></center>
-              </form>
+            </form>
           </div>
 
         </div>

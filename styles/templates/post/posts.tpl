@@ -3,11 +3,8 @@
               
       {include 'overall/nav.tpl'}
   <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          {include 'overall/menu.tpl'}
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="row" style="padding:3em;">
+        <div class="col-sm-12">
           {if isset($post)}
 
           <h2 class="sub-header">{$post.titulo}</h2>
@@ -78,6 +75,32 @@
            </div> 
 
            <!-- Post Principal --> 
+
+           <!-- condición de inciio de sesión --> 
+            {if isset($smarty.session.user)} 
+                    <div id="_POINTS_">
+                        <nav>
+                            <center>
+                              <ul class="pagination">
+                                {for $x=1 to 10}
+                                <li><a style="cursor:pointer;" onclick="AddPoints({$x});">{$x}</a></li>
+                                {/for}
+                              </ul>
+                            </center>
+                        </nav>
+
+                        <!--<nav>
+                            <center>
+                                  <div class="puntos-agregados">Puntos agregados correctamente</div>
+                            </center>
+                        </nav>
+                        <nav>
+                            <center>
+                                  <div class="puntos-no-agregados">Ya has puntuado antes este post</div>
+                            </center>
+                        </nav>-->
+                    </div>
+            {/if}   
             
            <!-- Comentario --> 
            <div class="media"> 
@@ -98,31 +121,6 @@
             <!--<div class="alert alert-warning" style="margin: 15px 0px -10px 0px;background:#d6b62d;" role="alert">Haciendo espacio para tu comentario...</div>-->
         </div>
         
-        <!-- condición de inciio de sesión --> 
-        {if isset($smarty.session.user)} 
-                <div id="_POINTS_">
-                    <nav>
-                        <center>
-                          <ul class="pagination">
-                            {for $x=1 to 10}
-                            <li><a style="cursor:pointer;" onclick="AddPoints({$x});">{$x}</a></li>
-                            {/for}
-                          </ul>
-                        </center>
-                    </nav>
-
-                    <!--<nav>
-                        <center>
-                              <div class="puntos-agregados">Puntos agregados correctamente</div>
-                        </center>
-                    </nav>
-                    <nav>
-                        <center>
-                              <div class="puntos-no-agregados">Ya has puntuado antes este post</div>
-                        </center>
-                    </nav>-->
-                </div>
-        {/if}   
 
         <!-- condición de inciio de sesión -->
         {if isset($smarty.session.user)}

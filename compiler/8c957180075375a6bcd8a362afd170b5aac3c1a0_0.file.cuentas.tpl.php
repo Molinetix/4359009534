@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 17:54:02
+<?php /* Smarty version 3.1.27, created on 2017-12-31 02:32:51
          compiled from "C:\wamp\www\pro\styles\templates\cuentas\cuentas.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:266835a3aa3badfb545_72357583%%*/
+/*%%SmartyHeaderCode:320575a484c53d25541_86662223%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,24 +9,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8c957180075375a6bcd8a362afd170b5aac3c1a0' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\cuentas\\cuentas.tpl',
-      1 => 1513737882,
+      1 => 1514687567,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '266835a3aa3badfb545_72357583',
+  'nocache_hash' => '320575a484c53d25541_86662223',
   'variables' => 
   array (
     'image' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a3aa3bae95635_64854202',
+  'unifunc' => 'content_5a484c53dd5ec4_32080152',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a3aa3bae95635_64854202')) {
-function content_5a3aa3bae95635_64854202 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a484c53dd5ec4_32080152')) {
+function content_5a484c53dd5ec4_32080152 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '266835a3aa3badfb545_72357583';
+$_smarty_tpl->properties['nocache_hash'] = '320575a484c53d25541_86662223';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -64,6 +64,8 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
               <div class="alert alert-danger" role="alert">No se ha subido el post.</div>
               <?php } elseif ($_GET['error'] == '7') {?>
               <div class="alert alert-danger" role="alert">No se pueden subir estas imágenes.</div>
+              <?php } elseif ($_GET['error'] == '8') {?>
+              <div class="alert alert-danger" role="alert">No se ha podido crear este evento.</div>
               <?php } else { ?>
               <div class="alert alert-danger" role="alert">Solo se aceptan imagenes (jpg,png,jpeg y gif).</div>
               <?php }?>
@@ -74,6 +76,9 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
               <?php }?>
               <?php if ($_GET['success'] == '2') {?>
               <div class="alert alert-success" role="alert">El post se ha subido con éxito y esta a la espera de ser aprobado por un administrador.</div>
+              <?php }?>
+              <?php if ($_GET['success'] == '3') {?>
+              <div class="alert alert-success" role="alert">El evento se ha creado con éxito.</div>
               <?php }?>
             <?php }?>
           <div class="form-signin">

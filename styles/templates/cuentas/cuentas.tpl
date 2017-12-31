@@ -29,6 +29,8 @@
               <div class="alert alert-danger" role="alert">No se ha subido el post.</div>
               {else if $smarty.get.error == '7'}
               <div class="alert alert-danger" role="alert">No se pueden subir estas imágenes.</div>
+              {else if $smarty.get.error == '8'}
+              <div class="alert alert-danger" role="alert">No se ha podido crear este evento.</div>
               {else}
               <div class="alert alert-danger" role="alert">Solo se aceptan imagenes (jpg,png,jpeg y gif).</div>
               {/if}
@@ -39,6 +41,9 @@
               {/if}
               {if $smarty.get.success == '2'}
               <div class="alert alert-success" role="alert">El post se ha subido con éxito y esta a la espera de ser aprobado por un administrador.</div>
+              {/if}
+              {if $smarty.get.success == '3'}
+              <div class="alert alert-success" role="alert">El evento se ha creado con éxito.</div>
               {/if}
             {/if}
           <div class="form-signin">

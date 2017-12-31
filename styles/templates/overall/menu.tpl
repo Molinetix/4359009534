@@ -1,11 +1,13 @@
 <ul class="nav nav-sidebar">
+  
+  <!--
   {if isset($smarty.get.view)}
 
   {if isset($smarty.get.view) and $smarty.get.view == 'posts'}
   <li class="active"><a href="#">Visualización de Post</a></li>{/if}
   {if isset($smarty.get.view) and $smarty.get.view == 'buscar'}
   <li class="active"><a href="#">Resultado de busqueda</a></li>{/if}
-
+  -->
   
   {if isset($smarty.get.view) and $smarty.get.view == 'cuenta' or $smarty.get.view == 'subir' or $smarty.get.view == 'administrar' or $smarty.get.view == 'evento'}
 
@@ -22,16 +24,13 @@
   {if isset($smarty.get.view) and $smarty.get.view == 'administrar'}<li class="active">{else}
   <li>{/if}<a href="?view=administrar">Administrar Posts</a></li>
   {/if}
-
-  {else}
-  {if isset($smarty.get.type) and $smarty.get.type == 'tops'}
-  <li class="active">{else}<li>{/if}<a href="?view=index&type=tops">Los mejores</a></li>
+  
   {/if}
 
   <!--
   {if !isset($smarty.get.type) and isset($smarty.get.view) and $smarty.get.view == 'index' or (!isset($smarty.get.view))}
   <li class="active">{else}<li>{/if}<a href="?view=index">Inicio</a></li>
-  -->
+  
 
 
   {if isset($smarty.get.type) and $smarty.get.type == '1'}
@@ -72,7 +71,7 @@
   {else}
   {if isset($smarty.get.type) and $smarty.get.type == 'tops'}
   <li class="active">{else}<li>{/if}<a href="?view=index&type=tops">Los mejores</a></li>
-  {/if}
+  {/if}-->
 
 </ul>
 

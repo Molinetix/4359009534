@@ -3,11 +3,13 @@
       
       {include 'overall/nav.tpl'}
   <div class="container-fluid">
-      <div class="row">
+      <div class="row" style="padding:3em;">
+      <!--
         <div class="col-sm-3 col-md-2 sidebar">
-          {include 'overall/menu.tpl'}
+
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      -->
+        <div class="col-sm-8">
           <h2 class="sub-header">{$titulo}</h2>
           <div class="table-responsive">
           {if isset($posts)}
@@ -25,7 +27,7 @@
                 <tr>
                   <td><a href="?view=posts&id={$pt.id}">{$pt.titulo}</a></td>
                   <td><a href="?view=perfil&&user={$pt.id_dueno}">{$pt.dueno}</a></td>
-                  <td style="text-align: center;">{$pt.puntos}</td>
+                  <td style="text-align: center;">{$pt.puntos}/10</td>
                   <td style="text-align: center;">0</td>
                 </tr>
               {/foreach}
@@ -80,7 +82,7 @@
           </div>
           {/if}
 
-
+        </div>
           <br>
           <br>
           <style>
@@ -88,7 +90,7 @@
                outline: none;
               }
           </style>
-        
+        <div class="col-sm-4">
         <img name="usaMap" src="styles/images/mapa/mapa.gif" usemap="#m_usaMap" border="0" width="100%">
         <map name="m_usaMap">
             <area alt="" title="Andalucía" href="?view=index&type=1" shape="poly" coords="535,867,635,798,806,780,869,729,806,668,778,612,698,623,622,626,589,588,569,596,545,624,526,653,511,665,494,665,467,662,436,659,412,660,395,674,383,704,391,738" />
@@ -112,6 +114,166 @@
             <area alt="" title="Islas Canarias" href="?view=index&type=5" shape="poly" coords="5,962,433,959,431,806,8,804" />
             <area alt="" title="Islas Baleares" href="?view=index&type=4" shape="poly" coords="1061,444,1067,624,1361,605,1378,408" />
         </map>
+        </div>
+      </div>
+      <div class="row" style="padding:0em 3em 3em 3em;">
+        <div class="col-sm-4">
+          <h2 class="sub-header">Top Carpa</h2>
+        <div class="table-responsive">
+          
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th style="width: 45%;">Fecha</th>
+                  <th style="width: 25%;">Autor</th>
+                  <th style="width: 15%;">kg</th>
+                  <th style="width: 15%;">cm</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <th>1</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Sergio</a></td>
+                  <td style="text-align: center;">23,4kg</td>
+                  <td style="text-align: center;">124cm</td>
+                </tr>
+
+                 <tr>
+                  <th>2</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Edu</a></td>
+                  <td style="text-align: center;">21,2kg</td>
+                  <td style="text-align: center;">115cm</td>
+                </tr>
+
+                <tr>
+                  <th>3</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Fran</a></td>
+                  <td style="text-align: center;">17.8kg</td>
+                  <td style="text-align: center;">109cm</td>
+                </tr>
+              
+              </tbody>
+            </table>
+        </div>
+        </div>
+        <!--     //////////////////////////////////////////////////////   -->
+        <div class="col-sm-4">
+          <h2 class="sub-header">Top Siluro</h2>
+        <div class="table-responsive">
+          
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th style="width: 45%;">Fecha</th>
+                  <th style="width: 25%;">Autor</th>
+                  <th style="width: 15%;">kg</th>
+                  <th style="width: 15%;">cm</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <th>1</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Sergio</a></td>
+                  <td style="text-align: center;">98,4kg</td>
+                  <td style="text-align: center;">224cm</td>
+                </tr>
+
+                 <tr>
+                  <th>2</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Edu</a></td>
+                  <td style="text-align: center;">91,2kg</td>
+                  <td style="text-align: center;">205cm</td>
+                </tr>
+
+                <tr>
+                  <th>3</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Fran</a></td>
+                  <td style="text-align: center;">89kg</td>
+                  <td style="text-align: center;">198cm</td>
+                </tr>
+              
+              </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="col-sm-4" style="background-color: #f5f5f5;border: 1px solid grey; padding-bottom:2em;">
+        <h2 class="sub-header">Eventos</h2>
+        <div class="table-responsive">
+          {if isset($eventos)}
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th style="width: 55%;">Organizador</th>
+                  <th style="width: 25%;">Fecha</th>
+                </tr>
+              </thead>
+              <tbody>
+              {foreach from=$eventos item=pt}
+                <tr>
+                  <td><a href="?view=posts&id={$pt.id_evento}">{$pt.organizador_evento}</a></td>
+                  <td>{$pt.fecha_evento}</td>
+                </tr>
+              {/foreach}
+              </tbody>
+            </table>
+            {else}
+              <div class="alert alert-danger" role="alert" style="text-align:center">
+                    Por ahora no hay eventos en esta comunidad.
+              </div>
+            {/if}
+
+          {if isset($eventos)}
+          <div class="btn-group" role="group" aria-label="...">
+            {if !isset($smarty.get.pag_evt)}
+            <a type="button" href="#" class="btn btn-default" disabled>Anterior</a>
+              {if $pags_evt > 1}
+                {if isset($smarty.get.type)}
+                <a type="button" href="?view=index&type={$smarty.get.type}&pag_evt=2" class="btn btn-default">Siguiente</a>
+                {else if isset($smarty.get.view) and $smarty.get.view == 'buscar'}
+                <a type="button" href="?view=buscar&pag_evt=2" class="btn btn-default">Siguiente</a>
+                {else}
+                <a type="button" href="?view=index&pag_evt=2" class="btn btn-default">Siguiente</a>
+                {/if}
+              {else}
+              <a type="button" href="#" class="btn btn-default" disabled>Siguiente</a>
+              {/if}
+          {else}
+            {if $smarty.get.pag_evt <= 1}
+            <a type="button" href="#" class="btn btn-default" disabled>Anterior</a>
+            {else}
+                {if isset($smarty.get.type)}
+                <a type="button" href="?view=index&type={$smarty.get.type}&pag_evt={$smarty.get.pag_evt - 1}" class="btn btn-default">Anterior</a>
+                  {else if isset($smarty.get.view) and $smarty.get.view == 'buscar'}
+                  <a type="button" href="?view=buscar&pag_evt={$smarty.get.pag_evt - 1}" class="btn btn-default">Anterior</a>
+                  {else}
+                <a type="button" href="?view=index&pag_evt={$smarty.get.pag_evt - 1}" class="btn btn-default">Anterior</a>
+                {/if}
+              {/if}
+
+            {if $pags_evt > 1 and $smarty.get.pag_evt >=1 and $smarty.get.pag_evt < $pags_evt}
+              {if isset($smarty.get.type)}
+          <a type="button" href="?view=index&type={$smarty.get.type}&pag_evt={$smarty.get.pag_evt + 1}" class="btn btn-default">Siguiente</a>
+          {else if isset($smarty.get.view) and $smarty.get.view == 'buscar'}
+                <a type="button" href="?view=buscar&pag_evt={$smarty.get.pag_evt + 1}" class="btn btn-default">Siguiente</a>
+                {else}
+          <a type="button" href="?view=index&pag_evt={$smarty.get.pag_evt + 1}" class="btn btn-default">Siguiente</a>
+          {/if}
+        {else}
+        <a type="button" href="#" class="btn btn-default" disabled>Siguiente</a>
+            {/if}
+          {/if}
+        {/if}
+          </div>
         </div>
       </div>
     </div>      

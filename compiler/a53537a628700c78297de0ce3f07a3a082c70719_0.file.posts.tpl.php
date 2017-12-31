@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-30 05:47:50
+<?php /* Smarty version 3.1.27, created on 2017-12-31 02:44:27
          compiled from "C:\wamp\www\pro\styles\templates\post\posts.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:101575a4728868db788_67543181%%*/
+/*%%SmartyHeaderCode:151845a484f0b613900_27521018%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a53537a628700c78297de0ce3f07a3a082c70719' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\post\\posts.tpl',
-      1 => 1514612867,
+      1 => 1514688264,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '101575a4728868db788_67543181',
+  'nocache_hash' => '151845a484f0b613900_27521018',
   'variables' => 
   array (
     'post' => 0,
@@ -30,13 +30,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a472886993442_45728008',
+  'unifunc' => 'content_5a484f0b6d6c89_44616671',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a472886993442_45728008')) {
-function content_5a472886993442_45728008 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a484f0b6d6c89_44616671')) {
+function content_5a484f0b6d6c89_44616671 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '101575a4728868db788_67543181';
+$_smarty_tpl->properties['nocache_hash'] = '151845a484f0b613900_27521018';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -46,13 +46,8 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
 ?>
 
   <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <?php echo $_smarty_tpl->getSubTemplate ('overall/menu.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
-?>
-
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="row" style="padding:3em;">
+        <div class="col-sm-12">
           <?php if (isset($_smarty_tpl->tpl_vars['post']->value)) {?>
 
           <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['post']->value['titulo'];?>
@@ -143,6 +138,37 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
            </div> 
 
            <!-- Post Principal --> 
+
+           <!-- condición de inciio de sesión --> 
+            <?php if (isset($_SESSION['user'])) {?> 
+                    <div id="_POINTS_">
+                        <nav>
+                            <center>
+                              <ul class="pagination">
+                                <?php $_smarty_tpl->tpl_vars['x'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['x']->step = 1;$_smarty_tpl->tpl_vars['x']->total = (int) ceil(($_smarty_tpl->tpl_vars['x']->step > 0 ? 10+1 - (1) : 1-(10)+1)/abs($_smarty_tpl->tpl_vars['x']->step));
+if ($_smarty_tpl->tpl_vars['x']->total > 0) {
+for ($_smarty_tpl->tpl_vars['x']->value = 1, $_smarty_tpl->tpl_vars['x']->iteration = 1;$_smarty_tpl->tpl_vars['x']->iteration <= $_smarty_tpl->tpl_vars['x']->total;$_smarty_tpl->tpl_vars['x']->value += $_smarty_tpl->tpl_vars['x']->step, $_smarty_tpl->tpl_vars['x']->iteration++) {
+$_smarty_tpl->tpl_vars['x']->first = $_smarty_tpl->tpl_vars['x']->iteration == 1;$_smarty_tpl->tpl_vars['x']->last = $_smarty_tpl->tpl_vars['x']->iteration == $_smarty_tpl->tpl_vars['x']->total;?>
+                                <li><a style="cursor:pointer;" onclick="AddPoints(<?php echo $_smarty_tpl->tpl_vars['x']->value;?>
+);"><?php echo $_smarty_tpl->tpl_vars['x']->value;?>
+</a></li>
+                                <?php }} ?>
+                              </ul>
+                            </center>
+                        </nav>
+
+                        <!--<nav>
+                            <center>
+                                  <div class="puntos-agregados">Puntos agregados correctamente</div>
+                            </center>
+                        </nav>
+                        <nav>
+                            <center>
+                                  <div class="puntos-no-agregados">Ya has puntuado antes este post</div>
+                            </center>
+                        </nav>-->
+                    </div>
+            <?php }?>   
             
            <!-- Comentario --> 
            <div class="media"> 
@@ -163,36 +189,6 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
             <!--<div class="alert alert-warning" style="margin: 15px 0px -10px 0px;background:#d6b62d;" role="alert">Haciendo espacio para tu comentario...</div>-->
         </div>
         
-        <!-- condición de inciio de sesión --> 
-        <?php if (isset($_SESSION['user'])) {?> 
-                <div id="_POINTS_">
-                    <nav>
-                        <center>
-                          <ul class="pagination">
-                            <?php $_smarty_tpl->tpl_vars['x'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['x']->step = 1;$_smarty_tpl->tpl_vars['x']->total = (int) ceil(($_smarty_tpl->tpl_vars['x']->step > 0 ? 10+1 - (1) : 1-(10)+1)/abs($_smarty_tpl->tpl_vars['x']->step));
-if ($_smarty_tpl->tpl_vars['x']->total > 0) {
-for ($_smarty_tpl->tpl_vars['x']->value = 1, $_smarty_tpl->tpl_vars['x']->iteration = 1;$_smarty_tpl->tpl_vars['x']->iteration <= $_smarty_tpl->tpl_vars['x']->total;$_smarty_tpl->tpl_vars['x']->value += $_smarty_tpl->tpl_vars['x']->step, $_smarty_tpl->tpl_vars['x']->iteration++) {
-$_smarty_tpl->tpl_vars['x']->first = $_smarty_tpl->tpl_vars['x']->iteration == 1;$_smarty_tpl->tpl_vars['x']->last = $_smarty_tpl->tpl_vars['x']->iteration == $_smarty_tpl->tpl_vars['x']->total;?>
-                            <li><a style="cursor:pointer;" onclick="AddPoints(<?php echo $_smarty_tpl->tpl_vars['x']->value;?>
-);"><?php echo $_smarty_tpl->tpl_vars['x']->value;?>
-</a></li>
-                            <?php }} ?>
-                          </ul>
-                        </center>
-                    </nav>
-
-                    <!--<nav>
-                        <center>
-                              <div class="puntos-agregados">Puntos agregados correctamente</div>
-                        </center>
-                    </nav>
-                    <nav>
-                        <center>
-                              <div class="puntos-no-agregados">Ya has puntuado antes este post</div>
-                        </center>
-                    </nav>-->
-                </div>
-        <?php }?>   
 
         <!-- condición de inciio de sesión -->
         <?php if (isset($_SESSION['user'])) {?>

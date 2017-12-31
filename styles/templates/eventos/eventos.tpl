@@ -14,7 +14,7 @@
             <div class="alert alert-warning" role="alert">...</div>
             <div class="alert alert-danger" role="alert">...</div>-->
             <div class="form-signin">
-            <form action="?view=subir" method="POST" enctype="multipart/form-data"><!-- Explicar -->
+            <form action="?view=evento" method="POST"><!-- Explicar -->
             
             <h3>Información general</h3>
             <input type="hidden" class="form-control" name="creador" required value="{$smarty.session.id}" />
@@ -23,7 +23,7 @@
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="organizador" placeholder="Ejemplo 1:  Sociedad de Pescadores la Unión, ejemplo 2: Particular" required value="" />   
 			
 			     <label>Comunidad del evento<span style="color: #FF0000">*</span></label><br />
-            <select style="margin-bottom: 10px;" name="categoria">
+            <select style="margin-bottom: 10px;" name="comunidad">
             	<option value="1">Andalucía</option>
             	<option value="2">Aragón</option>
             	<option value="3">Asturias</option>
@@ -82,10 +82,10 @@
             
             <div class="dinamico">
             <label>Inscripción <span style="color: #FF0000"></span></label>
-            <input style="margin-bottom: 10px;" type="int" class="form-control" name="inscripcion" placeholder="€" required min="0" max ="1000" />
+            <input style="margin-bottom: 10px;" type="text" class="form-control" name="inscripcion" placeholder="€" min="0" max ="1000" />
 
             <label>Premios <span style="color: #FF0000"></span></label>
-            <input style="margin-bottom: 10px;" type="text" class="form-control" name="inscripcion" placeholder="Indica los premios" value="" />
+            <input style="margin-bottom: 10px;" type="text" class="form-control" name="premios" placeholder="Indica los premios" value="" />
             </div>
 
            <div class="media">
@@ -97,7 +97,7 @@
             </div>  
                 
             <center><input class="btn btn-primary" type="submit" value="Guardar" style="width: 120px;" /></center>
-              </form>
+            </form>
           </div>
 
         </div>

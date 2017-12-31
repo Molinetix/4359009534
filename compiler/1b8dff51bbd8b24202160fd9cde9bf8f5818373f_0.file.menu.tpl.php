@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-30 19:21:23
+<?php /* Smarty version 3.1.27, created on 2017-12-30 21:26:53
          compiled from "C:\wamp\www\pro\styles\templates\overall\menu.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:284025a47e73316a8f2_32528915%%*/
+/*%%SmartyHeaderCode:49265a48049d5beb25_61823243%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,29 +9,31 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1b8dff51bbd8b24202160fd9cde9bf8f5818373f' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\overall\\menu.tpl',
-      1 => 1514661189,
+      1 => 1514669209,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '284025a47e73316a8f2_32528915',
+  'nocache_hash' => '49265a48049d5beb25_61823243',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a47e7333371d9_95858864',
+  'unifunc' => 'content_5a48049d76e1e8_64206638',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a47e7333371d9_95858864')) {
-function content_5a47e7333371d9_95858864 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a48049d76e1e8_64206638')) {
+function content_5a48049d76e1e8_64206638 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '284025a47e73316a8f2_32528915';
+$_smarty_tpl->properties['nocache_hash'] = '49265a48049d5beb25_61823243';
 ?>
 <ul class="nav nav-sidebar">
+  
+  <!--
   <?php if (isset($_GET['view'])) {?>
 
   <?php if (isset($_GET['view']) && $_GET['view'] == 'posts') {?>
   <li class="active"><a href="#">Visualización de Post</a></li><?php }?>
   <?php if (isset($_GET['view']) && $_GET['view'] == 'buscar') {?>
   <li class="active"><a href="#">Resultado de busqueda</a></li><?php }?>
-
+  -->
   
   <?php if (isset($_GET['view']) && $_GET['view'] == 'cuenta' || $_GET['view'] == 'subir' || $_GET['view'] == 'administrar' || $_GET['view'] == 'evento') {?>
 
@@ -48,16 +50,13 @@ $_smarty_tpl->properties['nocache_hash'] = '284025a47e73316a8f2_32528915';
   <?php if (isset($_GET['view']) && $_GET['view'] == 'administrar') {?><li class="active"><?php } else { ?>
   <li><?php }?><a href="?view=administrar">Administrar Posts</a></li>
   <?php }?>
-
-  <?php } else { ?>
-  <?php if (isset($_GET['type']) && $_GET['type'] == 'tops') {?>
-  <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=tops">Los mejores</a></li>
+  
   <?php }?>
 
   <!--
   <?php if (!isset($_GET['type']) && isset($_GET['view']) && $_GET['view'] == 'index' || (!isset($_GET['view']))) {?>
   <li class="active"><?php } else { ?><li><?php }?><a href="?view=index">Inicio</a></li>
-  -->
+  
 
 
   <?php if (isset($_GET['type']) && $_GET['type'] == '1') {?>
@@ -98,7 +97,7 @@ $_smarty_tpl->properties['nocache_hash'] = '284025a47e73316a8f2_32528915';
   <?php } else { ?>
   <?php if (isset($_GET['type']) && $_GET['type'] == 'tops') {?>
   <li class="active"><?php } else { ?><li><?php }?><a href="?view=index&type=tops">Los mejores</a></li>
-  <?php }?>
+  <?php }?>-->
 
 </ul>
 

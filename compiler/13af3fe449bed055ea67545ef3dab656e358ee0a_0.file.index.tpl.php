@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 17:51:13
+<?php /* Smarty version 3.1.27, created on 2017-12-31 03:40:36
          compiled from "C:\wamp\www\pro\styles\templates\home\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:313985a3aa31127cdf1_38751369%%*/
+/*%%SmartyHeaderCode:320905a485c341f1ee7_29222049%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,27 +9,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '13af3fe449bed055ea67545ef3dab656e358ee0a' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\home\\index.tpl',
-      1 => 1513781256,
+      1 => 1514691633,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '313985a3aa31127cdf1_38751369',
+  'nocache_hash' => '320905a485c341f1ee7_29222049',
   'variables' => 
   array (
     'titulo' => 0,
     'posts' => 0,
     'pt' => 0,
     'pags' => 0,
+    'eventos' => 0,
+    'pags_evt' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a3aa3113a8b15_36492605',
+  'unifunc' => 'content_5a485c34395e03_89778785',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a3aa3113a8b15_36492605')) {
-function content_5a3aa3113a8b15_36492605 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a485c34395e03_89778785')) {
+function content_5a485c34395e03_89778785 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '313985a3aa31127cdf1_38751369';
+$_smarty_tpl->properties['nocache_hash'] = '320905a485c341f1ee7_29222049';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -39,13 +41,13 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
 ?>
 
   <div class="container-fluid">
-      <div class="row">
+      <div class="row" style="padding:3em;">
+      <!--
         <div class="col-sm-3 col-md-2 sidebar">
-          <?php echo $_smarty_tpl->getSubTemplate ('overall/menu.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
-?>
 
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      -->
+        <div class="col-sm-8">
           <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h2>
           <div class="table-responsive">
@@ -79,7 +81,7 @@ $foreach_pt_Sav = $_smarty_tpl->tpl_vars['pt'];
 "><?php echo $_smarty_tpl->tpl_vars['pt']->value['dueno'];?>
 </a></td>
                   <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['pt']->value['puntos'];?>
-</td>
+/10</td>
                   <td style="text-align: center;">0</td>
                 </tr>
               <?php
@@ -146,7 +148,7 @@ $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
           </div>
           <?php }?>
 
-
+        </div>
           <br>
           <br>
           <style>
@@ -154,7 +156,7 @@ $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
                outline: none;
               }
           </style>
-        
+        <div class="col-sm-4">
         <img name="usaMap" src="styles/images/mapa/mapa.gif" usemap="#m_usaMap" border="0" width="100%">
         <map name="m_usaMap">
             <area alt="" title="Andalucía" href="?view=index&type=1" shape="poly" coords="535,867,635,798,806,780,869,729,806,668,778,612,698,623,622,626,589,588,569,596,545,624,526,653,511,665,494,665,467,662,436,659,412,660,395,674,383,704,391,738" />
@@ -178,6 +180,191 @@ $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
             <area alt="" title="Islas Canarias" href="?view=index&type=5" shape="poly" coords="5,962,433,959,431,806,8,804" />
             <area alt="" title="Islas Baleares" href="?view=index&type=4" shape="poly" coords="1061,444,1067,624,1361,605,1378,408" />
         </map>
+        </div>
+      </div>
+      <div class="row" style="padding:0em 3em 3em 3em;">
+        <div class="col-sm-4">
+          <h2 class="sub-header">Top Carpa</h2>
+        <div class="table-responsive">
+          
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th style="width: 45%;">Fecha</th>
+                  <th style="width: 25%;">Autor</th>
+                  <th style="width: 15%;">kg</th>
+                  <th style="width: 15%;">cm</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <th>1</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Sergio</a></td>
+                  <td style="text-align: center;">23,4kg</td>
+                  <td style="text-align: center;">124cm</td>
+                </tr>
+
+                 <tr>
+                  <th>2</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Edu</a></td>
+                  <td style="text-align: center;">21,2kg</td>
+                  <td style="text-align: center;">115cm</td>
+                </tr>
+
+                <tr>
+                  <th>3</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Fran</a></td>
+                  <td style="text-align: center;">17.8kg</td>
+                  <td style="text-align: center;">109cm</td>
+                </tr>
+              
+              </tbody>
+            </table>
+        </div>
+        </div>
+        <!--     //////////////////////////////////////////////////////   -->
+        <div class="col-sm-4">
+          <h2 class="sub-header">Top Siluro</h2>
+        <div class="table-responsive">
+          
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th style="width: 45%;">Fecha</th>
+                  <th style="width: 25%;">Autor</th>
+                  <th style="width: 15%;">kg</th>
+                  <th style="width: 15%;">cm</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <th>1</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Sergio</a></td>
+                  <td style="text-align: center;">98,4kg</td>
+                  <td style="text-align: center;">224cm</td>
+                </tr>
+
+                 <tr>
+                  <th>2</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Edu</a></td>
+                  <td style="text-align: center;">91,2kg</td>
+                  <td style="text-align: center;">205cm</td>
+                </tr>
+
+                <tr>
+                  <th>3</th>
+                  <td><a href="?view=posts&id=11">23/6/2017</a></td>
+                  <td><a href="?view=perfil&&user=1">Fran</a></td>
+                  <td style="text-align: center;">89kg</td>
+                  <td style="text-align: center;">198cm</td>
+                </tr>
+              
+              </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="col-sm-4" style="background-color: #f5f5f5;border: 1px solid grey; padding-bottom:2em;">
+        <h2 class="sub-header">Eventos</h2>
+        <div class="table-responsive">
+          <?php if (isset($_smarty_tpl->tpl_vars['eventos']->value)) {?>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th style="width: 55%;">Organizador</th>
+                  <th style="width: 25%;">Fecha</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+$_from = $_smarty_tpl->tpl_vars['eventos']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['pt'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['pt']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['pt']->value) {
+$_smarty_tpl->tpl_vars['pt']->_loop = true;
+$foreach_pt_Sav = $_smarty_tpl->tpl_vars['pt'];
+?>
+                <tr>
+                  <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['pt']->value['id_evento'];?>
+"><?php echo $_smarty_tpl->tpl_vars['pt']->value['organizador_evento'];?>
+</a></td>
+                  <td><?php echo $_smarty_tpl->tpl_vars['pt']->value['fecha_evento'];?>
+</td>
+                </tr>
+              <?php
+$_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
+}
+?>
+              </tbody>
+            </table>
+            <?php } else { ?>
+              <div class="alert alert-danger" role="alert" style="text-align:center">
+                    Por ahora no hay eventos en esta comunidad.
+              </div>
+            <?php }?>
+
+          <?php if (isset($_smarty_tpl->tpl_vars['eventos']->value)) {?>
+          <div class="btn-group" role="group" aria-label="...">
+            <?php if (!isset($_GET['pag_evt'])) {?>
+            <a type="button" href="#" class="btn btn-default" disabled>Anterior</a>
+              <?php if ($_smarty_tpl->tpl_vars['pags_evt']->value > 1) {?>
+                <?php if (isset($_GET['type'])) {?>
+                <a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
+&pag_evt=2" class="btn btn-default">Siguiente</a>
+                <?php } elseif (isset($_GET['view']) && $_GET['view'] == 'buscar') {?>
+                <a type="button" href="?view=buscar&pag_evt=2" class="btn btn-default">Siguiente</a>
+                <?php } else { ?>
+                <a type="button" href="?view=index&pag_evt=2" class="btn btn-default">Siguiente</a>
+                <?php }?>
+              <?php } else { ?>
+              <a type="button" href="#" class="btn btn-default" disabled>Siguiente</a>
+              <?php }?>
+          <?php } else { ?>
+            <?php if ($_GET['pag_evt'] <= 1) {?>
+            <a type="button" href="#" class="btn btn-default" disabled>Anterior</a>
+            <?php } else { ?>
+                <?php if (isset($_GET['type'])) {?>
+                <a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
+&pag_evt=<?php echo $_GET['pag_evt']-1;?>
+" class="btn btn-default">Anterior</a>
+                  <?php } elseif (isset($_GET['view']) && $_GET['view'] == 'buscar') {?>
+                  <a type="button" href="?view=buscar&pag_evt=<?php echo $_GET['pag_evt']-1;?>
+" class="btn btn-default">Anterior</a>
+                  <?php } else { ?>
+                <a type="button" href="?view=index&pag_evt=<?php echo $_GET['pag_evt']-1;?>
+" class="btn btn-default">Anterior</a>
+                <?php }?>
+              <?php }?>
+
+            <?php if ($_smarty_tpl->tpl_vars['pags_evt']->value > 1 && $_GET['pag_evt'] >= 1 && $_GET['pag_evt'] < $_smarty_tpl->tpl_vars['pags_evt']->value) {?>
+              <?php if (isset($_GET['type'])) {?>
+          <a type="button" href="?view=index&type=<?php echo $_GET['type'];?>
+&pag_evt=<?php echo $_GET['pag_evt']+1;?>
+" class="btn btn-default">Siguiente</a>
+          <?php } elseif (isset($_GET['view']) && $_GET['view'] == 'buscar') {?>
+                <a type="button" href="?view=buscar&pag_evt=<?php echo $_GET['pag_evt']+1;?>
+" class="btn btn-default">Siguiente</a>
+                <?php } else { ?>
+          <a type="button" href="?view=index&pag_evt=<?php echo $_GET['pag_evt']+1;?>
+" class="btn btn-default">Siguiente</a>
+          <?php }?>
+        <?php } else { ?>
+        <a type="button" href="#" class="btn btn-default" disabled>Siguiente</a>
+            <?php }?>
+          <?php }?>
+        <?php }?>
+          </div>
         </div>
       </div>
     </div>      
