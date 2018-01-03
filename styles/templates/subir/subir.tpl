@@ -46,6 +46,20 @@
             <label>Lugar de pesca <span style="color: #FF0000"></span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="lugar" placeholder="Río, Lago, Embalse, Pantano..." required="" value="" />
 
+            <label>Tipo de pez <span style="color: #FF0000">*</span></label><br />
+            <select style="margin-bottom: 10px;" name="tipo_pez">
+              <option value="carpa">Carpa</option>
+              <option value="siluro">Siluro</option>
+              <option value="bass">Black Bass</option>
+              <option value="lucio">Lucio</option>
+              <option value="lucioperca">Lucioperca</option>
+              <option value="barbo">Barbo</option>
+              <option value="carpin">Carpín</option>
+              <option value="escardino">Escardino</option>
+              <option value="tenca">Tenca</option>
+              <option value="0">Otros</option>
+            </select><br />
+
             <label>Peso (kg)<span style="color: #FF0000">*</span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="peso" placeholder="Ejemplo: 25.5kg" required="" value="" />  
 

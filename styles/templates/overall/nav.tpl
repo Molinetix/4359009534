@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">PescAPP</a>
+      <a class="navbar-brand" href="?view=index">PescAPP</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -17,12 +17,12 @@
         {else}
         <li>{/if}<a href="?view=index">Inicio</a></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search" action="?view=buscar" method="POST">
+      <!--<form class="navbar-form navbar-left" role="search" action="?view=buscar" method="POST">
         <div class="form-group">
           <input type="text" class="form-control" name="busqueda" placeholder="Buscar un post..." size="50">
         </div>
         <button type="submit" class="btn btn-default">Buscar</button>
-      </form>
+      </form>-->
       <ul class="nav navbar-nav navbar-right">
       {if isset($smarty.session.user)}
                 <li class="dropdown">

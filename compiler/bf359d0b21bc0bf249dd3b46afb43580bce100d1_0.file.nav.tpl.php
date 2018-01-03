@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 17:51:13
+<?php /* Smarty version 3.1.27, created on 2018-01-03 04:21:50
          compiled from "C:\wamp\www\pro\styles\templates\overall\nav.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:165325a3aa3114d12b6_54198699%%*/
+/*%%SmartyHeaderCode:50805a4c5a5e8ec5d7_50563832%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bf359d0b21bc0bf249dd3b46afb43580bce100d1' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\overall\\nav.tpl',
-      1 => 1513380794,
+      1 => 1514953307,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '165325a3aa3114d12b6_54198699',
+  'nocache_hash' => '50805a4c5a5e8ec5d7_50563832',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a3aa311525975_54351346',
+  'unifunc' => 'content_5a4c5a5e964841_21792744',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a3aa311525975_54351346')) {
-function content_5a3aa311525975_54351346 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4c5a5e964841_21792744')) {
+function content_5a4c5a5e964841_21792744 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '165325a3aa3114d12b6_54198699';
+$_smarty_tpl->properties['nocache_hash'] = '50805a4c5a5e8ec5d7_50563832';
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -33,7 +33,7 @@ $_smarty_tpl->properties['nocache_hash'] = '165325a3aa3114d12b6_54198699';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">PescAPP</a>
+      <a class="navbar-brand" href="?view=index">PescAPP</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -43,12 +43,12 @@ $_smarty_tpl->properties['nocache_hash'] = '165325a3aa3114d12b6_54198699';
         <?php } else { ?>
         <li><?php }?><a href="?view=index">Inicio</a></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search" action="?view=buscar" method="POST">
+      <!--<form class="navbar-form navbar-left" role="search" action="?view=buscar" method="POST">
         <div class="form-group">
           <input type="text" class="form-control" name="busqueda" placeholder="Buscar un post..." size="50">
         </div>
         <button type="submit" class="btn btn-default">Buscar</button>
-      </form>
+      </form>-->
       <ul class="nav navbar-nav navbar-right">
       <?php if (isset($_SESSION['user'])) {?>
                 <li class="dropdown">

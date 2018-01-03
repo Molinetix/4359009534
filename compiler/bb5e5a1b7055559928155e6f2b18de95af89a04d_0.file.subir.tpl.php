@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 18:27:47
+<?php /* Smarty version 3.1.27, created on 2018-01-03 07:50:03
          compiled from "C:\wamp\www\pro\styles\templates\subir\subir.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:300135a3aaba3071b67_39757237%%*/
+/*%%SmartyHeaderCode:15205a4c8b2b1b0790_06627616%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bb5e5a1b7055559928155e6f2b18de95af89a04d' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\subir\\subir.tpl',
-      1 => 1513794463,
+      1 => 1514953627,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '300135a3aaba3071b67_39757237',
+  'nocache_hash' => '15205a4c8b2b1b0790_06627616',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a3aaba30b4c48_09169317',
+  'unifunc' => 'content_5a4c8b2b1eef88_52615971',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a3aaba30b4c48_09169317')) {
-function content_5a3aaba30b4c48_09169317 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4c8b2b1eef88_52615971')) {
+function content_5a4c8b2b1eef88_52615971 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '300135a3aaba3071b67_39757237';
+$_smarty_tpl->properties['nocache_hash'] = '15205a4c8b2b1b0790_06627616';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -76,6 +76,20 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
 
             <label>Lugar de pesca <span style="color: #FF0000"></span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="lugar" placeholder="Río, Lago, Embalse, Pantano..." required="" value="" />
+
+            <label>Tipo de pez <span style="color: #FF0000">*</span></label><br />
+            <select style="margin-bottom: 10px;" name="tipo_pez">
+              <option value="carpa">Carpa</option>
+              <option value="siluro">Siluro</option>
+              <option value="bass">Black Bass</option>
+              <option value="lucio">Lucio</option>
+              <option value="lucioperca">Lucioperca</option>
+              <option value="barbo">Barbo</option>
+              <option value="carpin">Carpín</option>
+              <option value="escardino">Escardino</option>
+              <option value="tenca">Tenca</option>
+              <option value="0">Otros</option>
+            </select><br />
 
             <label>Peso (kg)<span style="color: #FF0000">*</span></label>
             <input style="margin-bottom: 10px;" type="text" class="form-control" name="peso" placeholder="Ejemplo: 25.5kg" required="" value="" />  
