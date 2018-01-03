@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-31 02:44:27
+<?php /* Smarty version 3.1.27, created on 2018-01-03 15:36:23
          compiled from "C:\wamp\www\pro\styles\templates\post\posts.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:151845a484f0b613900_27521018%%*/
+/*%%SmartyHeaderCode:137655a4cf877dae991_82783725%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a53537a628700c78297de0ce3f07a3a082c70719' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\post\\posts.tpl',
-      1 => 1514688264,
+      1 => 1514993780,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '151845a484f0b613900_27521018',
+  'nocache_hash' => '137655a4cf877dae991_82783725',
   'variables' => 
   array (
     'post' => 0,
@@ -26,17 +26,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'imagencm' => 0,
     'imagen1' => 0,
     'imagen2' => 0,
+    'vota' => 0,
     'x' => 0,
+    'coment' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a484f0b6d6c89_44616671',
+  'unifunc' => 'content_5a4cf877e8c9c1_90063577',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a484f0b6d6c89_44616671')) {
-function content_5a484f0b6d6c89_44616671 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4cf877e8c9c1_90063577')) {
+function content_5a4cf877e8c9c1_90063577 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '151845a484f0b613900_27521018';
+$_smarty_tpl->properties['nocache_hash'] = '137655a4cf877dae991_82783725';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -140,7 +142,8 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
            <!-- Post Principal --> 
 
            <!-- condición de inciio de sesión --> 
-            <?php if (isset($_SESSION['user'])) {?> 
+            <?php if (isset($_SESSION['user'])) {?>
+              <?php if ($_smarty_tpl->tpl_vars['vota']->value == 0) {?> 
                     <div id="_POINTS_">
                         <nav>
                             <center>
@@ -168,21 +171,51 @@ $_smarty_tpl->tpl_vars['x']->first = $_smarty_tpl->tpl_vars['x']->iteration == 1
                             </center>
                         </nav>-->
                     </div>
+                <?php } else { ?>
+                <div class="media">
+                <div class="alert alert-success" role="alert" style="text-align:center">
+                    ¡Ya has valorado esta captura!
+                </div>
+            </div>
+                <?php }?>
             <?php }?>   
             
            <!-- Comentario --> 
-           <div class="media"> 
+           <div class="media">
+           <?php if (isset($_smarty_tpl->tpl_vars['coment']->value)) {?> 
               <div class="media-body comun-post">
-                Esto es un comentario
+                <?php if (isset($_SESSION['user'])) {?>
+                <span style="float:left;background-color:white; border-bottom-right-radius: 5em; border-right: 1px solid black;border-bottom: 1px solid black; padding-left:3em; padding-right:2em;"><span style="margin-right: 2em;"><i class="fa fa-pencil" title="editar" aria-hidden="true"></i></span><i class="fa fa-trash" title="eliminar" aria-hidden="true"></i></span><br/>
+                <?php }?>
+                <span style="padding: 5px 7px 5px 5px;">Esto es un comentario</span>
               </div> 
                <div class="media-right" style="text-align: center;">
                 <a href="?view=perfil&user=ID">
-                    <img class="media-object" src="uploads/avatar/user.png" width="80" height="80" />
+                    <img class="media-object" src="uploads/avatar/user.png" width="40" height="40" style="border-radius: 5em;"/>
                 </a>
                 <small><strong>Usuario</strong> <br /> <span style="color: #FF0000">Offline</span></small>
               </div>
           </div> 
-          <!-- Comentario --> 
+          <!-- Comentario -->
+          <!-- Respuesta comentario --> 
+          <div class="media">
+                <div class="media-left" style="text-align: center;">
+                <a href="?view=perfil&user=ID">
+                    <img class="media-object" src="uploads/avatar/user.png" width="40" height="40" style="border-radius: 5em;"/>
+                </a>
+                <small><strong>Usuario</strong> <br /> <span style="color: #FF0000">Offline</span></small>
+              </div>
+              <div class="media-body answer-post">
+                <?php if (isset($_SESSION['user'])) {?>
+                <span style="float:right;background-color:white; border-bottom-left-radius: 5em; border-left: 1px solid black;border-bottom: 1px solid black; padding-left:3em; padding-right:2em;"><span style="margin-right: 2em;"><i class="fa fa-pencil" title="editar" aria-hidden="true"></i></span><i class="fa fa-trash" title="eliminar" aria-hidden="true"></i></span><br/>
+                <?php }?>
+                <span style="padding: 5px 7px 5px 5px;"><span style="color:blue;">@Usuario</span> Esto es una respuesta de un comentario</span>
+              </div> 
+          </div> 
+          <!-- Respuesta comentario -->
+          <?php } else { ?>
+          <div class="alert alert-warning" style="margin: 15px 0px -10px 0px;background:#d6b62d;" role="alert">No hay comentarios para esta captura.</div>
+          <?php }?>
 
         <!-- AJAX de comentarios -->    
         <div id="_COMMENTS_">

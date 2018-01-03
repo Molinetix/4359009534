@@ -5,7 +5,7 @@
   <div class="container-fluid">
       <div class="row" style="padding:3em;">
         <div class="col-sm-12">
-
+          {if isset($tipo)}
           <h2 class="sub-header">{$tipo}</h2>
 
           <!-- Post Principal --> 
@@ -66,7 +66,18 @@
                 </div>
             </div>
          {/if}
-        </div>          
+        </div>
+        {else}
+        <div class="media">
+              <div class="media-left" style="text-align: center;">
+              </div>
+              <div class="media-body principal-post">
+                <div class="alert alert-warning" role="alert" style="text-align:center">
+                    Este evento no existe...
+                </div> 
+              </div>
+           </div> 
+        {/if}         
       </div>
     </div>      
 {include 'overall/footer.tpl'}

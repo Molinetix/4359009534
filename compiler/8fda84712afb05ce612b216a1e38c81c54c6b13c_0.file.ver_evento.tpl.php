@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2018-01-03 07:37:41
+<?php /* Smarty version 3.1.27, created on 2018-01-03 07:58:22
          compiled from "C:\wamp\www\pro\styles\templates\eventos\ver_evento.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:200195a4c8845b5fdb3_24444251%%*/
+/*%%SmartyHeaderCode:78655a4c8d1ef26972_34252323%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8fda84712afb05ce612b216a1e38c81c54c6b13c' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\eventos\\ver_evento.tpl',
-      1 => 1514965058,
+      1 => 1514966299,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '200195a4c8845b5fdb3_24444251',
+  'nocache_hash' => '78655a4c8d1ef26972_34252323',
   'variables' => 
   array (
     'tipo' => 0,
@@ -35,13 +35,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a4c8845be94c7_72213219',
+  'unifunc' => 'content_5a4c8d1f060201_05293199',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a4c8845be94c7_72213219')) {
-function content_5a4c8845be94c7_72213219 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4c8d1f060201_05293199')) {
+function content_5a4c8d1f060201_05293199 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '200195a4c8845b5fdb3_24444251';
+$_smarty_tpl->properties['nocache_hash'] = '78655a4c8d1ef26972_34252323';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -53,7 +53,7 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
   <div class="container-fluid">
       <div class="row" style="padding:3em;">
         <div class="col-sm-12">
-
+          <?php if (isset($_smarty_tpl->tpl_vars['tipo']->value)) {?>
           <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['tipo']->value;?>
 </h2>
 
@@ -130,7 +130,18 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
                 </div>
             </div>
          <?php }?>
-        </div>          
+        </div>
+        <?php } else { ?>
+        <div class="media">
+              <div class="media-left" style="text-align: center;">
+              </div>
+              <div class="media-body principal-post">
+                <div class="alert alert-warning" role="alert" style="text-align:center">
+                    Este evento no existe...
+                </div> 
+              </div>
+           </div> 
+        <?php }?>         
       </div>
     </div>      
 <?php echo $_smarty_tpl->getSubTemplate ('overall/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);

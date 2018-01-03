@@ -6,7 +6,8 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 	$mode = isset($_GET['mode']) ? $_GET['mode'] : null;
 	$id = intval($_GET['id']);
 	$db = new Conexion();
-	$sql = $db->query("SELECT id,titulo,content,dueno,votantes,imagenes,aprobado FROM post WHERE id='$id'");
+	$sql = $db->query("SELECT id,titulo,content,dueno,votantes,imagenes,aprobado FROM post WHERE id='$id';");
+	$sql3 = $db->query("SELECT id,id_dueno_coment,id_post,id_respuesta,comentario FROM comentarios WHERE id_post='$id';");
 
 
 	switch($mode) {
@@ -41,6 +42,19 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 		case 'comentarios':
 			if($_POST and isset($_SESSION['user'])){
 				//Codigo comentarios
+				$sql4 = $db->query("");
+
+			} else {
+				$db->liberar($sql);
+				$db->close();
+				header('location: ?view=posts&id=' . $id);
+				exit;
+			}
+		break;
+		case 'editar':
+			if($_POST and isset($_SESSION['user'])){
+				//Codigo comentarios
+				
 
 			} else {
 				$db->liberar($sql);
@@ -88,6 +102,17 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 		$imagenes = ['','','',''];
 		}
 
+		$busca_votantes = explode(';',$post['votantes']);
+
+		if(isset($_SESSION['id'])){
+			if(in_array($_SESSION['id'], $busca_votantes)){
+				$ha_votado = 1;
+			}else{
+				$ha_votado = 0;
+			}
+		}else{
+			$ha_votado = 0;
+		}
 
 		
 		$template->assign(array(
@@ -100,13 +125,30 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 			'imagenkg'=>$imagenes[0],
 			'imagencm' => $imagenes[1],
 			'imagen1' => $imagenes[2],
-			'imagen2' =>$imagenes[3]
+			'imagen2' =>$imagenes[3],
+			'vota' => $ha_votado
 			));
 
 		$db->liberar($sql2);
 	}
 
-	$db->liberar($sql);
+
+	//Seleccionamos los comentarios
+	if($db->rows($sql3) > 0){
+
+		$comentario = $db->recorrer($sql3);
+
+		$template->assign(array(
+			'id' => $comentario['id'],
+			'id_dueno_coment' => $comentario['id_dueno_coment'],
+			'id_post' => $comentario['id_post'],
+			'nombre_respuesta' => $comentario['id_respuesta'],
+			'coment' => $comentario['comentario']
+			));
+
+	}
+
+	$db->liberar($sql,$sql3);
 	$db->close();
 	$template->display('post/posts.tpl');
 }else{
