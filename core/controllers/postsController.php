@@ -7,7 +7,7 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 	$id = intval($_GET['id']);
 	$db = new Conexion();
 	$sql = $db->query("SELECT id,titulo,content,dueno,votantes,imagenes,aprobado FROM post WHERE id='$id';");
-	$sql3 = $db->query("SELECT id,id_dueno_coment,id_post,id_respuesta,comentario FROM comentarios WHERE id_post='$id';");
+	$sql3 = $db->query("SELECT id,id_dueno_coment,id_post,comentario FROM comentarios WHERE id_post='$id';");
 
 
 	switch($mode) {
@@ -40,11 +40,20 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 			}
 		break;
 		case 'comentarios':
-			if($_POST and isset($_SESSION['user'])){
+			if(isset($_POST['comentario']) and $_POST['comentario']!='' and isset($_SESSION['user'])){
+				$id_user = $_SESSION['id'];
+				$contenido_coment = $_POST['comentario'];
 				//Codigo comentarios
-				$sql4 = $db->query("");
+				$sql4 = $db->query("INSERT INTO comentarios (id_dueno_coment,id_post,comentario) values ('$id_user','$id','$contenido_coment');");
+
+				if($db->affected_rows > 0){
+					echo 1;
+					}else{
+					echo 2;
+					}
 
 			} else {
+				echo 3;
 				$db->liberar($sql);
 				$db->close();
 				header('location: ?view=posts&id=' . $id);
@@ -136,17 +145,35 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 	//Seleccionamos los comentarios
 	if($db->rows($sql3) > 0){
 
-		$comentario = $db->recorrer($sql3);
+		while($comentario = $db->recorrer($sql3)){
 
-		$template->assign(array(
-			'id' => $comentario['id'],
-			'id_dueno_coment' => $comentario['id_dueno_coment'],
-			'id_post' => $comentario['id_post'],
-			'nombre_respuesta' => $comentario['id_respuesta'],
-			'coment' => $comentario['comentario']
-			));
+		$id_user = $comentario['id_dueno_coment'];
+		$sql2 = $db->query("SELECT user, online, ext FROM users WHERE id='$id_user';");
+		$info_usuario = $db->recorrer($sql2);
 
-	}
+		if($info_usuario['online'] <= time()){
+			$estado = 'Offline';
+			$color_estado = '#FF0000';
+		}else{
+			$estado = 'Online';
+			$color_estado = '#00FF00';
+		}
+
+
+			$comentarios[] = array(
+				'id' => $comentario['id'],
+				'id_autor'=>$comentario['id_dueno_coment'],
+				'autor' => $info_usuario['user'],
+				'estado' => $estado,
+				'color' => $color_estado,
+				'ext' =>$info_usuario['ext'],
+				'id_post' => $comentario['id_post'],
+				'coment' => $comentario['comentario']
+			);
+			}
+			$template->assign('comentarios', $comentarios);
+		}
+
 
 	$db->liberar($sql,$sql3);
 	$db->close();

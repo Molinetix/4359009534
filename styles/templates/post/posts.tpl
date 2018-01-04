@@ -110,42 +110,33 @@
                 {/if}
             {/if}   
             
-           <!-- Comentario --> 
+           <!-- Comentario -->
+           {if isset($comentarios)}
+           {foreach from=$comentarios item=ct}
            <div class="media">
-           {if isset($coment)} 
               <div class="media-body comun-post">
-                {if isset($smarty.session.user)}
-                <span style="float:left;background-color:white; border-bottom-right-radius: 5em; border-right: 1px solid black;border-bottom: 1px solid black; padding-left:3em; padding-right:2em;"><span style="margin-right: 2em;"><i class="fa fa-pencil" title="editar" aria-hidden="true"></i></span><i class="fa fa-trash" title="eliminar" aria-hidden="true"></i></span><br/>
+                {if isset($smarty.session.user) AND $smarty.session.id == $ct.id_autor}
+                <span onclick="editar()" style="margin-right: 2em;cursor: pointer;"><i class="fa fa-pencil" title="editar" aria-hidden="true"></i></span><span onclick="eliminar()" style="margin-right: 2em;cursor: pointer;"><i class="fa fa-trash" title="eliminar" aria-hidden="true"></i></span><br/>
                 {/if}
-                <span style="padding: 5px 7px 5px 5px;">Esto es un comentario</span>
+                <span style="padding: 5px 7px 5px 5px;">{$ct.coment}</span>
               </div> 
                <div class="media-right" style="text-align: center;">
-                <a href="?view=perfil&user=ID">
+                <a href="?view=perfil&user={$ct.id_autor}">
+                {if $ct.ext != ''}
+                    <img class="media-object" src="uploads/avatar/{$ct.id_autor}.{$ct.ext}" width="40" height="40" style="border-radius: 5em;"/>
+                {else}
                     <img class="media-object" src="uploads/avatar/user.png" width="40" height="40" style="border-radius: 5em;"/>
-                </a>
-                <small><strong>Usuario</strong> <br /> <span style="color: #FF0000">Offline</span></small>
-              </div>
-          </div> 
-          <!-- Comentario -->
-          <!-- Respuesta comentario --> 
-          <div class="media">
-                <div class="media-left" style="text-align: center;">
-                <a href="?view=perfil&user=ID">
-                    <img class="media-object" src="uploads/avatar/user.png" width="40" height="40" style="border-radius: 5em;"/>
-                </a>
-                <small><strong>Usuario</strong> <br /> <span style="color: #FF0000">Offline</span></small>
-              </div>
-              <div class="media-body answer-post">
-                {if isset($smarty.session.user)}
-                <span style="float:right;background-color:white; border-bottom-left-radius: 5em; border-left: 1px solid black;border-bottom: 1px solid black; padding-left:3em; padding-right:2em;"><span style="margin-right: 2em;"><i class="fa fa-pencil" title="editar" aria-hidden="true"></i></span><i class="fa fa-trash" title="eliminar" aria-hidden="true"></i></span><br/>
                 {/if}
-                <span style="padding: 5px 7px 5px 5px;"><span style="color:blue;">@Usuario</span> Esto es una respuesta de un comentario</span>
-              </div> 
-          </div> 
-          <!-- Respuesta comentario -->
+                </a>
+                <small><strong>{$ct.autor}</strong> <br /><span style="color: {$ct.color}">{$ct.estado}</span></small>
+              </div>
+          </div>
+          {/foreach}
+          <!-- Comentario -->
           {else}
           <div class="alert alert-warning" style="margin: 15px 0px -10px 0px;background:#d6b62d;" role="alert">No hay comentarios para esta captura.</div>
           {/if}
+         
 
         <!-- AJAX de comentarios -->    
         <div id="_COMMENTS_">
@@ -158,12 +149,13 @@
         <div class="media"> 
             <div class="media-body">
                 <textarea class="form-control" id="comentario" placeholder="Hacer un comentario..."></textarea>
+                <input type="hidden" id="id_usuario_coment" value="{$smarty.session.id}"/>
                 <center>
-                <a style="margin-top: 7px;" href="#" id="send_request" class="btn btn-primary btn-sm">Comentar</a>
+                <a style="margin-top: 7px;" onclick="comentar()" id="send_request" class="btn btn-primary btn-sm">Comentar</a>
                 </center>
             </div> 
             <div class="media-right" style="text-align: center;">
-                <img class="media-object" src="uploads/avatar/user.png" width="80" height="80" />
+                <img class="media-object" src="uploads/avatar/{$smarty.session.id}.{$smarty.session.ext}" width="80" height="80" />
             </div>
         </div> 
          {else}
@@ -226,6 +218,65 @@
             connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
             connect.send(form);
           }
+      }
+
+
+
+      function comentar(){
+
+        $id_user = document.getElementById('id_usuario_coment').value;
+        $contenido = document.getElementById('comentario').value;
+
+            form = 'comentario=' + $contenido;
+
+
+            connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            connect.onreadystatechange = function(){
+              if(connect.readyState == 4 && connect.status == 200){
+                if(parseInt(connect.responseText) == 1){
+                    //Conectado con exito
+                    //redireccion
+                    result = '<nav><center>';
+                    result += '<div class="puntos-agregados">Comentario agregado correctamente</div>';
+                    result += '</center></nav>';
+                    document.getElementById('comentario').value = "";
+                    document.getElementById('_COMMENTS_').innerHTML = result;
+                    window.location = "?view=posts&id={$smarty.get.id}";
+                  }else if(parseInt(connect.responseText) == 2){
+                    //ERROR: Los datos son incorrectos
+                    result = '<nav><center>';
+                    result += '<div class="puntos-no-agregados">Ha sucedido un error al realizar tu comentario.</div>';
+                    result += '</center></nav>';
+                    document.getElementById('_COMMENTS_').innerHTML = result;
+
+                  }else{
+                    //ERROR: Los datos son incorrectos
+                    result = '<nav><center>';
+                    result += '<div class="puntos-no-agregados">Por favor, escribe algo antes de comentar.</div>';
+                    result += '</center></nav>';
+                    document.getElementById('_COMMENTS_').innerHTML = result;
+
+                  }
+                } else if(connect.readyState != 4) {
+                    //Procesando...
+                    result = '<nav><center>';
+                    result += '<div class="agregando-puntos">Agregando comentario...</div>';
+                    result += '</center></nav>';
+                    document.getElementById('_COMMENTS_').innerHTML = result;
+                    
+                  }
+                }
+                connect.open('POST', '?view=posts&&id={$smarty.get.id}&&mode=comentarios', true);
+                connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                connect.send(form);
+      }
+
+      function editar(){
+        alert("editando...");
+      }
+
+      function eliminar(){
+        alert("Deseas eliminar este comentario");
       }
     
       </script>

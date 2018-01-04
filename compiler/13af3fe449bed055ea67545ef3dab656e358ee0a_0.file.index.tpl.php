@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2018-01-03 05:15:31
+<?php /* Smarty version 3.1.27, created on 2018-01-04 07:29:11
          compiled from "C:\wamp\www\pro\styles\templates\home\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:80375a4c66f3ed2969_97882102%%*/
+/*%%SmartyHeaderCode:2435a4dd7c7d06da0_03104874%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '13af3fe449bed055ea67545ef3dab656e358ee0a' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\home\\index.tpl',
-      1 => 1514956528,
+      1 => 1515050948,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '80375a4c66f3ed2969_97882102',
+  'nocache_hash' => '2435a4dd7c7d06da0_03104874',
   'variables' => 
   array (
     'titulo' => 0,
@@ -27,13 +27,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a4c66f4141899_98107230',
+  'unifunc' => 'content_5a4dd7c7ecdb32_75299946',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a4c66f4141899_98107230')) {
-function content_5a4c66f4141899_98107230 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4dd7c7ecdb32_75299946')) {
+function content_5a4dd7c7ecdb32_75299946 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '80375a4c66f3ed2969_97882102';
+$_smarty_tpl->properties['nocache_hash'] = '2435a4dd7c7d06da0_03104874';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -79,7 +79,8 @@ $foreach_pt_Sav = $_smarty_tpl->tpl_vars['pt'];
 </a></td>
                   <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['pt']->value['puntos'];?>
 /10</td>
-                  <td style="text-align: center;">0</td>
+                  <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['pt']->value['total'];?>
+</td>
                 </tr>
               <?php
 $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;

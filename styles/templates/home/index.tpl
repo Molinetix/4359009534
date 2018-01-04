@@ -23,7 +23,7 @@
                   <td><a href="?view=posts&id={$pt.id}">{$pt.titulo}</a></td>
                   <td><a href="?view=perfil&&user={$pt.id_dueno}">{$pt.dueno}</a></td>
                   <td style="text-align: center;">{$pt.puntos}/10</td>
-                  <td style="text-align: center;">0</td>
+                  <td style="text-align: center;">{$pt.total}</td>
                 </tr>
               {/foreach}
               </tbody>

@@ -190,18 +190,12 @@ $result = $result[0];
 $paginas = ceil($result / $paginado);
 
 
-
 if($db->rows($sql) > 0){
-		$psql = "SELECT user FROM users WHERE id =?";
-		$prepare_sql = $db->prepare($psql);
-		$prepare_sql->bind_param('i',$id);
-
 
 		while($x = $db->recorrer($sql)){
 
 			$votantes = explode(';',$x['votantes']);
 			$num_votantes = count($votantes) - 1;
-			echo "<script>console.log($num_votantes)</script>";
 
 			if($num_votantes > 0){
 			$media = $x['puntos'] / $num_votantes;
@@ -209,26 +203,29 @@ if($db->rows($sql) > 0){
 			$media = 0;
 			}
 
-			$id = $x['dueno'];
-			$prepare_sql->execute();
-			$prepare_sql->bind_result($autor);
-			$prepare_sql->fetch();
-		
+			//Obtenemos los nombres de los usuarios
+			$id = intval($x['dueno']);
+			$nombre_usuario = $db->query("SELECT user FROM users WHERE id=$id;");
+			$resultado_usuario = $db->recorrer($nombre_usuario);
+
+			//Obtenemos el total de comentarios de cada post
+			$id_post = intval($x['id']);
+			$total_comentarios = $db->query("SELECT COUNT(*) FROM comentarios WHERE id_post=$id_post;");
+			$resultado_comentarios = $db->recorrer($total_comentarios);
 
 			$posts[] = array(
 				'id' => $x['id'],
 				'titulo' => $x['titulo'],
 				'content' => $x['content'],
-				'dueno' => $autor,
+				'dueno' => $resultado_usuario[0],
 				'id_dueno' => $id,
-				'puntos' => $media
+				'puntos' => $media,
+				'total' => $resultado_comentarios[0]
 			);
+			$db->liberar($nombre_usuario,$resultado_usuario,$total_comentarios,$resultado_comentarios);
 			}
-			$prepare_sql->close();
 			$template->assign('posts', $posts);
 		}
-
-
 
 $result_eventos = $db->recorrer($cantidad_eventos);	
 $result_eventos = $result_eventos[0];
