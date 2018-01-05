@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-30 05:28:46
+<?php /* Smarty version 3.1.27, created on 2018-01-05 05:20:12
          compiled from "C:\wamp\www\pro\styles\templates\perfil\perfil.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:125945a47240e225f10_84148528%%*/
+/*%%SmartyHeaderCode:174435a4f0b0cec1437_94588669%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cab5e3dd954a6e5b19f0100922a23f1f0663501b' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\perfil\\perfil.tpl',
-      1 => 1514611723,
+      1 => 1515129554,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '125945a47240e225f10_84148528',
+  'nocache_hash' => '174435a4f0b0cec1437_94588669',
   'variables' => 
   array (
     'existe' => 0,
@@ -31,13 +31,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a47240e302661_76233368',
+  'unifunc' => 'content_5a4f0b0d0648b9_98208175',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a47240e302661_76233368')) {
-function content_5a47240e302661_76233368 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4f0b0d0648b9_98208175')) {
+function content_5a4f0b0d0648b9_98208175 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '125945a47240e225f10_84148528';
+$_smarty_tpl->properties['nocache_hash'] = '174435a4f0b0cec1437_94588669';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -112,7 +112,8 @@ $foreach_pt_Sav = $_smarty_tpl->tpl_vars['pt'];
 </a></td>
                   <td><?php echo $_smarty_tpl->tpl_vars['pt']->value['puntos'];?>
 </td>
-                  <td>0</td>
+                  <td><?php echo $_smarty_tpl->tpl_vars['pt']->value['comentarios'];?>
+</td>
                   <?php if (isset($_SESSION['id']) && $_SESSION['id'] == $_smarty_tpl->tpl_vars['id_dueno_perfil']->value) {?>
                   <td><button onclick="myFunction('<?php echo $_smarty_tpl->tpl_vars['pt']->value['id'];?>
 ','<?php echo $_SESSION['id'];?>
@@ -182,7 +183,7 @@ $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
     <?php echo '<script'; ?>
 >
     function myFunction($id,$nombre) {
-        var txt;
+
         var r = confirm("¿Deseas eliminar este post? ¡Se perderán todas las valoraciones y comentarios!");
         if (r == true) {
 

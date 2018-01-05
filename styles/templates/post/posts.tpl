@@ -114,10 +114,8 @@
            {if isset($comentarios)}
            {foreach from=$comentarios item=ct}
            <div class="media">
-              <div class="media-body comun-post">
-                {if isset($smarty.session.user) AND $smarty.session.id == $ct.id_autor}
-                <span onclick="editar()" style="margin-right: 2em;cursor: pointer;"><i class="fa fa-pencil" title="editar" aria-hidden="true"></i></span><span onclick="eliminar()" style="margin-right: 2em;cursor: pointer;"><i class="fa fa-trash" title="eliminar" aria-hidden="true"></i></span><br/>
-                {/if}
+              <div class="media-body comun-post" id="comentario_{$ct.id}">
+              <span id="clicked_{$ct.id}" style="visibility: hidden">not_clicked</span>
                 <span style="padding: 5px 7px 5px 5px;">{$ct.coment}</span>
               </div> 
                <div class="media-right" style="text-align: center;">
@@ -131,6 +129,27 @@
                 <small><strong>{$ct.autor}</strong> <br /><span style="color: {$ct.color}">{$ct.estado}</span></small>
               </div>
           </div>
+          <script>
+          window.addEventListener('click', function(e){
+  
+            var comentario_en_edicion;
+
+            comentario_en_edicion = document.getElementById('clicked_{$ct.id}').innerHTML;            
+
+            if({$smarty.session.id} == {$ct.id_autor}){
+              if (document.getElementById('comentario_{$ct.id}').contains(e.target)){
+                // Clicked in box
+                if(comentario_en_edicion == 'not_clicked'){
+                document.getElementById('comentario_{$ct.id}').innerHTML = '<span id="clicked_{$ct.id}" style="visibility: hidden">clicked</span><textarea class="form-control" id="textarea_{$ct.id}">{$ct.coment}</textarea><center><a style="margin-top: 7px; margin-right: 7px; margin-bottom: 7px;" onclick="editar({$ct.id})" id="editar_comentario" class="btn btn-primary btn-sm">Editar</a><a style="margin-top: 7px; margin-right: 7px; margin-bottom: 7px;" onclick="eliminar({$ct.id})" id="eliminar_comentario" class="btn btn-primary btn-sm">Eliminar</a></center>';
+                }else{
+                  e.stopPropagation();
+                }
+              } else {
+                document.getElementById('comentario_{$ct.id}').innerHTML = '<span id="clicked_{$ct.id}" style="visibility: hidden">not_clicked</span><span style="padding: 5px 7px 5px 5px;">{$ct.coment}</span>';
+              }
+            }
+          });
+          </script>
           {/foreach}
           <!-- Comentario -->
           {else}
@@ -158,6 +177,14 @@
                 <img class="media-object" src="uploads/avatar/{$smarty.session.id}.{$smarty.session.ext}" width="80" height="80" />
             </div>
         </div> 
+        <div class="media">
+          <div class="alert alert-info" role="alert" style="text-align:left;color:black;">
+              <center><h4>Comandos para dar estilo a tu comentario:</h4></center>
+              Resaltar texto: <span style="font-size: 35px;">[b]</span><b>Este comentario utiliza negrita</b><span style="font-size: 35px;">[/b]</span>.<br/>
+              Salto de línea:<span style="font-size: 35px;"> /n </span>ahora hacemos un salto <br/><br/>
+              Centrar comentario:<center><span style="font-size: 35px;">[center]</span>Este comentario está centrado<span style="font-size: 35px;">[/center]</span>.</center>
+          </div>
+        </div>
          {else}
             <div class="media">
                 <div class="alert alert-warning" role="alert" style="text-align:center">
@@ -271,14 +298,91 @@
                 connect.send(form);
       }
 
-      function editar(){
-        alert("editando...");
+      function editar($id_comentario){
+        $contenido = document.getElementById('textarea_'+$id_comentario).value;
+
+            form = 'editar_comentario=' + $contenido + '&id_comentario=' +$id_comentario;
+
+
+            connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            connect.onreadystatechange = function(){
+              if(connect.readyState == 4 && connect.status == 200){
+                if(parseInt(connect.responseText) == 1){
+                    //Conectado con exito
+                    //redireccion
+                    result = '<nav><center>';
+                    result += '<div class="puntos-agregados">Comentario editado correctamente</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    window.location = "?view=posts&id={$smarty.get.id}";
+                  }else{
+                    //ERROR: Los datos son incorrectos
+                    result = '<nav><center>';
+                    result += '<div class="puntos-no-agregados">Error, al editar el comentario.</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    window.location = "?view=posts&id={$smarty.get.id}";
+
+                  }
+                } else if(connect.readyState != 4) {
+                    //Procesando...
+                    result = '<nav><center>';
+                    result += '<div class="agregando-puntos">Editando comentario...</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    
+                  }
+                }
+                connect.open('POST', '?view=posts&&id={$smarty.get.id}&&mode=editar', true);
+                connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                connect.send(form);
+
       }
 
-      function eliminar(){
-        alert("Deseas eliminar este comentario");
+      function eliminar($id_comentario){
+        var r = confirm("¿Deseas eliminar este comentario?");
+        if (r == true) {
+
+            form = 'eliminar_comentario=' + $id_comentario;
+
+
+            connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            connect.onreadystatechange = function(){
+              if(connect.readyState == 4 && connect.status == 200){
+                if(parseInt(connect.responseText) == 1){
+                    //Conectado con exito
+                    //redireccion
+                    result = '<nav><center>';
+                    result += '<div class="puntos-agregados">Comentario eliminado correctamente</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    window.location = "?view=posts&id={$smarty.get.id}";
+                  }else{
+                    //ERROR: Los datos son incorrectos
+                    result = '<nav><center>';
+                    result += '<div class="puntos-no-agregados">No se ha podido eliminar el comentario.</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    window.location = "?view=posts&id={$smarty.get.id}";
+
+                  }
+                } else if(connect.readyState != 4) {
+                    //Procesando...
+                    result = '<nav><center>';
+                    result += '<div class="agregando-puntos">Eliminando comentario...</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    
+                  }
+                }
+                connect.open('POST', '?view=posts&&id={$smarty.get.id}&&mode=eliminar', true);
+                connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                connect.send(form);
+
+        }
       }
-    
+
+
       </script>
     {/if}
    </body>

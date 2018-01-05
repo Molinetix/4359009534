@@ -215,15 +215,15 @@
                             <th>{$ct.ranking}</th>
                             <td><a href="?view=posts&id={$ct.id}">{$ct.fecha}</a></td>
                             <td><a href="?view=perfil&&user=1">{$ct.dueno}</a></td>
-                            <td style="text-align: center;">{$ct.peso}</td>
-                            <td style="text-align: center;">{$ct.longitud}</td>
+                            <td style="text-align: center;">{$ct.peso}kg</td>
+                            <td style="text-align: center;">{$ct.longitud}cm</td>
                           </tr>
                           {/foreach}
                         </tbody>
                       </table>
                       {else}
                         <div class="alert alert-danger" role="alert" style="text-align:center">
-                            Por ahora, no se han captura carpas en {$titulo}
+                            Por ahora, no se han capturado carpas en {$titulo}
                         </div>
                       {/if}
                   </div>
@@ -255,7 +255,7 @@
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Siluro</h2>-->
                   <div class="table-responsive">
-                    
+                      {if isset($siluro)}
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -267,33 +267,23 @@
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          {foreach from=$siluro item=sl}
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th>{$sl.ranking}</th>
+                            <td><a href="?view=posts&id={$sl.id}">{$sl.fecha}</a></td>
+                            <td><a href="?view=perfil&&user=1">{$sl.dueno}</a></td>
+                            <td style="text-align: center;">{$sl.peso}kg</td>
+                            <td style="text-align: center;">{$sl.longitud}cm</td>
                           </tr>
-                        
+                          {/foreach}
                         </tbody>
                       </table>
+                      {else}
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado siluros en {$titulo}
+                        </div>
+                      {/if}
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -322,7 +312,7 @@
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Bass</h2>-->
                   <div class="table-responsive">
-                    
+                      {if isset($bass)}
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -334,33 +324,23 @@
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          {foreach from=$bass item=ba}
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th>{$ba.ranking}</th>
+                            <td><a href="?view=posts&id={$ba.id}">{$ba.fecha}</a></td>
+                            <td><a href="?view=perfil&&user=1">{$ba.dueno}</a></td>
+                            <td style="text-align: center;">{$ba.peso}kg</td>
+                            <td style="text-align: center;">{$ba.longitud}cm</td>
                           </tr>
-                        
+                          {/foreach}
                         </tbody>
                       </table>
+                      {else}
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado basses en {$titulo}
+                        </div>
+                      {/if}
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -389,7 +369,7 @@
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Lucio</h2>-->
                   <div class="table-responsive">
-                    
+                      {if isset($lucio)}
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -401,33 +381,23 @@
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          {foreach from=$lucio item=lu}
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th>{$lu.ranking}</th>
+                            <td><a href="?view=posts&id={$lu.id}">{$lu.fecha}</a></td>
+                            <td><a href="?view=perfil&&user=1">{$lu.dueno}</a></td>
+                            <td style="text-align: center;">{$lu.peso}kg</td>
+                            <td style="text-align: center;">{$lu.longitud}cm</td>
                           </tr>
-                        
+                          {/foreach}
                         </tbody>
                       </table>
+                      {else}
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado lucios en {$titulo}
+                        </div>
+                      {/if}
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -456,7 +426,7 @@
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Lucioperca</h2>-->
                   <div class="table-responsive">
-                    
+                      {if isset($lucioperca)}
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -468,33 +438,23 @@
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          {foreach from=$lucioperca item=lup}
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th>{$lup.ranking}</th>
+                            <td><a href="?view=posts&id={$lup.id}">{$lup.fecha}</a></td>
+                            <td><a href="?view=perfil&&user=1">{$lup.dueno}</a></td>
+                            <td style="text-align: center;">{$lup.peso}kg</td>
+                            <td style="text-align: center;">{$lup.longitud}cm</td>
                           </tr>
-                        
+                          {/foreach}
                         </tbody>
                       </table>
+                      {else}
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado luciopercas en {$titulo}
+                        </div>
+                      {/if}
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -523,7 +483,7 @@
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Barbo</h2>-->
                   <div class="table-responsive">
-                    
+                      {if isset($barbo)}
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -535,33 +495,23 @@
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          {foreach from=$barbo item=ba}
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th>{$ba.ranking}</th>
+                            <td><a href="?view=posts&id={$ba.id}">{$ba.fecha}</a></td>
+                            <td><a href="?view=perfil&&user=1">{$ba.dueno}</a></td>
+                            <td style="text-align: center;">{$ba.peso}kg</td>
+                            <td style="text-align: center;">{$ba.longitud}cm</td>
                           </tr>
-                        
+                          {/foreach}
                         </tbody>
                       </table>
+                      {else}
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado barbos en {$titulo}
+                        </div>
+                      {/if}
                   </div>
                 </div>
                 <div class="modal-footer">

@@ -3,6 +3,7 @@
 
 if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 
+	require('core/libs/bbcode/BBcode.class.php');
 	$mode = isset($_GET['mode']) ? $_GET['mode'] : null;
 	$id = intval($_GET['id']);
 	$db = new Conexion();
@@ -42,7 +43,8 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 		case 'comentarios':
 			if(isset($_POST['comentario']) and $_POST['comentario']!='' and isset($_SESSION['user'])){
 				$id_user = $_SESSION['id'];
-				$contenido_coment = $_POST['comentario'];
+				//Contenido
+				$contenido_coment = BBcode($_POST['comentario']);
 				//Codigo comentarios
 				$sql4 = $db->query("INSERT INTO comentarios (id_dueno_coment,id_post,comentario) values ('$id_user','$id','$contenido_coment');");
 
@@ -53,7 +55,7 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 					}
 
 			} else {
-				echo 3;
+				echo 2;
 				$db->liberar($sql);
 				$db->close();
 				header('location: ?view=posts&id=' . $id);
@@ -61,11 +63,41 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 			}
 		break;
 		case 'editar':
-			if($_POST and isset($_SESSION['user'])){
+			if(isset($_POST['editar_comentario']) and $_POST['editar_comentario']!='' and isset($_SESSION['user'])){
+				//Editar comentario
+				$edit_coment = BBcode($_POST['editar_comentario']);
+				$id_comentario = intval($_POST['id_comentario']);
 				//Codigo comentarios
-				
+				$sql4 = $db->query("UPDATE comentarios SET comentario='$edit_coment' WHERE id='$id_comentario';");
+
+				if($db->affected_rows > 0){
+					echo 1;
+					}else{
+					echo 2;
+					}
 
 			} else {
+				echo 2;
+				$db->liberar($sql);
+				$db->close();
+				header('location: ?view=posts&id=' . $id);
+				exit;
+			}
+		break;
+		case 'eliminar':
+		if(isset($_POST['eliminar_comentario']) and $_POST['eliminar_comentario']!='' and isset($_SESSION['user'])){
+				$eliminar_coment = intval($_POST['eliminar_comentario']);
+				//Codigo comentarios
+				$sql5 = $db->query("DELETE FROM comentarios WHERE id = $eliminar_coment;");
+
+				if($db->affected_rows > 0){
+					echo 1;
+					}else{
+					echo 2;
+					}
+
+			} else {
+				echo 2;
 				$db->liberar($sql);
 				$db->close();
 				header('location: ?view=posts&id=' . $id);
@@ -101,7 +133,6 @@ if(isset($_GET['id']) and is_numeric($_GET['id']) and $_GET['id'] >= 1){
 		}
 
 		//Contenido
-		require('core/libs/bbcode/BBcode.class.php');
 		$content = BBcode($post['content']);
 
 		//Imagenes

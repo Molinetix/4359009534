@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2018-01-04 07:29:11
+<?php /* Smarty version 3.1.27, created on 2018-01-05 06:20:53
          compiled from "C:\wamp\www\pro\styles\templates\home\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:2435a4dd7c7d06da0_03104874%%*/
+/*%%SmartyHeaderCode:52755a4f194526a9d3_69965195%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '13af3fe449bed055ea67545ef3dab656e358ee0a' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\home\\index.tpl',
-      1 => 1515050948,
+      1 => 1515133028,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2435a4dd7c7d06da0_03104874',
+  'nocache_hash' => '52755a4f194526a9d3_69965195',
   'variables' => 
   array (
     'titulo' => 0,
@@ -24,16 +24,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pags_evt' => 0,
     'carpa' => 0,
     'ct' => 0,
+    'siluro' => 0,
+    'sl' => 0,
+    'bass' => 0,
+    'ba' => 0,
+    'lucio' => 0,
+    'lu' => 0,
+    'lucioperca' => 0,
+    'lup' => 0,
+    'barbo' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a4dd7c7ecdb32_75299946',
+  'unifunc' => 'content_5a4f19454ab547_61373874',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a4dd7c7ecdb32_75299946')) {
-function content_5a4dd7c7ecdb32_75299946 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4f19454ab547_61373874')) {
+function content_5a4f19454ab547_61373874 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2435a4dd7c7d06da0_03104874';
+$_smarty_tpl->properties['nocache_hash'] = '52755a4f194526a9d3_69965195';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -326,9 +335,9 @@ $foreach_ct_Sav = $_smarty_tpl->tpl_vars['ct'];
                             <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['ct']->value['dueno'];?>
 </a></td>
                             <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ct']->value['peso'];?>
-</td>
+kg</td>
                             <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ct']->value['longitud'];?>
-</td>
+cm</td>
                           </tr>
                           <?php
 $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
@@ -338,7 +347,7 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                       </table>
                       <?php } else { ?>
                         <div class="alert alert-danger" role="alert" style="text-align:center">
-                            Por ahora, no se han captura carpas en <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+                            Por ahora, no se han capturado carpas en <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 
                         </div>
                       <?php }?>
@@ -371,7 +380,7 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Siluro</h2>-->
                   <div class="table-responsive">
-                    
+                      <?php if (isset($_smarty_tpl->tpl_vars['siluro']->value)) {?>
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -383,33 +392,43 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          <?php
+$_from = $_smarty_tpl->tpl_vars['siluro']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['sl'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['sl']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['sl']->value) {
+$_smarty_tpl->tpl_vars['sl']->_loop = true;
+$foreach_sl_Sav = $_smarty_tpl->tpl_vars['sl'];
+?>
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th><?php echo $_smarty_tpl->tpl_vars['sl']->value['ranking'];?>
+</th>
+                            <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['sl']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['sl']->value['fecha'];?>
+</a></td>
+                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['sl']->value['dueno'];?>
+</a></td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['sl']->value['peso'];?>
+kg</td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['sl']->value['longitud'];?>
+cm</td>
                           </tr>
-                        
+                          <?php
+$_smarty_tpl->tpl_vars['sl'] = $foreach_sl_Sav;
+}
+?>
                         </tbody>
                       </table>
+                      <?php } else { ?>
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado siluros en <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+
+                        </div>
+                      <?php }?>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -438,7 +457,7 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Bass</h2>-->
                   <div class="table-responsive">
-                    
+                      <?php if (isset($_smarty_tpl->tpl_vars['bass']->value)) {?>
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -450,33 +469,43 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          <?php
+$_from = $_smarty_tpl->tpl_vars['bass']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['ba'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['ba']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['ba']->value) {
+$_smarty_tpl->tpl_vars['ba']->_loop = true;
+$foreach_ba_Sav = $_smarty_tpl->tpl_vars['ba'];
+?>
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th><?php echo $_smarty_tpl->tpl_vars['ba']->value['ranking'];?>
+</th>
+                            <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['ba']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['ba']->value['fecha'];?>
+</a></td>
+                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['ba']->value['dueno'];?>
+</a></td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ba']->value['peso'];?>
+kg</td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ba']->value['longitud'];?>
+cm</td>
                           </tr>
-                        
+                          <?php
+$_smarty_tpl->tpl_vars['ba'] = $foreach_ba_Sav;
+}
+?>
                         </tbody>
                       </table>
+                      <?php } else { ?>
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado basses en <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+
+                        </div>
+                      <?php }?>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -505,7 +534,7 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Lucio</h2>-->
                   <div class="table-responsive">
-                    
+                      <?php if (isset($_smarty_tpl->tpl_vars['lucio']->value)) {?>
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -517,33 +546,43 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          <?php
+$_from = $_smarty_tpl->tpl_vars['lucio']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['lu'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['lu']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['lu']->value) {
+$_smarty_tpl->tpl_vars['lu']->_loop = true;
+$foreach_lu_Sav = $_smarty_tpl->tpl_vars['lu'];
+?>
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th><?php echo $_smarty_tpl->tpl_vars['lu']->value['ranking'];?>
+</th>
+                            <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['lu']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['lu']->value['fecha'];?>
+</a></td>
+                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['lu']->value['dueno'];?>
+</a></td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['lu']->value['peso'];?>
+kg</td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['lu']->value['longitud'];?>
+cm</td>
                           </tr>
-                        
+                          <?php
+$_smarty_tpl->tpl_vars['lu'] = $foreach_lu_Sav;
+}
+?>
                         </tbody>
                       </table>
+                      <?php } else { ?>
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado lucios en <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+
+                        </div>
+                      <?php }?>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -572,7 +611,7 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Lucioperca</h2>-->
                   <div class="table-responsive">
-                    
+                      <?php if (isset($_smarty_tpl->tpl_vars['lucioperca']->value)) {?>
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -584,33 +623,43 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          <?php
+$_from = $_smarty_tpl->tpl_vars['lucioperca']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['lup'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['lup']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['lup']->value) {
+$_smarty_tpl->tpl_vars['lup']->_loop = true;
+$foreach_lup_Sav = $_smarty_tpl->tpl_vars['lup'];
+?>
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th><?php echo $_smarty_tpl->tpl_vars['lup']->value['ranking'];?>
+</th>
+                            <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['lup']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['lup']->value['fecha'];?>
+</a></td>
+                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['lup']->value['dueno'];?>
+</a></td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['lup']->value['peso'];?>
+kg</td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['lup']->value['longitud'];?>
+cm</td>
                           </tr>
-                        
+                          <?php
+$_smarty_tpl->tpl_vars['lup'] = $foreach_lup_Sav;
+}
+?>
                         </tbody>
                       </table>
+                      <?php } else { ?>
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado luciopercas en <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+
+                        </div>
+                      <?php }?>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -639,7 +688,7 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                 <div class="modal-body">
                   <!--<h2 class="sub-header">Top Barbo</h2>-->
                   <div class="table-responsive">
-                    
+                      <?php if (isset($_smarty_tpl->tpl_vars['barbo']->value)) {?>
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -651,33 +700,43 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                           </tr>
                         </thead>
                         <tbody>
-                        
-                          <tr>
-                            <th>1</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Sergio</a></td>
-                            <td style="text-align: center;">98,4kg</td>
-                            <td style="text-align: center;">224cm</td>
-                          </tr>
 
-                           <tr>
-                            <th>2</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Edu</a></td>
-                            <td style="text-align: center;">91,2kg</td>
-                            <td style="text-align: center;">205cm</td>
-                          </tr>
-
+                          <?php
+$_from = $_smarty_tpl->tpl_vars['barbo']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['ba'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['ba']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['ba']->value) {
+$_smarty_tpl->tpl_vars['ba']->_loop = true;
+$foreach_ba_Sav = $_smarty_tpl->tpl_vars['ba'];
+?>
                           <tr>
-                            <th>3</th>
-                            <td><a href="?view=posts&id=11">23/6/2017</a></td>
-                            <td><a href="?view=perfil&&user=1">Fran</a></td>
-                            <td style="text-align: center;">89kg</td>
-                            <td style="text-align: center;">198cm</td>
+                            <th><?php echo $_smarty_tpl->tpl_vars['ba']->value['ranking'];?>
+</th>
+                            <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['ba']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['ba']->value['fecha'];?>
+</a></td>
+                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['ba']->value['dueno'];?>
+</a></td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ba']->value['peso'];?>
+kg</td>
+                            <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ba']->value['longitud'];?>
+cm</td>
                           </tr>
-                        
+                          <?php
+$_smarty_tpl->tpl_vars['ba'] = $foreach_ba_Sav;
+}
+?>
                         </tbody>
                       </table>
+                      <?php } else { ?>
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            Por ahora, no se han capturado barbos en <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+
+                        </div>
+                      <?php }?>
                   </div>
                 </div>
                 <div class="modal-footer">

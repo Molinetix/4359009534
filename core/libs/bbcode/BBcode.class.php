@@ -2,8 +2,8 @@
 
 
 function BBcode($str){
-	$bbcode = ['[b]','[/b]','[img]','[/img]','/n','[center]','[/center]'];
-	$html = ['<b>','</b>','<img src="','" />','<br />','<center>','</center>'];
+	$bbcode = ['[b]','[/b]','/n','[center]','[/center]'];
+	$html = ['<b>','</b>','<br />','<center>','</center>'];
 
 	$str = nl2br(htmlentities($str));
 

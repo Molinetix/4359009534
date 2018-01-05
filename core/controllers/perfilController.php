@@ -54,9 +54,15 @@ if(isset($_GET['user']) and is_numeric($_GET['user']) and $_GET['user'] >= 1){
 		$posts = $db->query("SELECT * FROM post WHERE dueno='$id' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$c_post = $result[0];
 
+
 		$x=0;
 		if($c_post > 0 and $db->rows($posts) > 0){
 			while($p = $db->recorrer($posts)) {
+
+			//Obtenemos el total de comentarios de cada post
+			$id_post = intval($p['id']);
+			$total_comentarios = $db->query("SELECT COUNT(*) FROM comentarios WHERE id_post=$id_post;");
+			$resultado_comentarios = $db->recorrer($total_comentarios);
 
 			$votantes = explode(';',$p['votantes']);
 			$num_votantes = count($votantes) - 1;
@@ -72,7 +78,8 @@ if(isset($_GET['user']) and is_numeric($_GET['user']) and $_GET['user'] >= 1){
 					'id'=>$p['id'],
 					'titulo'=>$p['titulo'],
 					'puntos'=>$media,
-					'z'=>$z
+					'z'=>$z,
+					'comentarios'=>$resultado_comentarios[0]
 				);
 			}
 

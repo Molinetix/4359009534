@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2018-01-04 18:30:17
+<?php /* Smarty version 3.1.27, created on 2018-01-05 05:39:38
          compiled from "C:\wamp\www\pro\styles\templates\post\posts.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:269905a4e72b9e6dad5_48436122%%*/
+/*%%SmartyHeaderCode:183255a4f0f9addd790_17134154%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a53537a628700c78297de0ce3f07a3a082c70719' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\post\\posts.tpl',
-      1 => 1515090615,
+      1 => 1515130775,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '269905a4e72b9e6dad5_48436122',
+  'nocache_hash' => '183255a4f0f9addd790_17134154',
   'variables' => 
   array (
     'post' => 0,
@@ -33,13 +33,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a4e72ba035df9_69273815',
+  'unifunc' => 'content_5a4f0f9af29e90_07082741',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a4e72ba035df9_69273815')) {
-function content_5a4e72ba035df9_69273815 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4f0f9af29e90_07082741')) {
+function content_5a4f0f9af29e90_07082741 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '269905a4e72b9e6dad5_48436122';
+$_smarty_tpl->properties['nocache_hash'] = '183255a4f0f9addd790_17134154';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -195,10 +195,10 @@ $_smarty_tpl->tpl_vars['ct']->_loop = true;
 $foreach_ct_Sav = $_smarty_tpl->tpl_vars['ct'];
 ?>
            <div class="media">
-              <div class="media-body comun-post">
-                <?php if (isset($_SESSION['user']) && $_SESSION['id'] == $_smarty_tpl->tpl_vars['ct']->value['id_autor']) {?>
-                <span onclick="editar()" style="margin-right: 2em;cursor: pointer;"><i class="fa fa-pencil" title="editar" aria-hidden="true"></i></span><span onclick="eliminar()" style="margin-right: 2em;cursor: pointer;"><i class="fa fa-trash" title="eliminar" aria-hidden="true"></i></span><br/>
-                <?php }?>
+              <div class="media-body comun-post" id="comentario_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+">
+              <span id="clicked_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+" style="visibility: hidden">not_clicked</span>
                 <span style="padding: 5px 7px 5px 5px;"><?php echo $_smarty_tpl->tpl_vars['ct']->value['coment'];?>
 </span>
               </div> 
@@ -219,6 +219,42 @@ $foreach_ct_Sav = $_smarty_tpl->tpl_vars['ct'];
 </span></small>
               </div>
           </div>
+          <?php echo '<script'; ?>
+>
+          window.addEventListener('click', function(e){
+  
+            var comentario_en_edicion;
+
+            comentario_en_edicion = document.getElementById('clicked_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+').innerHTML;            
+
+            if(<?php echo $_SESSION['id'];?>
+ == <?php echo $_smarty_tpl->tpl_vars['ct']->value['id_autor'];?>
+){
+              if (document.getElementById('comentario_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+').contains(e.target)){
+                // Clicked in box
+                if(comentario_en_edicion == 'not_clicked'){
+                document.getElementById('comentario_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+').innerHTML = '<span id="clicked_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+" style="visibility: hidden">clicked</span><textarea class="form-control" id="textarea_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['ct']->value['coment'];?>
+</textarea><center><a style="margin-top: 7px; margin-right: 7px; margin-bottom: 7px;" onclick="editar(<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+)" id="editar_comentario" class="btn btn-primary btn-sm">Editar</a><a style="margin-top: 7px; margin-right: 7px; margin-bottom: 7px;" onclick="eliminar(<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+)" id="eliminar_comentario" class="btn btn-primary btn-sm">Eliminar</a></center>';
+                }else{
+                  e.stopPropagation();
+                }
+              } else {
+                document.getElementById('comentario_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+').innerHTML = '<span id="clicked_<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+" style="visibility: hidden">not_clicked</span><span style="padding: 5px 7px 5px 5px;"><?php echo $_smarty_tpl->tpl_vars['ct']->value['coment'];?>
+</span>';
+              }
+            }
+          });
+          <?php echo '</script'; ?>
+>
           <?php
 $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
 }
@@ -252,6 +288,14 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
 " width="80" height="80" />
             </div>
         </div> 
+        <div class="media">
+          <div class="alert alert-info" role="alert" style="text-align:left;color:black;">
+              <center><h4>Comandos para dar estilo a tu comentario:</h4></center>
+              Resaltar texto: <span style="font-size: 35px;">[b]</span><b>Este comentario utiliza negrita</b><span style="font-size: 35px;">[/b]</span>.<br/>
+              Salto de línea:<span style="font-size: 35px;"> /n </span>ahora hacemos un salto <br/><br/>
+              Centrar comentario:<center><span style="font-size: 35px;">[center]</span>Este comentario está centrado<span style="font-size: 35px;">[/center]</span>.</center>
+          </div>
+        </div>
          <?php } else { ?>
             <div class="media">
                 <div class="alert alert-warning" role="alert" style="text-align:center">
@@ -371,14 +415,97 @@ $_smarty_tpl->tpl_vars['ct'] = $foreach_ct_Sav;
                 connect.send(form);
       }
 
-      function editar(){
-        alert("editando...");
+      function editar($id_comentario){
+        $contenido = document.getElementById('textarea_'+$id_comentario).value;
+
+            form = 'editar_comentario=' + $contenido + '&id_comentario=' +$id_comentario;
+
+
+            connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            connect.onreadystatechange = function(){
+              if(connect.readyState == 4 && connect.status == 200){
+                if(parseInt(connect.responseText) == 1){
+                    //Conectado con exito
+                    //redireccion
+                    result = '<nav><center>';
+                    result += '<div class="puntos-agregados">Comentario editado correctamente</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    window.location = "?view=posts&id=<?php echo $_GET['id'];?>
+";
+                  }else{
+                    //ERROR: Los datos son incorrectos
+                    result = '<nav><center>';
+                    result += '<div class="puntos-no-agregados">Error, al editar el comentario.</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    window.location = "?view=posts&id=<?php echo $_GET['id'];?>
+";
+
+                  }
+                } else if(connect.readyState != 4) {
+                    //Procesando...
+                    result = '<nav><center>';
+                    result += '<div class="agregando-puntos">Editando comentario...</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    
+                  }
+                }
+                connect.open('POST', '?view=posts&&id=<?php echo $_GET['id'];?>
+&&mode=editar', true);
+                connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                connect.send(form);
+
       }
 
-      function eliminar(){
-        alert("Deseas eliminar este comentario");
+      function eliminar($id_comentario){
+        var r = confirm("¿Deseas eliminar este comentario?");
+        if (r == true) {
+
+            form = 'eliminar_comentario=' + $id_comentario;
+
+
+            connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            connect.onreadystatechange = function(){
+              if(connect.readyState == 4 && connect.status == 200){
+                if(parseInt(connect.responseText) == 1){
+                    //Conectado con exito
+                    //redireccion
+                    result = '<nav><center>';
+                    result += '<div class="puntos-agregados">Comentario eliminado correctamente</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    window.location = "?view=posts&id=<?php echo $_GET['id'];?>
+";
+                  }else{
+                    //ERROR: Los datos son incorrectos
+                    result = '<nav><center>';
+                    result += '<div class="puntos-no-agregados">No se ha podido eliminar el comentario.</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    window.location = "?view=posts&id=<?php echo $_GET['id'];?>
+";
+
+                  }
+                } else if(connect.readyState != 4) {
+                    //Procesando...
+                    result = '<nav><center>';
+                    result += '<div class="agregando-puntos">Eliminando comentario...</div>';
+                    result += '</center></nav><br/>';
+                    document.getElementById('comentario_'+$id_comentario).innerHTML = result;
+                    
+                  }
+                }
+                connect.open('POST', '?view=posts&&id=<?php echo $_GET['id'];?>
+&&mode=eliminar', true);
+                connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                connect.send(form);
+
+        }
       }
-    
+
+
       <?php echo '</script'; ?>
 >
     <?php }?>

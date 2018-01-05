@@ -30,8 +30,8 @@ class Subir {
 			$this->lugar = $db->real_escape_string($_POST['lugar']);
 			$this->tipo_pez = $db->real_escape_string($_POST['tipo_pez']);
 			$this->comunidad = $db->real_escape_string($_POST['categoria']);
-			$this->peso = $db->real_escape_string($_POST['peso']);
-			$this->longitud = $db->real_escape_string($_POST['longitud']);
+			$this->peso = floatval($db->real_escape_string($_POST['peso']));
+			$this->longitud = floatval($db->real_escape_string($_POST['longitud']));
 
 
 
