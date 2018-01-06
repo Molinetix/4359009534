@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="?view=index">PescAPP</a>
+      <a class="navbar-brand" href="?view=index"><img src="imagenes/capturapp/captureapp_logo.png" alt="CapturApp" title="CapturApp" width="150" style="margin-top: -14px;"/></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

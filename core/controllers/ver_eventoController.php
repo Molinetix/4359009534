@@ -122,9 +122,18 @@ if(isset($_GET['id_evento']) and is_numeric($_GET['id_evento']) and $_GET['id_ev
 
 		$sql2 = $db->query("SELECT user FROM users WHERE id='$id_creator';");
 		$user = $db->recorrer($sql2);
+
+		$fecha_actual = strtotime(date("d-m-Y",time()));
+		$fecha_entrada = strtotime($evento['fecha']);
+		if($fecha_actual > $fecha_entrada){
+		        $fecha_pasada = "true";
+		}else{
+		        $fecha_pasada = "false";
+		}
 		
 		$template->assign(array(
 			'id'=> $evento['id'],
+			'id_creador' => $evento['creador'],
 			'tipo'=>$evento['tipo'],
 			'fecha'=>$evento['fecha'],
 			'user'=>$user['user'],
@@ -140,7 +149,8 @@ if(isset($_GET['id_evento']) and is_numeric($_GET['id_evento']) and $_GET['id_ev
 			'tfn_movil' => $evento['tfn_movil'],
 			'correo' => $evento['correo'],
 			'participantes' => $numero_participantes,
-			'participa' => $participa
+			'participa' => $participa,
+			'fecha_pasada' => $fecha_pasada
 			));
 
 		$db->liberar($sql2);

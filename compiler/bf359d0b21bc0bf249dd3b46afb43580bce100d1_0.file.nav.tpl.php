@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2018-01-03 04:21:50
+<?php /* Smarty version 3.1.27, created on 2018-01-05 14:29:28
          compiled from "C:\wamp\www\pro\styles\templates\overall\nav.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:50805a4c5a5e8ec5d7_50563832%%*/
+/*%%SmartyHeaderCode:110375a4f8bc8a95102_97113953%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bf359d0b21bc0bf249dd3b46afb43580bce100d1' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\overall\\nav.tpl',
-      1 => 1514953307,
+      1 => 1515162565,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '50805a4c5a5e8ec5d7_50563832',
+  'nocache_hash' => '110375a4f8bc8a95102_97113953',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a4c5a5e964841_21792744',
+  'unifunc' => 'content_5a4f8bc8b15976_21718559',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a4c5a5e964841_21792744')) {
-function content_5a4c5a5e964841_21792744 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4f8bc8b15976_21718559')) {
+function content_5a4f8bc8b15976_21718559 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '50805a4c5a5e8ec5d7_50563832';
+$_smarty_tpl->properties['nocache_hash'] = '110375a4f8bc8a95102_97113953';
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -33,7 +33,7 @@ $_smarty_tpl->properties['nocache_hash'] = '50805a4c5a5e8ec5d7_50563832';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="?view=index">PescAPP</a>
+      <a class="navbar-brand" href="?view=index"><img src="imagenes/capturapp/captureapp_logo.png" alt="CapturApp" title="CapturApp" width="150" style="margin-top: -14px;"/></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

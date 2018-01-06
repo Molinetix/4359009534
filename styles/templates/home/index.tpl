@@ -93,7 +93,7 @@
               {foreach from=$eventos item=pt}
                 <tr>
                   <td><a href="?view=ver_evento&id_evento={$pt.id_evento}">{$pt.organizador_evento}</a></td>
-                  <td>{$pt.fecha_evento}</td>
+                  <td><span style="color:{$pt.color_fecha};">{$pt.fecha_evento}</span></td>
                 </tr>
               {/foreach}
               </tbody>
@@ -214,7 +214,7 @@
                           <tr>
                             <th>{$ct.ranking}</th>
                             <td><a href="?view=posts&id={$ct.id}">{$ct.fecha}</a></td>
-                            <td><a href="?view=perfil&&user=1">{$ct.dueno}</a></td>
+                            <td><a href="?view=perfil&&user={$ct.id_dueno}">{$ct.dueno}</a></td>
                             <td style="text-align: center;">{$ct.peso}kg</td>
                             <td style="text-align: center;">{$ct.longitud}cm</td>
                           </tr>
@@ -272,7 +272,7 @@
                           <tr>
                             <th>{$sl.ranking}</th>
                             <td><a href="?view=posts&id={$sl.id}">{$sl.fecha}</a></td>
-                            <td><a href="?view=perfil&&user=1">{$sl.dueno}</a></td>
+                            <td><a href="?view=perfil&&user={$sl.id_dueno}">{$sl.dueno}</a></td>
                             <td style="text-align: center;">{$sl.peso}kg</td>
                             <td style="text-align: center;">{$sl.longitud}cm</td>
                           </tr>
@@ -329,7 +329,7 @@
                           <tr>
                             <th>{$ba.ranking}</th>
                             <td><a href="?view=posts&id={$ba.id}">{$ba.fecha}</a></td>
-                            <td><a href="?view=perfil&&user=1">{$ba.dueno}</a></td>
+                            <td><a href="?view=perfil&&user={$ba.id_dueno}">{$ba.dueno}</a></td>
                             <td style="text-align: center;">{$ba.peso}kg</td>
                             <td style="text-align: center;">{$ba.longitud}cm</td>
                           </tr>
@@ -386,7 +386,7 @@
                           <tr>
                             <th>{$lu.ranking}</th>
                             <td><a href="?view=posts&id={$lu.id}">{$lu.fecha}</a></td>
-                            <td><a href="?view=perfil&&user=1">{$lu.dueno}</a></td>
+                            <td><a href="?view=perfil&&user={$lu.id_dueno}">{$lu.dueno}</a></td>
                             <td style="text-align: center;">{$lu.peso}kg</td>
                             <td style="text-align: center;">{$lu.longitud}cm</td>
                           </tr>
@@ -443,7 +443,7 @@
                           <tr>
                             <th>{$lup.ranking}</th>
                             <td><a href="?view=posts&id={$lup.id}">{$lup.fecha}</a></td>
-                            <td><a href="?view=perfil&&user=1">{$lup.dueno}</a></td>
+                            <td><a href="?view=perfil&&user={$lup.id_dueno}">{$lup.dueno}</a></td>
                             <td style="text-align: center;">{$lup.peso}kg</td>
                             <td style="text-align: center;">{$lup.longitud}cm</td>
                           </tr>
@@ -500,7 +500,7 @@
                           <tr>
                             <th>{$ba.ranking}</th>
                             <td><a href="?view=posts&id={$ba.id}">{$ba.fecha}</a></td>
-                            <td><a href="?view=perfil&&user=1">{$ba.dueno}</a></td>
+                            <td><a href="?view=perfil&&user={$ba.id_dueno}">{$ba.dueno}</a></td>
                             <td style="text-align: center;">{$ba.peso}kg</td>
                             <td style="text-align: center;">{$ba.longitud}cm</td>
                           </tr>

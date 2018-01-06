@@ -5,6 +5,7 @@ class Acceso {
 	private $email;
 	private $user;
 	private $pass;
+	private $r_pass;
 
 
 	private function Encrypt($string){
@@ -68,6 +69,7 @@ class Acceso {
 	public function Registrar(){
 		try{
 			if(!empty($_POST['user']) and !empty($_POST['pass']) and !empty($_POST['email'])){
+				if($_POST['pass'] == $_POST['repeatpass']){
 				$db = new Conexion();
 				$this->user = $db->real_escape_string($_POST['user']);
 				$this->email = $db->real_escape_string($_POST['email']);
@@ -101,6 +103,9 @@ class Acceso {
 				}
 				$db->liberar($sql);
 				$db->close();
+				}else{
+					throw new Exception(5);
+				}
 			} else {
 				throw new Exception('Error: Datos vacios.');
 			}

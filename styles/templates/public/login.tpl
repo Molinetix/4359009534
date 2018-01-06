@@ -1,13 +1,12 @@
 {include 'overall/header.tpl'}
-
 <body>      
 	{include 'overall/nav.tpl'}
 	
-	<div class="container" style="margin-top: 30px;">
+	<div class="container" style="margin-top: 25px;">
 		<div class="container">
 		<center>
 		  <div id="_AJAX_"></div>
-	      <div class="form-signin" style="width: 500px;">
+	      <div class="form-signin">
 	        <h2 class="form-signin-heading">Inicia sesión</h2>
 	        <label for="inputEmail" class="sr-only">Usuario</label>
 	        <input type="text" id="user" class="form-control" placeholder="introduce tu usuario" required="" autofocus="">
@@ -19,6 +18,9 @@
 	          </label>
 	        </div>
 	        <button class="btn btn-lg btn-primary btn-block" id="send_request" type="button">Iniciar sesión</button>
+	        <div style="margin-top: 3em; width: 60%; height: 60%;">
+	        <img class="img-responsive" src="imagenes/capturapp/captureapp.png" alt=""/>
+	        </div>
 	      </div>
 		</center>
     	</div>

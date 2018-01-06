@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2017-12-20 17:51:28
+<?php /* Smarty version 3.1.27, created on 2018-01-05 14:49:57
          compiled from "C:\wamp\www\pro\styles\templates\public\login.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:283625a3aa320ca2d09_37600132%%*/
+/*%%SmartyHeaderCode:30975a4f9095511b70_40763767%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,34 +9,33 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e921e53e18c463f99563c01e6283ec1eb01a3399' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\public\\login.tpl',
-      1 => 1513346951,
+      1 => 1515163795,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '283625a3aa320ca2d09_37600132',
+  'nocache_hash' => '30975a4f9095511b70_40763767',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a3aa320e5b1f2_85259063',
+  'unifunc' => 'content_5a4f9095559817_63934265',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a3aa320e5b1f2_85259063')) {
-function content_5a3aa320e5b1f2_85259063 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a4f9095559817_63934265')) {
+function content_5a4f9095559817_63934265 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '283625a3aa320ca2d09_37600132';
+$_smarty_tpl->properties['nocache_hash'] = '30975a4f9095511b70_40763767';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
-
 
 <body>      
 	<?php echo $_smarty_tpl->getSubTemplate ('overall/nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
 	
-	<div class="container" style="margin-top: 30px;">
+	<div class="container" style="margin-top: 25px;">
 		<div class="container">
 		<center>
 		  <div id="_AJAX_"></div>
-	      <div class="form-signin" style="width: 500px;">
+	      <div class="form-signin">
 	        <h2 class="form-signin-heading">Inicia sesión</h2>
 	        <label for="inputEmail" class="sr-only">Usuario</label>
 	        <input type="text" id="user" class="form-control" placeholder="introduce tu usuario" required="" autofocus="">
@@ -48,6 +47,9 @@ echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id,
 	          </label>
 	        </div>
 	        <button class="btn btn-lg btn-primary btn-block" id="send_request" type="button">Iniciar sesión</button>
+	        <div style="margin-top: 3em; width: 60%; height: 60%;">
+	        <img class="img-responsive" src="imagenes/capturapp/captureapp.png" alt=""/>
+	        </div>
 	      </div>
 		</center>
     	</div>

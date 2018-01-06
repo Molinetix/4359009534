@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2018-01-05 06:20:53
+<?php /* Smarty version 3.1.27, created on 2018-01-06 04:08:47
          compiled from "C:\wamp\www\pro\styles\templates\home\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:52755a4f194526a9d3_69965195%%*/
+/*%%SmartyHeaderCode:27255a504bcf25a8f2_22789787%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '13af3fe449bed055ea67545ef3dab656e358ee0a' => 
     array (
       0 => 'C:\\wamp\\www\\pro\\styles\\templates\\home\\index.tpl',
-      1 => 1515133028,
+      1 => 1515211723,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '52755a4f194526a9d3_69965195',
+  'nocache_hash' => '27255a504bcf25a8f2_22789787',
   'variables' => 
   array (
     'titulo' => 0,
@@ -36,13 +36,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5a4f19454ab547_61373874',
+  'unifunc' => 'content_5a504bcf4befb7_17996760',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5a4f19454ab547_61373874')) {
-function content_5a4f19454ab547_61373874 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5a504bcf4befb7_17996760')) {
+function content_5a504bcf4befb7_17996760 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '52755a4f194526a9d3_69965195';
+$_smarty_tpl->properties['nocache_hash'] = '27255a504bcf25a8f2_22789787';
 echo $_smarty_tpl->getSubTemplate ('overall/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -184,8 +184,9 @@ $foreach_pt_Sav = $_smarty_tpl->tpl_vars['pt'];
                   <td><a href="?view=ver_evento&id_evento=<?php echo $_smarty_tpl->tpl_vars['pt']->value['id_evento'];?>
 "><?php echo $_smarty_tpl->tpl_vars['pt']->value['organizador_evento'];?>
 </a></td>
-                  <td><?php echo $_smarty_tpl->tpl_vars['pt']->value['fecha_evento'];?>
-</td>
+                  <td><span style="color:<?php echo $_smarty_tpl->tpl_vars['pt']->value['color_fecha'];?>
+;"><?php echo $_smarty_tpl->tpl_vars['pt']->value['fecha_evento'];?>
+</span></td>
                 </tr>
               <?php
 $_smarty_tpl->tpl_vars['pt'] = $foreach_pt_Sav;
@@ -332,7 +333,8 @@ $foreach_ct_Sav = $_smarty_tpl->tpl_vars['ct'];
                             <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['ct']->value['fecha'];?>
 </a></td>
-                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['ct']->value['dueno'];?>
+                            <td><a href="?view=perfil&&user=<?php echo $_smarty_tpl->tpl_vars['ct']->value['id_dueno'];?>
+"><?php echo $_smarty_tpl->tpl_vars['ct']->value['dueno'];?>
 </a></td>
                             <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ct']->value['peso'];?>
 kg</td>
@@ -410,7 +412,8 @@ $foreach_sl_Sav = $_smarty_tpl->tpl_vars['sl'];
                             <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['sl']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['sl']->value['fecha'];?>
 </a></td>
-                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['sl']->value['dueno'];?>
+                            <td><a href="?view=perfil&&user=<?php echo $_smarty_tpl->tpl_vars['sl']->value['id_dueno'];?>
+"><?php echo $_smarty_tpl->tpl_vars['sl']->value['dueno'];?>
 </a></td>
                             <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['sl']->value['peso'];?>
 kg</td>
@@ -487,7 +490,8 @@ $foreach_ba_Sav = $_smarty_tpl->tpl_vars['ba'];
                             <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['ba']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['ba']->value['fecha'];?>
 </a></td>
-                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['ba']->value['dueno'];?>
+                            <td><a href="?view=perfil&&user=<?php echo $_smarty_tpl->tpl_vars['ba']->value['id_dueno'];?>
+"><?php echo $_smarty_tpl->tpl_vars['ba']->value['dueno'];?>
 </a></td>
                             <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ba']->value['peso'];?>
 kg</td>
@@ -564,7 +568,8 @@ $foreach_lu_Sav = $_smarty_tpl->tpl_vars['lu'];
                             <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['lu']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['lu']->value['fecha'];?>
 </a></td>
-                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['lu']->value['dueno'];?>
+                            <td><a href="?view=perfil&&user=<?php echo $_smarty_tpl->tpl_vars['lu']->value['id_dueno'];?>
+"><?php echo $_smarty_tpl->tpl_vars['lu']->value['dueno'];?>
 </a></td>
                             <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['lu']->value['peso'];?>
 kg</td>
@@ -641,7 +646,8 @@ $foreach_lup_Sav = $_smarty_tpl->tpl_vars['lup'];
                             <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['lup']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['lup']->value['fecha'];?>
 </a></td>
-                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['lup']->value['dueno'];?>
+                            <td><a href="?view=perfil&&user=<?php echo $_smarty_tpl->tpl_vars['lup']->value['id_dueno'];?>
+"><?php echo $_smarty_tpl->tpl_vars['lup']->value['dueno'];?>
 </a></td>
                             <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['lup']->value['peso'];?>
 kg</td>
@@ -718,7 +724,8 @@ $foreach_ba_Sav = $_smarty_tpl->tpl_vars['ba'];
                             <td><a href="?view=posts&id=<?php echo $_smarty_tpl->tpl_vars['ba']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['ba']->value['fecha'];?>
 </a></td>
-                            <td><a href="?view=perfil&&user=1"><?php echo $_smarty_tpl->tpl_vars['ba']->value['dueno'];?>
+                            <td><a href="?view=perfil&&user=<?php echo $_smarty_tpl->tpl_vars['ba']->value['id_dueno'];?>
+"><?php echo $_smarty_tpl->tpl_vars['ba']->value['dueno'];?>
 </a></td>
                             <td style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['ba']->value['peso'];?>
 kg</td>

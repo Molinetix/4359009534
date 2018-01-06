@@ -33,14 +33,14 @@ switch($type){
 		$cantidad = $db->query('SELECT COUNT(*) FROM post;');
 		$sql = $db->query("SELECT * FROM post WHERE aprobado='1' ORDER BY puntos DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento");
-		$sql2 = $db->query("SELECT * FROM evento ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$template->assign('titulo', 'Los mejores');
 	break;
 	case '1';
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='1'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='1' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='1';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='1' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='1' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='1' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='1' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='1' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -53,7 +53,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='2'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='2' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='2';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='2' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='2' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='2' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='2' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='2' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -66,7 +66,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='3'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='3' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='3';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='3' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='3' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='3' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='3' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='3' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -79,7 +79,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='4'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='4' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='4';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='4' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='4' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='4' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='4' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='4' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -92,7 +92,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='5'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='5' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='5';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='5' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='5' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='5' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='5' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='5' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -105,7 +105,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='6'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='6' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='6';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='6' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='6' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='6' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='6' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='6' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -118,7 +118,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='7'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='7' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado_evt;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='7';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='7' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='7' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='7' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='7' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='7' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -131,7 +131,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='8'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='8' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='8';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='8' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='8' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='8' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='8' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='8' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -144,7 +144,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='9'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='9' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='9';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='9' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='9' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='9' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='9' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='9' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -157,7 +157,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='10'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='10' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='10';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='10' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='10' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='10' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='10' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='10' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -170,7 +170,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='11'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='11' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='11';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='11' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='11' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='11' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='11' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='11' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -183,7 +183,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='12'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='12' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='12';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='12' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='12' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='12' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='12' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='12' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -196,7 +196,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='13'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='13' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='13';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='13' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='13' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='13' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='13' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='13' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -209,7 +209,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='14'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='14' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='14';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='14' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='14' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='14' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='14' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='14' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -222,7 +222,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='15'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='15' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='15';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='15' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='15' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='15' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='15' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='15' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -235,7 +235,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='16'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='16' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='16';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='16' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='16' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='16' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='16' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='16' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -248,7 +248,7 @@ switch($type){
 		$cantidad = $db->query("SELECT COUNT(*) FROM post WHERE categoria='17'and aprobado='1';");
 		$sql = $db->query("SELECT * FROM post WHERE categoria='17' and aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query("SELECT COUNT(*) FROM evento WHERE comunidad='17';");
-		$sql2 = $db->query("SELECT * FROM evento WHERE comunidad='17' ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento WHERE comunidad ='17' ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE categoria='17' and tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE categoria='17' and tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE categoria='17' and tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -261,7 +261,7 @@ switch($type){
 		$cantidad = $db->query('SELECT COUNT(*) FROM post WHERE aprobado="1";');
 		$sql = $db->query("SELECT * FROM post WHERE aprobado='1' ORDER BY id DESC LIMIT $inicio,$paginado;");
 		$cantidad_eventos = $db->query('SELECT COUNT(*) FROM evento;');
-		$sql2 = $db->query("SELECT * FROM evento ORDER BY fecha DESC LIMIT $inicio_evt,$paginado_evt;");
+		$sql2 = $db->query("SELECT id, organizador, comunidad, STR_TO_DATE( fecha,  '%d-%m-%Y' ) AS fecha_cambiada FROM evento ORDER BY fecha_cambiada DESC LIMIT $inicio_evt,$paginado_evt;");
 		$sql3 = $db->query("SELECT * FROM post WHERE tipo_pez='carpa' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql4 = $db->query("SELECT * FROM post WHERE tipo_pez='siluro' and aprobado='1' ORDER BY peso DESC limit 3");
 		$sql5 = $db->query("SELECT * FROM post WHERE tipo_pez='bass' and aprobado='1' ORDER BY peso DESC limit 3");
@@ -326,11 +326,21 @@ if($db->rows($sql2) > 0){
 
 		while($e = $db->recorrer($sql2)){
 
+
+			$fecha_actual = strtotime(date("d-m-Y",time()));
+			$fecha_entrada = strtotime($e['fecha_cambiada']);
+			if($fecha_actual > $fecha_entrada){
+			        $color_fecha = "red";
+			}else{
+			        $color_fecha = "green";
+			}
+
 			$eventos[] = array(
 				'id_evento' => $e['id'],
 				'organizador_evento' => $e['organizador'],
-				'fecha_evento' => $e['fecha'],
-				'lugar_evento' => $e['comunidad']
+				'fecha_evento' => $e['fecha_cambiada'],
+				'lugar_evento' => $e['comunidad'],
+				'color_fecha' => $color_fecha
 			);
 			}
 			$template->assign('eventos', $eventos);
@@ -352,6 +362,7 @@ if($db->rows($sql3) > 0){
 
 			$carpa[] = array(
 				'id' => $c['id'],
+				'id_dueno' => $c['dueno'],
 				'ranking' =>$contador,
 				'fecha' => $c['fecha'],
 				'dueno' => $autor,
@@ -379,6 +390,7 @@ if($db->rows($sql4) > 0){
 
 			$siluro[] = array(
 				'id' => $c['id'],
+				'id_dueno' => $c['dueno'],
 				'ranking' =>$contador,
 				'fecha' => $c['fecha'],
 				'dueno' => $autor,
@@ -406,6 +418,7 @@ if($db->rows($sql5) > 0){
 
 			$bass[] = array(
 				'id' => $c['id'],
+				'id_dueno' => $c['dueno'],
 				'ranking' =>$contador,
 				'fecha' => $c['fecha'],
 				'dueno' => $autor,
@@ -433,6 +446,7 @@ if($db->rows($sql6) > 0){
 
 			$lucio[] = array(
 				'id' => $c['id'],
+				'id_dueno' => $c['dueno'],
 				'ranking' =>$contador,
 				'fecha' => $c['fecha'],
 				'dueno' => $autor,
@@ -460,6 +474,7 @@ if($db->rows($sql7) > 0){
 
 			$lucioperca[] = array(
 				'id' => $c['id'],
+				'id_dueno' => $c['dueno'],
 				'ranking' =>$contador,
 				'fecha' => $c['fecha'],
 				'dueno' => $autor,
@@ -487,6 +502,7 @@ if($db->rows($sql8) > 0){
 
 			$barbo[] = array(
 				'id' => $c['id'],
+				'id_dueno' => $c['dueno'],
 				'ranking' =>$contador,
 				'fecha' => $c['fecha'],
 				'dueno' => $autor,
